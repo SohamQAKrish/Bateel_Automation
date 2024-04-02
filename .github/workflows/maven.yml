@@ -1,0 +1,29 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    env:
+      XML_PATH: src/test/resources
+      SUITE_XML_FILE: LocalTestSuite.xml
+      ENVIRONMENT: QA
+      BROWSER: chrome
+      DEFAULT_TIMEOUT: 30
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '17'

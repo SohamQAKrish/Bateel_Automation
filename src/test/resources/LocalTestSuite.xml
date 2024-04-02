@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Local Test Suite">
+
+	<test name="Local Tests">
+		<parameter name="environment" value="${environment}" />
+		<parameter name="browser" value="${browser}" />
+		<parameter name="defaultTimeout" value="${defaultTimeout}" />
+		<classes>
+			<class name="sanity.bateel.SanityBateelLoginAndNavigationTest">
+				<methods>
+					<include name="testBateelShopCategoryNavigation" />
+				</methods>
+			</class>
+			<class name="sanity.bateel.SanityBateelProduct">
+				<methods>
+					<include name="testBateelclickproduct" />
+				</methods>
+			</class>
+			<class name="sanity.bateel.SanityBateelProductDetails">
+				<methods>
+					<include name="testBateelproductfilldetails" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
