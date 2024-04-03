@@ -71,8 +71,9 @@ SanityInspectionTest:
  - testCreateInspection:
     InspectionHeader: "Inspection Management"
     NewInspectionCreatedToastMessage: "Inspection completed."
-SanityInventoryTest:
- - testNewPartCreation:
+SanityBateelAddToCart:
+ - testBateeladdtocartitem:
+    productName: "Stella Green Tree Gift Box"
 SanityBateelProductDetails:
  - testBateelproductfilldetails:
     productName: "Stella Green Tree Gift Box"

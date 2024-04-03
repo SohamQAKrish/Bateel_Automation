@@ -21,12 +21,9 @@ public class SanityBateelProduct {
 	@TmsLink("49700")
 	@Description("This Test is used to click product")
 	public void testBateelclickproduct() throws InterruptedException {
-
 		LoginPage.login("Email", "Password");
 		WebDriver driver = UtilitiesCommon.getDriver(); // Get the driver instance from UtilitiesCommon or wherever it's initialized
-
 	    UtilitiesCommon.setupWebdriverWait(30); // Increase wait time to 30 seconds
- 
 		BateelPage.clickGoButton();
 		WebElement element = UtilitiesCommon.getElement(BateelHomePageEnum.BATEEL_HOME_PAGE_SHOP_CATEGORY_ID);
 		UtilitiesCommon.waitForElementIsClickable(element);	//    UtilitiesCommon.setupWebdriverWait(60);
