@@ -17,14 +17,14 @@ import page.bateel.BateelPage;
 
 /**
  * @author spandit
- * @lastmodifiedby spandit
+ * @lastmodifiedby kdave
  * This class will contain all Sanity tests related to Login and Navigations to different modules across the Onitsuka application.
  */
 @Listeners({ listeners.ScriptExecutionListener.class })
 public class SanityBateelLoginAndNavigationTest {
 	/**
 	 * @author spandit
-	 * @lastmodifiedby spandit
+	 * @lastmodifiedby kdave
 	 */
 //	@Test(testName = "Bateel Web Application Navigation")
 //	@TmsLink("49700")
@@ -51,12 +51,12 @@ public class SanityBateelLoginAndNavigationTest {
  
 		BateelPage.clickGoButton();
 		WebElement element = UtilitiesCommon.getElement(BateelHomePageEnum.BATEEL_HOME_PAGE_SHOP_CATEGORY_ID);
-		UtilitiesCommon.waitForElementIsClickable(element);	//    UtilitiesCommon.setupWebdriverWait(60);
+		UtilitiesCommon.waitForElementIsClickable(element);	
 		Thread.sleep(5000);
 		BateelPage.verifyBateelShopCategory();
-	    UtilitiesCommon.setupWebdriverWait(60); // Increase wait time to 30 seconds
+	    UtilitiesCommon.setupWebdriverWait(60); 
 //	    BateelPage.clickProfileIcon();
-//	    UtilitiesCommon.setupWebdriverWait(30); // Increase wait time to 30 seconds
+//	    UtilitiesCommon.setupWebdriverWait(30); 
 //	    
 //	    WebDriverWait wait = new WebDriverWait(driver, 30);
 //	    WebElement dropdownMenu = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("dropdown switcher-dropdown")));

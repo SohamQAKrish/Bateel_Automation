@@ -1,6 +1,5 @@
 package sanity.bateel;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -26,7 +25,7 @@ public class SanityBateelCart {
 		@Description("This Test is used to add product into cart and click on checkout button")
 		public void testBateeladdtocartitem() throws InterruptedException {
 			LoginPage.login("Email", "Password");
-			WebDriver driver = UtilitiesCommon.getDriver();
+			UtilitiesCommon.getDriver();
 			UtilitiesCommon.setupWebdriverWait(30);
 			BateelPage.clickGoButton();
 			WebElement element = UtilitiesCommon.getElement(BateelHomePageEnum.BATEEL_HOME_PAGE_SHOP_CATEGORY_ID);

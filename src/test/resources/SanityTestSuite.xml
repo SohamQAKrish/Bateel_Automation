@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Sanity Test Suite">
-    <test name="Sanity Tests">
-        <parameter name="environment" value="${environment}" />
-        <parameter name="browser" value="${browser}" />
-        <parameter name="defaultTimeout" value="${defaultTimeout}" />
-        <classes>
-            <class name="sanity.bateel.SanityBateelLoginAndNavigationTest" />
-            <class name="sanity.bateel.SanityBateelProduct" />
-            <class name="sanity.bateel.SanityBateelProductDetails" />
-            <class name="sanity.bateel.SanityBateelCart" />
-
-        </classes>
-    </test>
+	<test name="Sanity Tests">
+		<parameter name="environment" value="${environment}" />
+		<parameter name="browser" value="${browser}" />
+		<parameter name="defaultTimeout" value="${defaultTimeout}" />
+		<packages>
+			<package name="sanity.*"/> 
+		</packages>
+	</test>
 </suite>
+

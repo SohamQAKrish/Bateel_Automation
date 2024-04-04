@@ -16,7 +16,7 @@ public class LoginPage {
 	 * @param usernameKey
 	 * @param passwordKey
 	 * @author spandit
-	 * @lastmodifiedby spandit
+	 * @lastmodifiedby kdave
 	 */
 	public static void login(String emailKey, String passwordKey) {
 		UtilitiesCommon.launchApplication();
@@ -35,7 +35,7 @@ public class LoginPage {
 	 * @param usernameKey
 	 * @param passwordKey
 	 * @author spandit
-	 * @lastmodifiedby spandit
+	 * @lastmodifiedby kdave
 	 */
 	public static void reloginAfterLogout(String usernameKey, String passwordKey) {
 	   UtilitiesCommon.openUrl();

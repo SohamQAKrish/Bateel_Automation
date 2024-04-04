@@ -73,8 +73,6 @@ import io.qameta.allure.AllureLifecycle;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 
-
-
 /**
  * This class will contain all the common utility methods
  * 
@@ -163,23 +161,6 @@ public class UtilitiesCommon {
 	    wait = new WebDriverWait(driver, waitTimeInSeconds);
 	}
 
-	//Added wait for below methods
-//	public static void waitForMenCategoryElement() {
-//	    WebDriverWait wait = new WebDriverWait(driver, 60);
-//	    wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("ul >.men-cate-top-label")));
-//	}
-	
-//	public static void waitForMenCategoryElement(int waitTimeInSeconds) {
-//	    WebDriverWait wait = new WebDriverWait(driver, waitTimeInSeconds);
-//	    wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("ul >.men-cate-top-label")));
-//	}
-//
-//	// Method to click on the element after it becomes visible
-//	public static void clickOnMennCategoryElement() {
-//		waitForMenCategoryElement(60);
-//	    driver.findElement(By.cssSelector("ul >.men-cate-top-label")).click();
-//	    System.out.println("Element is clickable and working");
-//	    }
 	
 	/**
 	 * This method is used to setup the JavaScript Executor Instance.
@@ -302,30 +283,7 @@ public class UtilitiesCommon {
 		}
 	}
 
-	/**
-	 * This method is used to read Testrail details from Environments.yaml and store it in map
-	 * @author spandit
-	 * @lastmodifiedby spandit
-	 */
-//	public static void readTestrailData() {
-//		if (!isLocalSuite) {
-//			log("Reading user credentials and URL for Testrail");
-//			HashMap<String, Object> result = readYamlFile("Environments.yaml");
-//			testrailAttributes = new HashMap<>();
-//			HashMap<String, String> envDetails = (HashMap<String, String>) result.get(TESTRAIL_KEY);
-//			try {
-//				for (Entry<String, String> entry : envDetails.entrySet()) {
-//					testrailAttributes.put(entry.getKey(), entry.getValue());
-//				}
-//			} catch (Exception e) {
-//				throw new CustomExceptions("Expected Testrail key: " + TESTRAIL_KEY
-//						+ " or values missing in Environments.yaml: " + e.getMessage());
-//			}
-//		} else {
-//			log("Executing Local suite, Testrail data won't be read from Environments.yaml");
-//		}
-//	}
-
+	
 	/**
 	 * This method is used to read Test Class Data from TestData.yaml and store it in map
 	 * @param testClass Test Class
@@ -512,18 +470,20 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to Logout from the application.
+	 * 
 	 * @author spandit
-	 * @lastmodifiedby spandit
+	 * @lastmodifiedby kdave
 	 */
 	public static void applicationLogout() {
-		//navigateToPage("https://staging2.bateel.com/en_in/");
+		// navigateToPage("https://staging2.bateel.com/en_in/");
 		// HomePage.logout();
 	}
 
 	/**
 	 * This method is used to close the web browser
+	 * 
 	 * @author spandit
-	 * @lastmodifiedby spandit
+	 * @lastmodifiedby kdave
 	 */
 	public static void closeDriver() {
 //		if (driver != null) {
@@ -582,28 +542,6 @@ public class UtilitiesCommon {
 	public static void setEnvironmentData(String attributeKey, String value) {
 		envAttributes.put(attributeKey, value);
 	}
-
-	/**
-	 * This method is used to get the Testrail Data from map
-	 * @param attributeKey Attribute Key
-	 * @return attributeValue Attribute Value
-	 * @author spandit
-	 * @lastmodifiedby spandit
-	 */
-//	public static String getTestrailData(String attributeKey) {
-//		return testrailAttributes.get(attributeKey);
-//	}
-
-	/**
-	 * This method is used to set the Testrail Data to map
-	 * @param attributeKey Attribute Key
-	 * @param value Value
-	 * @author spandit
-	 * @lastmodifiedby spandit
-	 */
-//	public static void setTestrailData(String attributeKey, String value) {
-//		testrailAttributes.put(attributeKey, value);
-//	}
 
 	/**
 	 * This method is used to verify the specified attribute is present in given map.
@@ -1425,242 +1363,6 @@ public class UtilitiesCommon {
 	public static String generateRandomText(int value) {
 		return RandomStringUtils.randomAlphabetic(value);
 	}
-
-	/**
-	 * This method is used to create a new test run dynamically in Testrail
-	 * 
-	 * @param context Context
-	 * @author spandit
-	 * @lastmodifiedby spandit
-	 */
-//	public static void createTestrailRun(ITestContext context) {
-//		if (!isLocalSuite) {
-//			int milestone;
-//			switch (environment.toUpperCase()) {
-//			case "DEV":
-//				milestone = TESTRAIL_DEV_MILESTONE_ID;
-//				break;
-//			case "PROD":
-//				milestone = TESTRAIL_PROD_MILESTONE_ID;
-//				break;
-//			case "QA":
-//			default:
-//				milestone = TESTRAIL_QA_MILESTONE_ID;
-//				break;
-//			}
-//			String testrailSuiteID = context.getCurrentXmlTest().getParameter("testrailSuiteID");
-//			if ((testrailSuiteID.equals(TESTRAIL_REGRESSION_SUITE_ID))
-//					|| (testrailSuiteID.equals(TESTRAIL_SANITY_SUITE_ID))) {
-//				client = new APIClient(getTestrailData("URL"));
-//				client.setUser(getTestrailData("Username"));
-//				client.setPassword(UtilitiesCommon.getDecryptedPassword(getTestrailData("Password")));
-//				Map<String, Serializable> data = new HashMap<>();
-//				data.put("suite_id", testrailSuiteID);
-//				data.put("include_all", true);
-//				data.put("name", "[" + environment + "]" + " Automated Test Run: " + getCurrentDateTimeStamp());
-//				data.put("milestone_id", milestone);
-//				JSONObject c = null;
-//				try {
-//					c = (JSONObject) client.sendPost("add_run/" + TESTRAIL_PROJECT_ID, data);
-//					long runId = (long) c.get("id");
-//					context.setAttribute(KEY_RUN_ID, runId);
-//					log("Test Run created successfully in TestRail with RUN ID= " + runId + " on Environment = "
-//							+ environment);
-//				} catch (IOException e) {
-//					log("Issue in creating JSON Object while adding Testrail Run: " + e.getMessage());
-//				} catch (APIException e) {
-//					log("Failed to create TestRail Run using Testrail API: " + e.getMessage());
-//				} catch (Exception e) {
-//					log("Failed to create TestRail Run: " + e.getMessage());
-//				}
-//			} else {
-//				log("Value of Testrail Suite ID entered in XML file is '" + testrailSuiteID
-//						+ "' which is not correct. Expected value for Sanity Suite is 303 and Regression Suite is 304");
-//			}
-//		} else {
-//			log("Executing Local suite, Test Run won't be created in Testrail");
-//		}
-//	}
-
-	/**
-	 * This method is used to fetch the Testrail test case id using @TmsLink
-	 * or @TmsLinks annotations.
-	 * 
-	 * @param result result
-	 * @author spandit
-	 * @lastmodifiedby spandit
-	 */
-//	public static void getTestrailCaseID(ITestResult result) {
-//		if (!isLocalSuite) {
-//			Method m = result.getMethod().getConstructorOrMethod().getMethod();
-//			if (m.isAnnotationPresent(TmsLink.class)) {
-//				TmsLink tms = m.getAnnotation(TmsLink.class);
-//				result.setAttribute(KEY_CASE_ID, tms.value());
-//			} else if (m.isAnnotationPresent(TmsLinks.class)) {
-//				TmsLinks tms = m.getAnnotation(TmsLinks.class);
-//				result.setAttribute(KEY_CASE_ID, tms.value());
-//			} else {
-//				log(WARNING);
-//				log("Testrail case id is missing in @TmsLink or @TmsLinks for method : " + result.getName()
-//						+ " in Test Class : " + result.getTestClass().getName());
-//				log(WARNING);
-//			}
-//		} else {
-//			log("Executing Local suite, Testrail Case ID won't be fetched");
-//		}
-//	}
-
-	/**
-	 * This method is used to update success result in Testrail for Single Testrail
-	 * Test Case or Multiple Testrail Test Cases.
-	 * 
-	 * @param result result
-	 * @author spandit
-	 * @lastmodifiedby spandit
-	 */
-//	public static void setTestrailSuccessResults(ITestResult result) {
-//		if (!isLocalSuite) {
-//			if (result.getAttribute(KEY_CASE_ID) instanceof String) {
-//				String caseId = (String) result.getAttribute(KEY_CASE_ID);
-//				if (caseId != null) {
-//					log(TEXT_TESTRAIL_CASE_ID + caseId);
-//					setSuccessResult(result, caseId);
-//				}
-//			} else {
-//				TmsLink[] caseIds = (TmsLink[]) result.getAttribute(KEY_CASE_ID);
-//				for (TmsLink caseId : caseIds) {
-//					if (caseIds != null) {
-//						log(TEXT_TESTRAIL_CASE_ID + caseId);
-//						setSuccessResult(result, caseId.value());
-//					}
-//				}
-//			}
-//		} else {
-//			log("Executed Local suite, results won't be updated in Testrail");
-//		}
-//	}
-
-	/**
-	 * This method is used to update the Status and Comment in Testrail once the
-	 * test case is passed
-	 * 
-	 * @param result result
-	 * @param caseId Case Id
-	 * @author spandit
-	 * @lastmodifiedby spandit
-	 */
-//	private static void setSuccessResult(ITestResult result, String caseId) {
-//		Long runId = (Long) result.getTestContext().getAttribute(KEY_RUN_ID);
-//		log("Passed TestRailCaseID = " + caseId + " in TestRailRunID = " + runId);
-//		String comment = "Testrail case ID = " + caseId + " and Test Method name= "
-//				+ result.getMethod().getMethodName();
-//		boolean testResult = true;
-//		Map<String, Serializable> data = new HashMap<>();
-//		data.put("status_id", 1);
-//		data.put("comment", comment);
-//		try {
-//			client.sendPost("add_result_for_case/" + runId + "/" + caseId, data);
-//		} catch (IOException e) {
-//			log(WARNING);
-//			log("Unable to add results in Testrail using TestrailAPI. IOException: : " + e.getMessage());
-//			log(WARNING);
-//			testResult = false;
-//		} catch (APIException e) {
-//			log(WARNING);
-//			log("Unable to add results in Testrail using TestrailAPI. APIException: : " + e.getMessage());
-//			log(WARNING);
-//			testResult = false;
-//		}
-//		if (testResult) {
-//			log("Test Results are updated successfully in Testrail for Passed TestCase ID: " + caseId + " in Test Run: "
-//					+ runId);
-//			log("Corresponding Test Method name= " + result.getMethod().getMethodName());
-//		}
-//	}
-
-	/**
-	 * This method is used to update failure result in Testrail for Single Testrail
-	 * Test Case or Multiple Testrail Test Cases.
-	 * 
-	 * @param result result
-	 * @author spandit
-	 * @lastmodifiedby spandit
-	 */
-//	public static void setTestrailFailureResults(ITestResult result) {
-//		if (!isLocalSuite) {
-//			if (result.getAttribute(KEY_CASE_ID) instanceof String) {
-//				String caseId = (String) result.getAttribute(KEY_CASE_ID);
-//				if (caseId != null) {
-//					log(TEXT_TESTRAIL_CASE_ID + caseId);
-//					setFailureResult(result, caseId);
-//				}
-//			} else {
-//				TmsLink[] caseIds = (TmsLink[]) result.getAttribute(KEY_CASE_ID);
-//				if (caseIds != null) {
-//					for (TmsLink caseId : caseIds) {
-//						log(TEXT_TESTRAIL_CASE_ID + caseId);
-//						setFailureResult(result, caseId.value());
-//					}
-//				}
-//			}
-//		} else {
-//			log("Executed Local suite, results won't be updated in Testrail");
-//		}
-//	}
-
-	/**
-	 * This method is used to update the Status, Comment with error stacktrace and
-	 * Attachment in Testrail once the test case is failed.
-	 * 
-	 * @param result result
-	 * @param caseId Case Id
-	 * @author spandit
-	 * @lastmodifiedby spandit
-	 */
-//	private static void setFailureResult(ITestResult result, String caseId) {
-//		Long runId = (Long) result.getTestContext().getAttribute(KEY_RUN_ID);
-//		log("Failed TestRailCaseID = " + caseId + " in TestRailRunID = " + runId);
-//		String comment = "Testrail case ID= " + caseId + ", Test Method name= " + result.getMethod().getMethodName()
-//				+ '\n' + '\n' + "ERROR: " + result.getThrowable().toString();
-//		Map<String, Serializable> data = new HashMap<>();
-//		boolean testResult = true;
-//		data.put("status_id", 5);
-//		data.put("comment", comment);
-//		try {
-//			client.sendPost("add_result_for_case/" + runId + "/" + caseId, data);
-//		} catch (IOException e) {
-//			log(WARNING);
-//			log("Unable to add results in Testrail using TestrailAPI. IOException: " + e.getMessage());
-//			log(WARNING);
-//			testResult = false;
-//		} catch (APIException e) {
-//			log(WARNING);
-//			log("Unable to add results in Testrail using TestrailAPI. APIException: " + e.getMessage());
-//			log(WARNING);
-//			testResult = false;
-//		}
-//		if (driver != null) {
-//			fileObj = captureScreenshot(result.getMethod().getMethodName());
-//			try {
-//				client.sendPost("add_attachment_to_case/" + caseId, fileObj.toString());
-//			} catch (IOException e) {
-//				log(WARNING);
-//				log("Unable to add screenshot attachment for failed test case in Testrail" + e.getMessage());
-//				log(WARNING);
-//				testResult = false;
-//			} catch (APIException e) {
-//				log(WARNING);
-//				log("Unable to add screenshot attachment for failed test case in Testrail " + e.getMessage());
-//				log(WARNING);
-//				testResult = false;
-//			}
-//		}
-//		if (testResult) {
-//			log("Test Results updated and screenshot attached successfully in Testrail for Failed TestCase ID: "
-//					+ caseId + " in Test Run: " + runId);
-//			log("Corresponding Test Method name= " + result.getMethod().getMethodName());
-//		}
-//	}
 
 	/**
 	 * This method is used to capture a screenshot for Testrail.

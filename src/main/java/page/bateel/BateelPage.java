@@ -11,7 +11,7 @@ import enums.login.LoginPageEnum;
 
 /**
  * @author spandit
- * @lastmodifiedby spandit 
+ * @lastmodifiedby kdave 
  * This class will contain all the Home Page methods
  */
 public class BateelPage {
@@ -19,7 +19,7 @@ public class BateelPage {
 	/**
 	 * This method is used to verify Onitsuka Tiger's page Title.
 	 * @author spandit
-	 * @lastmodifiedby spandit
+	 * @lastmodifiedby kdave
 	 */
 		public static void verifyBateelPageHeaderTitle() {
 			
@@ -30,7 +30,7 @@ public class BateelPage {
 		/**
 		 * This method is used to verify Onitsuka Tiger's Men Category.
 		 * @author spandit
-		 * @lastmodifiedby spandit
+		 * @lastmodifiedby kdave
 		 */
 		public static void verifyBateelShopCategory() {
 			UtilitiesCommon.waitForElementIsPresent(BateelHomePageEnum.BATEEL_HOME_PAGE_SHOP_CATEGORY_ID);

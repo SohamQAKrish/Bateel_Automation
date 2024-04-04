@@ -85,4 +85,3 @@ SanityBateelLoginAndNavigationTest:
     BateelHeader: "Luxury Gourmet Dates & Gift Boxes | Organic Dates | Bateel"
  - testBateelShopCategoryNavigation:
     BateelPageTitle: "Shop"
-    

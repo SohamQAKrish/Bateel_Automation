@@ -31,7 +31,6 @@ public class ScriptExecutionListener implements ITestListener, IClassListener {
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
-		//UtilitiesCommon.setTestrailSuccessResults(result);
 		UtilitiesCommon.setTestCaseNameInAllure(result);
 		UtilitiesCommon.applicationLogout();
 		UtilitiesCommon.stopScreenRecording();
@@ -41,7 +40,6 @@ public class ScriptExecutionListener implements ITestListener, IClassListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		//UtilitiesCommon.setTestrailFailureResults(result);
 		UtilitiesCommon.captureAllureScreenshot(result.getName());
 		UtilitiesCommon.applicationLogout();
 		UtilitiesCommon.stopScreenRecording();
