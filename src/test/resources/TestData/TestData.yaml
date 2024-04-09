@@ -48,14 +48,17 @@ SanityRequestManagementTest:
  - testNewRequestCreation:
     Text: "Test"
     NewRequest: "NEW"
-SanityVendorTest:
- - testCreateVendor:
-    VendorManagementHeaderTitle: "Vendor Management"
-    VendorNameTextFieldValue: "Cybage"
-    VendorEmailIDTextFieldValue: "cybage235@gmail.co"
-    VendorPhoneNumberTextFieldValue: "898745445"
-    VendorNewVendorEmailText: "Email: cybage235@gmail.co"
-    NewVendorCreatedToastMessage: "New Vendor created successfully!"
+SanityBateelGuestCheckout:
+ - testguestcheckout:
+      BateelGuestFname: "KD"  
+      BateelGuestLname: "Test"   
+      BateelGuestStreetname: "123, Main Street" 
+      BateelGuestCityxpath: "New Delhi"   
+      BateelGuestCountryName: "India"  
+      BateelGuestPostcodeName: "110001"  
+      BateelGuestStateName: "Delhi"     
+      BateelGuestTelephoneName: "0000000000" 
+      BateelGuestTrackEmailId: "kashyap.dave@krishtechnolabs.com"
 SanityCustomersTest:
  - testCreateCustomerForm:
     CustomerRecordConfirmation: "New Customer created successfully"
@@ -71,7 +74,7 @@ SanityInspectionTest:
  - testCreateInspection:
     InspectionHeader: "Inspection Management"
     NewInspectionCreatedToastMessage: "Inspection completed."
-SanityBateelAddToCart:
+SanityBateelCart:
  - testBateeladdtocartitem:
     productName: "Stella Green Tree Gift Box"
 SanityBateelProductDetails:

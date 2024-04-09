@@ -18,8 +18,6 @@ import page.login.LoginPage;
 
 public class SanityBateelCart {
 
-	public class SanityBateelAddToCart {
-
 		@Test(testName = "Bateel product add to cart")
 		@TmsLink("49700")
 		@Description("This Test is used to add product into cart and click on checkout button")
@@ -38,4 +36,3 @@ public class SanityBateelCart {
 			BateelCartPage.addToCart();
 		}
 	}
-}
