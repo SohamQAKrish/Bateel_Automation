@@ -93,4 +93,9 @@ public class BateelGuestCheckoutPage {
         UtilitiesCommon.click(BateelCheckoutGuestPageEnum.BATEEL_GUEST_PLACEORDER_ENUM_XPATH);
 
     }
+    public static void clickOnContinueShopButton() {
+
+        UtilitiesCommon.click(BateelCheckoutGuestPageEnum.BATEEL_GUEST_CONTINUESHOPPING_ENUM_CSS);
+
+    }
 }

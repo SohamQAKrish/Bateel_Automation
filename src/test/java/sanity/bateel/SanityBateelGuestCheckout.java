@@ -74,10 +74,16 @@ public class SanityBateelGuestCheckout {
 		BateelGuestCheckoutPage.enterTrackEmail(trackemail);
 		
 		BateelGuestCheckoutPage.proccedTOBilling();
-		UtilitiesCommon.setupWebdriverWait(60);
 
+		UtilitiesCommon.setupWebdriverWait(90);
+		UtilitiesCommon.waitForMilliseconds(5000); 
 		BateelGuestCheckoutPage.clickPlaceOrderButton();
-		System.out.println("Customer has successfully place an order");
+		System.out.println("Customer has successfully placed an order");
+		UtilitiesCommon.setupWebdriverWait(80);
+		UtilitiesCommon.waitForMilliseconds(5000); 
+
+		BateelGuestCheckoutPage.clickOnContinueShopButton();
+		System.out.println("After placed the order user is redirecting to homepage");
 
 	}
 }

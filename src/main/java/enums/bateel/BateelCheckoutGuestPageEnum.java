@@ -17,7 +17,8 @@ public enum BateelCheckoutGuestPageEnum {
   //  BATEEL_GUEST_PROCEEDTOBILLING_ENUM_XPATH("//input[@class='button action continue primary' and @type='submit']");
     BATEEL_GUEST_PROCEEDTOBILLING_ENUM_XPATH("//*[@id=\"shipping-method-buttons-container\"]/div/button"),
     
-    BATEEL_GUEST_PLACEORDER_ENUM_XPATH("//span[contains(text(),'Place Order') and not(ancestor::div[contains(@style, 'display: none')])]");
+    BATEEL_GUEST_PLACEORDER_ENUM_XPATH("//span[contains(text(),'Place Order') and not(ancestor::div[contains(@style, 'display: none')])]"),
+    BATEEL_GUEST_CONTINUESHOPPING_ENUM_CSS("a[class='action primary continue'] span");
 
 	
    
