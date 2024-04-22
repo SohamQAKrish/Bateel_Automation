@@ -1,5 +1,3 @@
-SanityBateelLogincheckout:
- - testBateeladdtocartitemloginuser:
 SanityLoginAndNavigationTest:
  - testWorkOrdersPageHeaderTitle:
     WorkOrderHeader: "Work Order Management"
@@ -37,17 +35,6 @@ SanityLoginAndNavigationTest:
     Header: "Work Order Dashboard"
  - testBateelPageHeaderTitle:
     BateelHeader: "Bateel"
-SanityBateelLogincheckout:
- - testBateeladdtocartitemloginuser:
-      BateelGuestFname: "KD"  
-      BateelGuestLname: "Test"   
-      BateelGuestStreetname: "123, Main Street" 
-      BateelGuestCityxpath: "New Delhi"   
-      BateelGuestCountryName: "India"  
-      BateelGuestPostcodeName: "110001"  
-      BateelGuestStateName: "Delhi"     
-      BateelGuestTelephoneName: "0000000000" 
-      BateelGuestTrackEmailId: "kashyap.dave@krishtechnolabs.com"
 SanityAssetTest:
  - testCreateAssetForm:
     SiteData: "Entity A"

@@ -104,6 +104,8 @@ public class UtilitiesCommon {
 	private static String browser;
 	public static WebDriverWait wait;
 	public static JavascriptExecutor jsExecutor;
+	private static WebDriverWait wait;
+	private static JavascriptExecutor jsExecutor;
 	private static Actions builder;
 	private static Robot robot;
 	private static SoftAssert softAssert;
@@ -184,6 +186,7 @@ public class UtilitiesCommon {
 	public static void setupLogger() {
         logger = LogManager.getLogger(UtilitiesCommon.class);
 	}
+
 	/**
 	 * This method is used to initialize the object for Actions class
 	 * 
@@ -206,6 +209,7 @@ public class UtilitiesCommon {
 	public static void setupSoftAssert() {
 		softAssert = new SoftAssert();
 	}
+
 	/**
 	 * This method will log the message in console as well as in allure report.
 	 * 
@@ -1173,6 +1177,7 @@ public class UtilitiesCommon {
 	    }
 	    return isElementNotVisible;
 	}
+
 	/**
 	 * This method will check if the dynamically generated element is displayed.
 	 * 
@@ -2054,8 +2059,6 @@ public class UtilitiesCommon {
 		executeJS("arguments[0].scrollIntoView(true);", element);
 	}
 
-
-
 	public static void waitForOverlayToDisappear() {
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
@@ -2073,4 +2076,5 @@ public class UtilitiesCommon {
 		WebDriverWait wait = new WebDriverWait(driver, 30); // Adjust timeout as needed
         wait.until(ExpectedConditions.invisibilityOfElementLocated(cssSelector));
 	}
+
 }

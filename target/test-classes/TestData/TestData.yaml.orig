@@ -1,5 +1,3 @@
-SanityBateelLogincheckout:
- - testBateeladdtocartitemloginuser:
 SanityLoginAndNavigationTest:
  - testWorkOrdersPageHeaderTitle:
     WorkOrderHeader: "Work Order Management"
@@ -35,19 +33,6 @@ SanityLoginAndNavigationTest:
     SettingsPageHeaderTitle: "Settings"
  - testHomePageHeaderTitle:
     Header: "Work Order Dashboard"
- - testBateelPageHeaderTitle:
-    BateelHeader: "Bateel"
-SanityBateelLogincheckout:
- - testBateeladdtocartitemloginuser:
-      BateelGuestFname: "KD"  
-      BateelGuestLname: "Test"   
-      BateelGuestStreetname: "123, Main Street" 
-      BateelGuestCityxpath: "New Delhi"   
-      BateelGuestCountryName: "India"  
-      BateelGuestPostcodeName: "110001"  
-      BateelGuestStateName: "Delhi"     
-      BateelGuestTelephoneName: "0000000000" 
-      BateelGuestTrackEmailId: "kashyap.dave@krishtechnolabs.com"
 SanityAssetTest:
  - testCreateAssetForm:
     SiteData: "Entity A"
@@ -57,47 +42,29 @@ SanityAssetTest:
 SanityPurchaseOrdersTest:
  - testCreateNewPurchaseOrder:
     PurchaseOrderToastMessage: "New purchase order created successfully!"
-SanityRequestManagementTest: 
+SanityRequestManagementTest:
  - testNewRequestCreation:
     Text: "Test"
     NewRequest: "NEW"
-SanityBateelGuestCheckout:
- - testguestcheckout:
-      BateelGuestFname: "KD"  
-      BateelGuestLname: "Test"   
-      BateelGuestStreetname: "123, Main Street" 
-      BateelGuestCityxpath: "New Delhi"   
-      BateelGuestCountryName: "India"  
-      BateelGuestPostcodeName: "110001"  
-      BateelGuestStateName: "Delhi"     
-      BateelGuestTelephoneName: "0000000000" 
-      BateelGuestTrackEmailId: "kashyap.dave@krishtechnolabs.com"
+SanityVendorTest:
+ - testCreateVendor:
+    VendorManagementHeaderTitle: "Vendor Management"
+    VendorNameTextFieldValue: "Cybage"
+    VendorEmailIDTextFieldValue: "cybage235@gmail.co"
+    VendorPhoneNumberTextFieldValue: "898745445"
+    VendorNewVendorEmailText: "Email: cybage235@gmail.co"
+    NewVendorCreatedToastMessage: "New Vendor created successfully!"
 SanityCustomersTest:
  - testCreateCustomerForm:
     CustomerRecordConfirmation: "New Customer created successfully"
+<<<<<<< HEAD
+SanityWorkOrdersTest:
+ - testCreateWorkOrderForm:
+    WorkOrderRecordConfirmation: "NEW"
+=======
 SanityInvoiceTest:
  - testCreateInvoice:
     InvoicePageHeaderTitle: "Invoice Management"
     PurposeTextFieldValue: "For accounting and tax"
     InvoiceStatusText: "NEW"
-SanityWorkOrdersTest:
- - testCreateWorkOrderForm:
-    WorkOrderRecordConfirmation: "NEW"
-SanityInspectionTest:
- - testCreateInspection:
-    InspectionHeader: "Inspection Management"
-    NewInspectionCreatedToastMessage: "Inspection completed."
-SanityBateelCart:
- - testBateeladdtocartitem:
-    productName: "Stella Green Tree Gift Box"
-SanityBateelProductDetails:
- - testBateelproductfilldetails:
-    productName: "Stella Green Tree Gift Box"
-SanityBateelProduct:
- - testBateelclickproduct:
-    productName: "Stella Green Tree Gift Box"
-SanityBateelLoginAndNavigationTest:
- - testBateelPageHeaderTitle:
-    BateelHeader: "Luxury Gourmet Dates & Gift Boxes | Organic Dates | Bateel"
- - testBateelShopCategoryNavigation:
-    BateelPageTitle: "Shop"
+>>>>>>> bb535b372f45f7571581db8e2fd5a9eb77883e58
