@@ -1,0 +1,95 @@
+SanityBateelLogincheckout:
+ - testBateeladdtocartitemloginuser:
+    WorkOrderHeader: "Work Order Management"
+ - testAssetPageHeaderTitle:
+    AssetHeader: "Asset Management"
+ - testInvoicePageHeaderTitle:
+    InvoicePageHeaderTitle: "Invoice Management"
+ - testInspectionsPageHeaderTitle:
+    InspectionHeader: "Inspection Management"
+ - testPlanningBoardPageHeaderTitle:
+    PlanningBoardHeader: "Planning and Assignment Board"
+ - testPMSPageHeaderTitle:
+    PMManagementHeader: "PM Management"
+ - testRequestManagementPageHeaderTitle:
+    RequestManagementHeader: "Request Management"
+ - testPurchaseOrdersPageHeaderTitle:
+    PurchaseOrdersHeaderTitle: "Purchase Order Management"
+ - testInventoryPageHeaderTitle:
+    InventoryPageHeaderTitle: "Inventory"
+ - testCycleCountsPageHeaderTitle:
+    CycleCountsPageHeaderTitle: "Cycle Counts"
+ - testTransfersPageHeaderTitle:
+    TransfersPageHeaderTitle: "Inventory Transfer Management"
+ - testVendorsPageHeaderTitle:
+    VendorManagementHeaderTitle: "Vendor Management"
+ - testCustomersPageHeaderTitle:
+    CustomersPageHeaderTitle: "Customers Management"
+ - testReportsPageHeaderTitle:
+    ReportsPageHeaderTitle: "Report Management"
+ - testBIPageHeaderTitle:
+    BIPageHeaderTitle: "Welcome To ManagerPlus | Bi"
+ - testSettingsPageHeaderTitle:
+    SettingsPageHeaderTitle: "Settings"
+ - testHomePageHeaderTitle:
+    Header: "Work Order Dashboard"
+ - testBateelPageHeaderTitle:
+    BateelHeader: "Bateel"
+SanityBateelLogincheckout:
+ - testBateeladdtocartitemloginuser:
+      BateelGuestFname: "KD"  
+      BateelGuestLname: "Test"   
+      BateelGuestStreetname: "123, Main Street" 
+      BateelGuestCityxpath: "New Delhi"   
+      BateelGuestCountryName: "India"  
+      BateelGuestPostcodeName: "110001"  
+      BateelGuestStateName: "Delhi"     
+      BateelGuestTelephoneName: "0000000000" 
+      BateelGuestTrackEmailId: "kashyap.dave@krishtechnolabs.com"
+SanityPurchaseOrdersTest:
+ - testCreateNewPurchaseOrder:
+    PurchaseOrderToastMessage: "New purchase order created successfully!"
+SanityRequestManagementTest: 
+ - testNewRequestCreation:
+    Text: "Test"
+    NewRequest: "NEW"
+SanityBateelGuestCheckout:
+ - testguestcheckout:
+      BateelGuestFname: "KD"  
+      BateelGuestLname: "Test"   
+      BateelGuestStreetname: "123, Main Street" 
+      BateelGuestCityxpath: "New Delhi"   
+      BateelGuestCountryName: "India"  
+      BateelGuestPostcodeName: "110001"  
+      BateelGuestStateName: "Delhi"     
+      BateelGuestTelephoneName: "0000000000" 
+      BateelGuestTrackEmailId: "kashyap.dave@krishtechnolabs.com"
+SanityCustomersTest:
+ - testCreateCustomerForm:
+    CustomerRecordConfirmation: "New Customer created successfully"
+SanityInvoiceTest:
+ - testCreateInvoice:
+    InvoicePageHeaderTitle: "Invoice Management"
+    PurposeTextFieldValue: "For accounting and tax"
+    InvoiceStatusText: "NEW"
+SanityWorkOrdersTest:
+ - testCreateWorkOrderForm:
+    WorkOrderRecordConfirmation: "NEW"
+SanityInspectionTest:
+ - testCreateInspection:
+    InspectionHeader: "Inspection Management"
+    NewInspectionCreatedToastMessage: "Inspection completed."
+SanityBateelCart:
+ - testBateeladdtocartitem:
+    productName: "Stella Green Tree Gift Box"
+SanityBateelProductDetails:
+ - testBateelproductfilldetails:
+    productName: "Stella Green Tree Gift Box"
+SanityBateelProduct:
+ - testBateelclickproduct:
+    productName: "Stella Green Tree Gift Box"
+SanityBateelLoginAndNavigationTest:
+ - testBateelPageHeaderTitle:
+    BateelHeader: "Luxury Gourmet Dates & Gift Boxes | Organic Dates | Bateel"
+ - testBateelShopCategoryNavigation:
+    BateelPageTitle: "Shop"
