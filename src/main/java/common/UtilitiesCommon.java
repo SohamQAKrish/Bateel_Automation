@@ -19,6 +19,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -101,8 +102,8 @@ public class UtilitiesCommon {
 	private static String defaultTimeout;
 	private static ChromeOptions chromeOptions;
 	private static String browser;
-	private static WebDriverWait wait;
-	private static JavascriptExecutor jsExecutor;
+	public static WebDriverWait wait;
+	public static JavascriptExecutor jsExecutor;
 	private static Actions builder;
 	private static Robot robot;
 	private static SoftAssert softAssert;
@@ -183,8 +184,6 @@ public class UtilitiesCommon {
 	public static void setupLogger() {
         logger = LogManager.getLogger(UtilitiesCommon.class);
 	}
-
-	
 	/**
 	 * This method is used to initialize the object for Actions class
 	 * 
@@ -207,7 +206,6 @@ public class UtilitiesCommon {
 	public static void setupSoftAssert() {
 		softAssert = new SoftAssert();
 	}
-
 	/**
 	 * This method will log the message in console as well as in allure report.
 	 * 
@@ -724,7 +722,15 @@ public class UtilitiesCommon {
 		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(xpathExpression)));
 		return driver.findElements(By.xpath(xpathExpression));
 	}
-
+	public static void waitForElementIsClickable(Enum<?> enumValue) {
+	    By locator = getLocator(enumValue);
+	    if (locator == null) {
+	        throw new IllegalArgumentException("Locator is null for enum value: " + enumValue);
+	    }
+	    long timeoutSeconds = Long.parseLong(DEFAULT_TIMEOUT);
+	    WebDriverWait wait = new WebDriverWait(driver, timeoutSeconds);
+	    wait.until(ExpectedConditions.elementToBeClickable(locator));
+	}
 	/**
 	 * This method is used to generate the Dynamic Xpath
 	 * @param xpath        XPATH
@@ -1157,7 +1163,16 @@ public class UtilitiesCommon {
 		}
 		return isElementVisible;
 	}
-
+	public static boolean waitForElementIsNotVisible(By locator) {
+	    boolean isElementNotVisible;
+	    try {
+	        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+	        isElementNotVisible = true;
+	    } catch (TimeoutException exception) {
+	        isElementNotVisible = false;
+	    }
+	    return isElementNotVisible;
+	}
 	/**
 	 * This method will check if the dynamically generated element is displayed.
 	 * 
@@ -2037,5 +2052,25 @@ public class UtilitiesCommon {
 		By locator = getLocator(enumValue);
 		WebElement element = driver.findElement(locator);
 		executeJS("arguments[0].scrollIntoView(true);", element);
+	}
+
+
+
+	public static void waitForOverlayToDisappear() {
+
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+	    try {
+	        
+	        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.loading-mask")));
+	    } catch (TimeoutException e) {
+	        // Log a message or take appropriate action if the overlay doesn't disappear within the timeout
+	        System.out.println("Overlay did not disappear within the timeout.");
+	    }
+	}
+
+	public static void waitForElementToDisappear(By cssSelector) {
+		// TODO Auto-generated method stub
+		WebDriverWait wait = new WebDriverWait(driver, 30); // Adjust timeout as needed
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(cssSelector));
 	}
 }
