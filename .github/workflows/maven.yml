@@ -42,5 +42,4 @@ jobs:
       - name: Set Allure HTML report link 
         if: success()
         run: |
-#          echo "::save-state name=allure_html_report_link::https://github.com/SohamQAKrish/Bateel_Automation/tree/IAT-4/allure-results"
-           echo "::save-state name=allure_html_report_link::https://vanilla.magentoprojects.net/pub/allure-reports"
+          echo "::save-state name=allure_html_report_link::https://vanilla.magentoprojects.net/pub/allure-reports"
