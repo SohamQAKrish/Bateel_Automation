@@ -1,5 +1,5 @@
-SanityLoginAndNavigationTest:
- - testWorkOrdersPageHeaderTitle:
+SanityBateelLogincheckout:
+ - testBateeladdtocartitemloginuser:
     WorkOrderHeader: "Work Order Management"
  - testAssetPageHeaderTitle:
     AssetHeader: "Asset Management"
@@ -35,12 +35,17 @@ SanityLoginAndNavigationTest:
     Header: "Work Order Dashboard"
  - testBateelPageHeaderTitle:
     BateelHeader: "Bateel"
-SanityAssetTest:
- - testCreateAssetForm:
-    SiteData: "Entity A"
-    CategoryData: "BUILDING MAINTENANCE"
-    SubCategoryData: "ALARM SYSTEM"
-    AssetRecordConfirmation: "New asset created successfully"
+SanityBateelLogincheckout:
+ - testBateeladdtocartitemloginuser:
+      BateelGuestFname: "KD"  
+      BateelGuestLname: "Test"   
+      BateelGuestStreetname: "123, Main Street" 
+      BateelGuestCityxpath: "New Delhi"   
+      BateelGuestCountryName: "India"  
+      BateelGuestPostcodeName: "110001"  
+      BateelGuestStateName: "Delhi"     
+      BateelGuestTelephoneName: "0000000000" 
+      BateelGuestTrackEmailId: "kashyap.dave@krishtechnolabs.com"
 SanityPurchaseOrdersTest:
  - testCreateNewPurchaseOrder:
     PurchaseOrderToastMessage: "New purchase order created successfully!"
