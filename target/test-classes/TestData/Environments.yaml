@@ -1,9 +1,0 @@
-QA:
-  ApplicationURL: "https://staging2.bateel.com/en_in/"
-  Email: "govind.daware+ind@krishtechnolabs.com"
-  Password: "Govind31"
-
-TESTRAIL:
- URL: "https://teem.testrail.net"
- Username: "selenium.ioffice@iofficecorp.com"
- Password: "UWFASW9mZmljZTIwMjE="
