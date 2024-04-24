@@ -39,6 +39,7 @@ public class BateelPage {
 	
       
 	public static void clickGoButton() {
+		UtilitiesCommon.waitForElementIsPresent(BateelHomePageEnum.BATEEL_HOME_PAGE_OK_BUTTON_XPATH);
         UtilitiesCommon.click(BateelHomePageEnum.BATEEL_HOME_PAGE_OK_BUTTON_XPATH);
     }
     
