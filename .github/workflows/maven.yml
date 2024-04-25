@@ -28,3 +28,4 @@ jobs:
         run: |
           mvn clean test
           mvn allure:report -Dallure.results.directory=./allure-report-html
+
