@@ -37,4 +37,4 @@ jobs:
       - name: Set Allure HTML index report link 
         if: success()
         run: |
-          echo "::set-output name=allure_html_report_link::${{ github.server_url }}/${{ github.repository }}/raw/${{ github.ref }}/allure-report-index/index.html"
+          echo "ALLURE_HTML_REPORT_LINK=${{ github.server_url }}/${{ github.repository }}/raw/${{ github.ref }}/allure-report-index/index.html" >> $GITHUB_ENV
