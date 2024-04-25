@@ -31,7 +31,6 @@ replay_pid*
 
 .dockerignore
 .settings/org.testng.eclipse.maven.prefs
-allure-results/
 target/classes/META-INF/MANIFEST.MF
 target/surefire-reports/
 target/test-classes/TestData/RestAssuredData.xlsx

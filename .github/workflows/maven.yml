@@ -38,4 +38,4 @@ jobs:
       - name: Set Allure HTML report link 
         if: success()
         run: |
-          echo "::set-output name=allure_html_report_link::https://github.com/SohamQAKrish/Bateel_Automation/tree/IAT-4/allure-report-html/index.html"
+          echo "::set-output name=allure_html_report_link::${{ github.server_url }}/${{ github.repository }}/blob/${{ github.sha }}/allure-report-html/index.html"
