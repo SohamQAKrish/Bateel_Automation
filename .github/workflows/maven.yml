@@ -27,15 +27,15 @@ jobs:
       - name: Run Tests and Generate Allure Report
         run: |
           mvn clean test
-          mvn allure:report
+          mvn site
 
       - name: Upload HTML Allure Report
         uses: actions/upload-artifact@v2
         with:
           name: allure-html-report
-          path: allure-report-html
+          path: allure-report-index/index.html
 
       - name: Set Allure HTML report link 
         if: success()
         run: |
-          echo "::set-output name=allure_html_report_link::${{ github.server_url }}/${{ github.repository }}/raw/${{ github.ref }}/allure-report-html/index.html"
+          echo "::set-output name=allure_html_report_link::${{ github.server_url }}/${{ github.repository }}/raw/${{ github.ref }}/allure-report-index/index.html"
