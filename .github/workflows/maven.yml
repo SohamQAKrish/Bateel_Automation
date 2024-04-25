@@ -27,7 +27,6 @@ jobs:
       - name: Run Tests and Generate Allure Report
         run: |
           mvn clean test
-          mvn site
 
       - name: Upload HTML Allure Report
         uses: actions/upload-artifact@v2
