@@ -1,7 +1,4 @@
 # Other Ignored files
-.allure/
-allure-report-html/
-allure-results/
 target/
 
 # Compiled class file
