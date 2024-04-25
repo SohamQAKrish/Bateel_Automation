@@ -2,7 +2,9 @@ package enums.bateel;
 
 public enum BateelFooterEnum {
 
-    BATEEL_Footer_cookiesAccept_ENUM_XPATH("//*[@id='action-custom-css']/a[2]");
+    BATEEL_Footer_cookiesAccept_ENUM_XPATH("//*[@id='action-custom-css']/a[2]"),
+    BATEEL_Footer_storeLogo_ENUM_XPATH("//img[@class='dark-logo']"),
+	BATEEL_Footer_cmslikssection_ENUM_XPATH("//*[@id='html-body']/div[1]/footer/div/div[1]/div[2]/div[1]");
     
     private final String label;
 

@@ -14,8 +14,8 @@ import page.login.LoginPage;
 @Listeners({ listeners.ScriptExecutionListener.class })
 public class SanityBateelMainNavigationmenu {
 
-	@Test(testName = "Main Navigation menu category links verification")
-	@Description("This Test is used to Verify the Navigation to the Categories in category menu")
+	@Test(testName = " Main Navigation menu category links verification")
+	@Description("This Test is used to Verify the Navigation to the Categories in category menu ")
 	public void mainmenu() throws InterruptedException {
 		UtilitiesCommon.launchApplication();
 		UtilitiesCommon.setupWebdriverWait(30);	

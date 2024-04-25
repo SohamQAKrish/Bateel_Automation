@@ -1,16 +1,15 @@
 package page.bateel;
 
-import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
-
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import common.UtilitiesCommon;
 import enums.bateel.BateelHeaderEnum;
 
+/*This class contains header methods to verify the category links navigation
+ */
 public class BateelHeader {
-
 	public static void Verifymenucategorylinks() throws InterruptedException {
 		UtilitiesCommon.waitForElementIsPresent(BateelHeaderEnum.BATEEL_Header_menucategorypanel_ENUM_XPATH);
 		WebElement categorypanel = UtilitiesCommon
@@ -28,8 +27,6 @@ public class BateelHeader {
 				UtilitiesCommon.isElementPresent(BateelHeaderEnum.BATEEL_Header_shopmenulink_ENUM_XPATH);
 				assertTrue(true, "category page loaded properly" + UtilitiesCommon.gettitle());
 			}
-			// assertEquals(categorylinktitle, UtilitiesCommon.gettitle(), "category page
-			// title is not as expected");
 			HoveronShopcategory();
 			UtilitiesCommon.waitForElementIsPresent(BateelHeaderEnum.BATEEL_Header_menucategorypanel_ENUM_XPATH);
 			UtilitiesCommon.scrollDownSlightly();
@@ -39,7 +36,7 @@ public class BateelHeader {
 	}
 
 	public static void HoveronShopcategory() throws InterruptedException {
-		//Thread.sleep(10000);
+		// Thread.sleep(10000);
 		UtilitiesCommon.waitForMilliseconds(10000);
 		UtilitiesCommon.waitForElementIsPresent(BateelHeaderEnum.BATEEL_Header_shopmenulink_ENUM_XPATH);
 		UtilitiesCommon.hoverOverElement(BateelHeaderEnum.BATEEL_Header_shopmenulink_ENUM_XPATH);

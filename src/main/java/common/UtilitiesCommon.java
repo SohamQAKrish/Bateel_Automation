@@ -499,13 +499,13 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby kdave
 	 */
 	public static void closeDriver() {
-//		if (driver != null) {
-//			log("Closing Browser");
-//			driver.quit();
-//			driver = null;
-//		} else {
-//			log("Web Driver is NULL and it has not initialized properly");
-//		}
+		if (driver != null) {
+			log("Closing Browser");
+			driver.quit();
+			driver = null;
+		} else {
+			log("Web Driver is NULL and it has not initialized properly");
+		}
 	}
 
 	/**
@@ -2027,6 +2027,18 @@ public class UtilitiesCommon {
 	}
 
 	/**
+	 * This method will scroll down till bottom of the page
+	 * 
+	 * @author rammohan
+	 * @lastmodifiedby rammohan
+	 */
+
+	public static void scrolltillpageend() {
+		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+		js1.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+	}
+
+	/**
 	 * This method will compare and assert the actual text contains expected text
 	 * 
 	 * @param enumValue    Enum Value
@@ -2069,11 +2081,12 @@ public class UtilitiesCommon {
 	public static void javaScriptScrollToElement(Enum<?> enumValue) {
 		By locator = getLocator(enumValue);
 		WebElement element = driver.findElement(locator);
-		executeJS("arguments[0].scrollIntoView(true);", element);		
+		executeJS("arguments[0].scrollIntoView(true);", element);
 	}
-	
+
 	/**
 	 * This method is to return the page title
+	 * 
 	 * @author rammohan
 	 * @lastmodifiedby rammohan
 	 */
@@ -2081,15 +2094,16 @@ public class UtilitiesCommon {
 		String Pagetitle = driver.getTitle();
 		return Pagetitle;
 	}
-	
+
 	/**
 	 * This method is to zoomout the chromebrowser
+	 * 
 	 * @author rammohan
 	 * @lastmodifiedby rammohan
 	 */
-	public static void browserzoomout() {	
-		JavascriptExecutor js = (JavascriptExecutor)driver;
+	public static void browserzoomout() {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		String chromezoomoout = "document.body.style.zoom = '80%'";
-		js.executeScript(chromezoomoout);		
+		js.executeScript(chromezoomoout);
 	}
 }
