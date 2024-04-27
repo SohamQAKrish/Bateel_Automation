@@ -43,4 +43,4 @@ jobs:
       - name: Set Allure HTML report link 
         if: success()
         run: |
-          echo "::set-output name=allure_html_report_link::https://github.com/${{ github.repository }}/blob/${{ github.ref }}/allure-report-html/index.html"
+          echo "::set-output name=allure_html_report_link::https://github.com/${{ github.repository }}/tree/main/allure-report-html/index.html"
