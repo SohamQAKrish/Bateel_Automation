@@ -38,7 +38,7 @@ SanityBateelLogincheckout:
 SanityBateelLogincheckout:
  - testBateeladdtocartitemloginuser:
       BateelGuestFname: "KD"  
-      BateelGuestLname: "QA"   
+      BateelGuestLname: "Testing"   
       BateelGuestStreetname: "123, Main Street" 
       BateelGuestCityxpath: "New Delhi"   
       BateelGuestCountryName: "India"  
@@ -93,3 +93,6 @@ SanityBateelLoginAndNavigationTest:
     BateelHeader: "Luxury Gourmet Dates & Gift Boxes | Organic Dates | Bateel"
  - testBateelShopCategoryNavigation:
     BateelPageTitle: "Shop"
+SanityBateelMainNavigationmenu:
+  - testBateelmainmenu:
+      Pagetitle: "Header"    
