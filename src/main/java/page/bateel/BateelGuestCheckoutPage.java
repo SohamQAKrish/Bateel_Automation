@@ -41,7 +41,6 @@ public class BateelGuestCheckoutPage {
 		UtilitiesCommon.enterValue(BateelCheckoutGuestPageEnum.BATEEL_GUEST_TRACKEMAIL_ENUM_ID, trackemail);
 
 		BateelGuestCheckoutPage.proccedTOBilling();
-
 	}
 
 	public static boolean verifyCountryAutoFilled(String expectedCountry) {
@@ -52,13 +51,11 @@ public class BateelGuestCheckoutPage {
 
 	public static void selectState(String state) {
 		UtilitiesCommon.selectByVisibleText(BateelCheckoutGuestPageEnum.BATEEL_GUEST_STATE_ENUM_NAME, state);
-
 	}
 
 	public static void clickAgreeCheckbox() throws InterruptedException {
 		UtilitiesCommon.click(BateelCheckoutGuestPageEnum.BATEEL_GUEST_AGREE_ENUM_NAME);
 		UtilitiesCommon.javaScriptWaitAndScroll(BateelCheckoutGuestPageEnum.BATEEL_GUEST_AGREE_ENUM_NAME);
-
 	}
 
 	public static void proccedTOBilling() throws InterruptedException {
@@ -77,7 +74,6 @@ public class BateelGuestCheckoutPage {
 	public static void clickPlaceOrderButtonWithoutWaitingForMask() throws InterruptedException {
 		UtilitiesCommon.click(BateelCheckoutGuestPageEnum.BATEEL_GUEST_PLACEORDER_ENUM_CSS);
 		UtilitiesCommon.waitForMilliseconds(6000);
-
 	}
 
 	public static void clickOnContinueShopButton() {

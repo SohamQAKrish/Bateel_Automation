@@ -20,7 +20,6 @@ public class SanityBateelGuestCheckout {
 	@Description("This Test is used to do guest checkout")
 	public void testguestcheckout() throws InterruptedException {
 		UtilitiesCommon.launchApplication();
-
 		BateelPage.clickGoButton();
 		BateelPage.verifyBateelShopCategory();
 		BateelPLPPage.clickProduct();
