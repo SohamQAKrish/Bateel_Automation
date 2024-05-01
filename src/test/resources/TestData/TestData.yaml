@@ -98,3 +98,17 @@ SanityBateelFootersection:
    Pagetitle: "Footer"
 - Footerlogo:
    pagetitle: "footer"
+- Footersocialmediainstagram:
+   Pagetitle: "footer"
+- FootersocialmediaFacebook:
+   Pagetitle: "footer"
+- FootersocialmediaTwitter:
+   Pagetitle: "footer"
+- FootersocialmediaLinkedin:
+   Pagetitle: "footer"
+- FootersocialmediaYoutube:
+   Pagetitle: "footer"
+- FooterTermsandconditionslink:
+   Pagetitle: "footer"
+- FooterPrivacypolicylink:
+   Pagetitle: "footer"

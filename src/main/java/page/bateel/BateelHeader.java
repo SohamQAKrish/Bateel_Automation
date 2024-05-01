@@ -36,7 +36,7 @@ public class BateelHeader {
 	}
 
 	public static void HoveronShopcategory() throws InterruptedException {
-		// Thread.sleep(10000);
+		// Thread.sleep(10000)
 		UtilitiesCommon.waitForMilliseconds(10000);
 		UtilitiesCommon.waitForElementIsPresent(BateelHeaderEnum.BATEEL_Header_shopmenulink_ENUM_XPATH);
 		UtilitiesCommon.hoverOverElement(BateelHeaderEnum.BATEEL_Header_shopmenulink_ENUM_XPATH);

@@ -19,6 +19,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -2105,5 +2106,9 @@ public class UtilitiesCommon {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		String chromezoomoout = "document.body.style.zoom = '80%'";
 		js.executeScript(chromezoomoout);
+	}
+	public static void switchtoTab(int x) {
+		 ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+		    driver.switchTo().window(tabs.get(x));
 	}
 }
