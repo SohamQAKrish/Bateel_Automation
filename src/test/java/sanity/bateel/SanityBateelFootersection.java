@@ -2,11 +2,9 @@ package sanity.bateel;
 
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
 import common.UtilitiesCommon;
 import io.qameta.allure.Description;
 import page.bateel.BateelFooter;
-import page.bateel.BateelHeader;
 import page.bateel.BateelPage;
 
 @Listeners({ listeners.ScriptExecutionListener.class })

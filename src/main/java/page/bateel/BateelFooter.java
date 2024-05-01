@@ -2,21 +2,15 @@ package page.bateel;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
-
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.asserts.SoftAssert;
-
 import common.UtilitiesCommon;
 import enums.bateel.BateelFooterEnum;
-import enums.bateel.BateelHeaderEnum;
 
 public class BateelFooter {
 	/**
 	 * This method will click on Accept cookies button
-	 * 
 	 * @param enumValue Enum Value
 	 * @author Rammohan
 	 * @lastmodifiedby Rammohan
@@ -28,11 +22,8 @@ public class BateelFooter {
 
 	/*
 	 * This method is to verify the Footer logo
-	 * 
 	 * @param enumValue Enum Value
-	 * 
 	 * @author Rammohan
-	 * 
 	 * @lastmodifiedby Rammohan
 	 */
 	public static void footerlogocheck() throws InterruptedException {
@@ -42,20 +33,16 @@ public class BateelFooter {
 		boolean logocheck = UtilitiesCommon.isElementPresent(BateelFooterEnum.BATEEL_Footer_storeLogo_ENUM_XPATH);
 		assertEquals(logocheck, true, "Footer section logo is missing");
 	}
-
 	/*
 	 * This method is to verify the Footer CMS links navigation
-	 * 
 	 * @param enumValue Enum Value
-	 * 
 	 * @author Rammohan
-	 * 
 	 * @lastmodifiedby Rammohan
 	 */
 	public static void footerCMSlinkscheck() throws InterruptedException {
 		UtilitiesCommon.waitForMilliseconds(3000);
 		UtilitiesCommon.scrolltillpageend();
-		UtilitiesCommon.setupWebdriverWait(5000);
+		UtilitiesCommon.setupWebdriverWait(30);
 		UtilitiesCommon.waitForElementIsPresent(BateelFooterEnum.BATEEL_Footer_cmslikssection_ENUM_XPATH);
 		WebElement footerCMSsection = UtilitiesCommon
 				.getElement(BateelFooterEnum.BATEEL_Footer_cmslikssection_ENUM_XPATH);
@@ -77,17 +64,14 @@ public class BateelFooter {
 	}
 	/*
 	 * This method is to verify the Footer social media link : Instagram
-	 * 
 	 * @param enumValue Enum Value
-	 * 
 	 * @author Rammohan
-	 * 
 	 * @lastmodifiedby Rammohan
 	 */
 	public static void footerinstagramlinkcheck() throws InterruptedException {
 		UtilitiesCommon.waitForMilliseconds(3000);
 		UtilitiesCommon.scrolltillpageend();
-		UtilitiesCommon.setupWebdriverWait(5000);
+		UtilitiesCommon.setupWebdriverWait(30);
 		UtilitiesCommon.waitForMilliseconds(3000);
 		UtilitiesCommon.click(BateelFooterEnum.Bateel_Footer_Footerinsta_ENUM_XPATH);
 		UtilitiesCommon.waitForMilliseconds(3000);
@@ -96,80 +80,64 @@ public class BateelFooter {
 		assertEquals(UtilitiesCommon.gettitle(), "Bateel (@bateelgourmet) • Instagram photos and videos",
 				"instagram page title missmatch");
 	}
-
 	/*
 	 * This method is to verify the Footer social media link : Facebook
-	 * 
 	 * @param enumValue Enum Value
-	 * 
 	 * @author Rammohan
-	 * 
 	 * @lastmodifiedby Rammohan
 	 */
 	public static void footerfacebooklinkcheck() throws InterruptedException {
 		UtilitiesCommon.waitForMilliseconds(2000);
 		UtilitiesCommon.scrolltillpageend();
-		UtilitiesCommon.setupWebdriverWait(2000);
+		UtilitiesCommon.setupWebdriverWait(30);
 		UtilitiesCommon.waitForMilliseconds(2000);
 		UtilitiesCommon.click(BateelFooterEnum.Bateel_Footer_FooterFacebook_ENUM_XPATH);
 		UtilitiesCommon.waitForMilliseconds(3000);
 		UtilitiesCommon.switchtoTab(1);
 		assertEquals(UtilitiesCommon.gettitle(),"Bateel International | Facebook", "Facebook page title missmatch");
 	}
-
 	/*
 	 * This method is to verify the Footer social media link : Twitter
-	 * 
 	 * @param enumValue Enum Value
-	 * 
 	 * @author Rammohan
-	 * 
 	 * @lastmodifiedby Rammohan
 	 */
 	public static void footertwitterlinkcheck() throws InterruptedException {
 		UtilitiesCommon.waitForMilliseconds(3000);
 		UtilitiesCommon.scrolltillpageend();
-		UtilitiesCommon.setupWebdriverWait(5000);
+		UtilitiesCommon.setupWebdriverWait(30);
 		UtilitiesCommon.waitForMilliseconds(3000);
 		UtilitiesCommon.click(BateelFooterEnum.Bateel_Footer_Footertwitter_ENUM_XPATH);
 		UtilitiesCommon.waitForMilliseconds(3000);
 		UtilitiesCommon.switchtoTab(1);
 		assertEquals(UtilitiesCommon.gettitle(), "Bateel International (@Bateelgourmet) / X", "Twitter page title missmatch");
 	}
-
 	/*
 	 * This method is to verify the Footer social media link : Linkedin
-	 * 
 	 * @param enumValue Enum Value
-	 * 
 	 * @author Rammohan
-	 * 
 	 * @lastmodifiedby Rammohan
 	 */
 	public static void footerlinkedinlinkcheck() throws InterruptedException {
 		UtilitiesCommon.waitForMilliseconds(3000);
 		UtilitiesCommon.scrolltillpageend();
-		UtilitiesCommon.setupWebdriverWait(5000);
+		UtilitiesCommon.setupWebdriverWait(30);
 		UtilitiesCommon.waitForMilliseconds(3000);
 		UtilitiesCommon.click(BateelFooterEnum.Bateel_Footer_Footerlinkedin_ENUM_XPATH);
 		UtilitiesCommon.waitForMilliseconds(3000);
 		UtilitiesCommon.switchtoTab(1);
 		assertEquals(UtilitiesCommon.gettitle(), "Bateel International | LinkedIn", "Linkedin page title missmatch");
 	}
-
 	/*
 	 * This method is to verify the Footer social media link : Youtube
-	 * 
 	 * @param enumValue Enum Value
-	 * 
 	 * @author Rammohan
-	 * 
 	 * @lastmodifiedby Rammohan
 	 */
 	public static void footeryoutubelinkcheck() throws InterruptedException {
 		UtilitiesCommon.waitForMilliseconds(3000);
 		UtilitiesCommon.scrolltillpageend();
-		UtilitiesCommon.setupWebdriverWait(5000);
+		UtilitiesCommon.setupWebdriverWait(30);
 		UtilitiesCommon.waitForMilliseconds(3000);
 		UtilitiesCommon.click(BateelFooterEnum.Bateel_Footer_Footeryoutube_ENUM_XPATH);
 		UtilitiesCommon.waitForMilliseconds(3000);
@@ -178,11 +146,8 @@ public class BateelFooter {
 	}
 	/*
 	 * This method is to verify the Footer Terms and conditions link
-	 * 
 	 * @param enumValue Enum Value
-	 * 
 	 * @author Rammohan
-	 * 
 	 * @lastmodifiedby Rammohan
 	 */
 	public static void footertermsandconditionslinkcheck(){
@@ -195,11 +160,8 @@ public class BateelFooter {
 	}
 	/*
 	 * This method is to verify the Footer privacy policy
-	 * 
 	 * @param enumValue Enum Value
-	 * 
 	 * @author Rammohan
-	 * 
 	 * @lastmodifiedby Rammohan
 	 */
 	public static void footerPrivacypolicylinkcheck(){

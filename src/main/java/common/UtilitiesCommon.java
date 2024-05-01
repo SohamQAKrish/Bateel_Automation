@@ -2087,7 +2087,6 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is to return the page title
-	 * 
 	 * @author rammohan
 	 * @lastmodifiedby rammohan
 	 */
@@ -2098,7 +2097,6 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is to zoomout the chromebrowser
-	 * 
 	 * @author rammohan
 	 * @lastmodifiedby rammohan
 	 */
@@ -2107,6 +2105,11 @@ public class UtilitiesCommon {
 		String chromezoomoout = "document.body.style.zoom = '80%'";
 		js.executeScript(chromezoomoout);
 	}
+	/**
+	 * This method is to switch the tabs
+	 * @author rammohan
+	 * @lastmodifiedby rammohan
+	 */
 	public static void switchtoTab(int x) {
 		 ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
 		    driver.switchTo().window(tabs.get(x));
