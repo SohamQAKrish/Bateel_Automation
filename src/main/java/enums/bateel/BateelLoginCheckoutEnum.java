@@ -1,7 +1,9 @@
 package enums.bateel;
 
 public enum BateelLoginCheckoutEnum {
-	BATEEL_EMAIL_ID("customer-email"), BATEEL_PASSWORD_ID("customer-password"),
+
+	BATEEL_EMAIL_ID("customer-email"),
+	BATEEL_PASSWORD_ID("customer-password"),
 	BATEEL_SIGNIN_BUTTON_CSS("span[data-bind=\"i18n: 'Sign in'\"]"),
 	BATEEL_LOGIN_FNAME_NAME("firstname"), 
 	BATEEL_LOGIN_LNAME_NAME("lastname"),

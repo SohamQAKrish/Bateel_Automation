@@ -14,7 +14,7 @@ public class BateelLoginCheckoutPage {
 		UtilitiesCommon.log("Logging in with User name : " + email);
 		UtilitiesCommon.enterValue(BateelLoginCheckoutEnum.BATEEL_EMAIL_ID, email);
 		UtilitiesCommon.enterValue(BateelLoginCheckoutEnum.BATEEL_PASSWORD_ID,
-				UtilitiesCommon.getDecryptedPassword(password));
+		UtilitiesCommon.getDecryptedPassword(password));
 		UtilitiesCommon.click(BateelLoginCheckoutEnum.BATEEL_SIGNIN_BUTTON_CSS);
 	}
 	
@@ -59,8 +59,7 @@ public class BateelLoginCheckoutPage {
 	public static void proccedTOBilling() throws InterruptedException {
 		try {
 			UtilitiesCommon.waitForElementIsNotVisible(By.cssSelector(".loading-mask"));
-			WebElement buttonElement = UtilitiesCommon
-					.getElement(BateelLoginCheckoutEnum.BATEEL_LOGIN_PROCEEDTOBILLING_XPATH);
+			WebElement buttonElement = UtilitiesCommon.getElement(BateelLoginCheckoutEnum.BATEEL_LOGIN_PROCEEDTOBILLING_XPATH);
 			UtilitiesCommon.javaScriptWaitAndScroll(BateelLoginCheckoutEnum.BATEEL_LOGIN_PROCEEDTOBILLING_XPATH);
 			UtilitiesCommon.waitForElementIsClickable(buttonElement);
 			UtilitiesCommon.click(BateelLoginCheckoutEnum.BATEEL_LOGIN_PROCEEDTOBILLING_XPATH);
