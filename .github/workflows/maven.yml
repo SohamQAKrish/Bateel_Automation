@@ -23,10 +23,16 @@ jobs:
 
       - name: Run Tests and Generate Allure Report
         run: |
-          mvn clean test
+          mvn clean test -Dallure.results.directory=allure-results
           mvn allure:report
 
-      - name: Download Allure results
+      - name: Upload Allure Results as Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: allure-results
+          path: allure-results
+
+      - name: Download Allure Results
         uses: actions/download-artifact@v2
         with:
           name: allure-results
