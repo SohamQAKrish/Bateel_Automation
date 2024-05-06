@@ -32,15 +32,15 @@ jobs:
           name: allure-results
           path: allure-results
 
-      - name: Download Allure Results
+      - name: Download Allure results
         uses: actions/download-artifact@v2
         with:
-          name: allure-results
-          path: .
+            name: allure-results
+            path: allure-results 
 
       - name: Generate Allure HTML Report
         run: |
-          allure generate allure-results --clean -o allure-report-html
+          allure generate D:\a\Bateel_Automation\Bateel_Automation\allure-results --clean -o allure-report-html
 
       - name: Set Allure HTML report link 
         if: success()
@@ -50,4 +50,4 @@ jobs:
       - name: Open Allure HTML report
         if: success()
         run: |
-          start "" "${{ github.workspace }}/allure-report-html/index.html"
+            start "" "D:\\a\\Bateel_Automation\\Bateel_Automation\\allure-report-html\\index.html"
