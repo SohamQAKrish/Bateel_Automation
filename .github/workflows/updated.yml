@@ -1,5 +1,5 @@
 name: Updated flow
-'on':
+on:
   push:
     branches:
       - '*'
@@ -20,23 +20,21 @@ jobs:
         with:
           version: 124.0.6367.91
       - name: Download ChromeDriver for version 124
-        run: >
+        run: |
           mkdir drivers
-
-          curl -SL
-          https://chromedriver.storage.googleapis.com/124.0.6367.91/chromedriver_linux64.zip
-          > drivers/chromedriver.zip
-
-          unzip drivers/chromedriver.zip -d drivers/
-
-          chmod +x drivers/chromedriver
+          cd drivers
+          curl -SL -o chromedriver.zip https://chromedriver.storage.googleapis.com/124.0.6367.91/chromedriver_linux64.zip
+          unzip -l chromedriver.zip  # List contents for debugging
+          unzip chromedriver.zip
+          chmod +x chromedriver
+          cd ..
       - name: Run pom.xml file
         run: |
           if [ ! -f "pom.xml" ]; then
             cp pom.xml .
           fi
       - name: Resolve Maven dependencies
-        run: 'mvn dependency:resolve'
+        run: mvn dependency:resolve
   test:
     name: Run Test
     runs-on: ubuntu-latest
@@ -54,19 +52,16 @@ jobs:
         with:
           version: 124.0.6367.91
       - name: Download ChromeDriver for version 124
-        run: >
-          mkdir drivers
-
-          curl -SL
-          https://chromedriver.storage.googleapis.com/124.0.6367.91/chromedriver_linux64.zip
-          > drivers/chromedriver.zip
-
-          unzip drivers/chromedriver.zip -d drivers/
-
-          chmod +x drivers/chromedriver
-      - name: Run tests with WebDriver initialization
         run: |
-          mvn clean test
+          mkdir drivers
+          cd drivers
+          curl -SL -o chromedriver.zip https://chromedriver.storage.googleapis.com/124.0.6367.91/chromedriver_linux64.zip
+          unzip -l chromedriver.zip  # List contents for debugging
+          unzip chromedriver.zip
+          chmod +x chromedriver
+          cd ..
+      - name: Run tests with WebDriver initialization
+        run: mvn clean test
   allure-report:
     name: Allure Report
     runs-on: ubuntu-latest
@@ -80,16 +75,14 @@ jobs:
           java-version: '17'
           distribution: adopt
       - name: Generate Allure report
-        run: 'mvn allure:report'
+        run: mvn allure:report
       - name: Deploy Allure report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: /allure-results
       - name: Get GitHub Pages URL
         id: pages_url
-        run: >-
-          echo "::set-output
-          name=url::https://SohamQAKrish.github.io/Bateel_Automation/allure-results/index.html"
+        run: echo "::set-output name=url::https://SohamQAKrish.github.io/Bateel_Automation/allure-results/index.html"
       - name: Display Allure report link
-        run: 'echo "Allure report available at ${{ steps.pages_url.outputs.url }}"'
+        run: echo "Allure report available at ${{ steps.pages_url.outputs.url }}"
