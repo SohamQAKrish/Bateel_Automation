@@ -18,7 +18,7 @@ jobs:
         run: npm install -g allure-commandline
       - name: Run Tests and Generate Allure Report
         run: |
-          mvn clean test
+          mvn clean test site
           mvn allure:report -Dallure.results.directory=allure-results
       - name: Convert Allure Report to HTML
         run: |
