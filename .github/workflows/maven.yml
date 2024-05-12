@@ -18,7 +18,7 @@ jobs:
         run: npm install -g allure-commandline
       - name: Run Tests and Generate Allure Report
         run: |
-          mvn clean test
+          mvn clean install
           mvn allure:report
       - name: Convert Allure Report to HTML
         run: |
@@ -26,7 +26,7 @@ jobs:
       - name: Upload HTML Allure Report
         uses: actions/upload-artifact@v2
         with:
-          name: allure-html-report
+          name: allure-report
           path: allure-report-html
       - name: Set Allure HTML report link
         if: success()
