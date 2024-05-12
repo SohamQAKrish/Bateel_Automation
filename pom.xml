@@ -164,7 +164,7 @@
 						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
 					</argLine>
 					<systemPropertyVariables>
-    <allure.results.directory>D:\a\Bateel_Automation\Bateel_Automation\target\allure-results</allure.results.directory>
+                <allure.results.directory>C:\Users\kashyap.dave\eclipse-workspace\BateelKrish\allure-report-html</allure.results.directory>
 
 
 						<!--suppress UnresolvedMavenProperty -->
@@ -185,7 +185,7 @@
 				<version>2.12.0</version>
 				<configuration>
 					<!-- Specify the directory to generate the Allure report -->
-    <allure.results.directory>D:\a\Bateel_Automation\Bateel_Automation\target\allure-results</allure.results.directory>
+                <resultsDirectory>C:\Users\kashyap.dave\eclipse-workspace\BateelKrish\allure-report-html</resultsDirectory>
 				</configuration>
 				<!-- Bind the Allure Maven plugin to the site phase -->
 				<executions>
