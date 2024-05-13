@@ -180,7 +180,7 @@
 				<artifactId>allure-maven</artifactId>
 				<version>2.12.0</version>
 				<configuration>
-        <resultsDirectory>${project.build.directory}/allure-report-html</resultsDirectory>
+        <resultsDirectory>${project.build.directory}/allure-report-index</resultsDirectory>
     </configuration>
 				<executions>
 					<execution>
