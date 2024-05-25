@@ -70,11 +70,10 @@ public class BateelLoginCheckoutPage {
 
 	public static void clickPlaceOrderButtonWithLogin() throws InterruptedException {
 		UtilitiesCommon.click(BateelLoginCheckoutEnum.BATEEL_LOGIN_PLACEORDER_XPATH);
-		UtilitiesCommon.waitForMilliseconds(6000);
+		UtilitiesCommon.waitForMilliseconds(7000);
 	}
 
 	public static void clickOnContinueShopButton() {
 		UtilitiesCommon.click(BateelLoginCheckoutEnum.BATEEL_LOGIN_CONTINUESHOPPING_CSS);
 	}
 }
-		
