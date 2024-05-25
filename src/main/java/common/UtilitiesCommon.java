@@ -20,6 +20,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -55,6 +56,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -68,6 +70,9 @@ import org.testng.asserts.SoftAssert;
 import org.yaml.snakeyaml.Yaml;
 import com.google.common.collect.Ordering;
 import com.opencsv.CSVReader;
+
+import enums.bateel.BateelLoginCheckoutEnum;
+import enums.bateel.BateelPLPPageEnum;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
 import io.qameta.allure.AllureLifecycle;
@@ -86,7 +91,6 @@ public class UtilitiesCommon {
 	private static final String DEFAULT_TIMEOUT = "30";
 	private static final String USER_DIR_CONSTANT = "user.dir";
 	private static final String ATTRIBUTE_APPLICATION = "ApplicationURL";
-	
 	private static final String JAVASCRIPT_BORDER = "arguments[0].style.border='3px solid green'";
 	private static Logger logger = null;
 	private static Map<String, HashMap<String, String>> testCasesData;
@@ -162,7 +166,6 @@ public class UtilitiesCommon {
 	    wait = new WebDriverWait(driver, waitTimeInSeconds);
 	}
 
-	
 	/**
 	 * This method is used to setup the JavaScript Executor Instance.
 	 * 
@@ -184,7 +187,7 @@ public class UtilitiesCommon {
 	public static void setupLogger() {
         logger = LogManager.getLogger(UtilitiesCommon.class);
 	}
-	/**
+		/**
 	 * This method is used to initialize the object for Actions class
 	 * 
 	 * @author spandit
@@ -193,6 +196,7 @@ public class UtilitiesCommon {
 	public static void setupActionsBuilder() {
 		builder = new Actions(driver);
 	}
+	
 	 public static void clickWithMouseHover(WebElement element) {
 	        Actions actions = new Actions(driver);
 	        actions.moveToElement(element).click().perform();
@@ -230,6 +234,11 @@ public class UtilitiesCommon {
 		return EncryptDecrypt.decryptPassword(encryptedPassword);
 	}
 
+	public static void scrolltillpageend() {
+		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+		js1.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+	}
+	
 	/**
 	 * This method is used to read .yaml files
 	 * 
@@ -280,9 +289,7 @@ public class UtilitiesCommon {
 					"Invalid Environment detail is present in testng xml file or Environments.yaml file : "
 							+ environment);
 		}
-	}
-
-	
+	}	
 	/**
 	 * This method is used to read Test Class Data from TestData.yaml and store it in map
 	 * @param testClass Test Class
@@ -306,8 +313,6 @@ public class UtilitiesCommon {
 			throw new CustomExceptions("Test Data is not present in TestData.yaml for Class : " + className);
 		}
 	}
-	
-
 	/**
 	 * This method is used to read Test Case Data from TestData.yaml and store it in map
 	 * @param result ITestResult
@@ -722,6 +727,7 @@ public class UtilitiesCommon {
 		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(xpathExpression)));
 		return driver.findElements(By.xpath(xpathExpression));
 	}
+	
 	public static void waitForElementIsClickable(Enum<?> enumValue) {
 	    By locator = getLocator(enumValue);
 	    if (locator == null) {
@@ -731,6 +737,7 @@ public class UtilitiesCommon {
 	    WebDriverWait wait = new WebDriverWait(driver, timeoutSeconds);
 	    wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
+	
 	/**
 	 * This method is used to generate the Dynamic Xpath
 	 * @param xpath        XPATH
@@ -757,6 +764,14 @@ public class UtilitiesCommon {
 		executeJS(JAVASCRIPT_BORDER, element);
 		element.click();
 	}
+	public static boolean clickAndVerifyClickable(BateelLoginCheckoutEnum enumValue) {
+        try {
+            click(enumValue);
+            return true;
+        } catch (AssertionError e) {
+            return false;
+        }
+    }
 
 	/**
 	 * This method will perform click operation on the element available on the web
@@ -884,6 +899,15 @@ public class UtilitiesCommon {
 	public static boolean isElementPresent(Enum<?> enumValue) {
 		WebElement element = getElement(enumValue);
 		return element.isDisplayed();
+	}
+	
+	public static boolean isElementPresent(By locator) {
+	    try {
+	        driver.findElement(locator);
+	        return true;
+	    } catch (NoSuchElementException e) {
+	        return false;
+	    }
 	}
 
 	/**
@@ -2059,8 +2083,7 @@ public class UtilitiesCommon {
 	public static void waitForOverlayToDisappear() {
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
-	    try {
-	        
+	    try {  
 	        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.loading-mask")));
 	    } catch (TimeoutException e) {
 	        // Log a message or take appropriate action if the overlay doesn't disappear within the timeout
@@ -2073,4 +2096,60 @@ public class UtilitiesCommon {
 		WebDriverWait wait = new WebDriverWait(driver, 30); // Adjust timeout as needed
         wait.until(ExpectedConditions.invisibilityOfElementLocated(cssSelector));
 	}
+
+	public static String gettitle() {
+			String Pagetitle = driver.getTitle();
+			return Pagetitle;
+		}
+	
+	public static void switchtoTab(int x) {
+		 ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+		    driver.switchTo().window(tabs.get(x));
+	}
+
+	public static void scrollDownByPixels(int pixels) {
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript("window.scrollBy(0, arguments[0]);", pixels);
+	}
+
+	public static String getCurrentUrl() {
+		// TODO Auto-generated method stub
+        return driver.getCurrentUrl();
+	}
+
+	public static String getTextFromElement(BateelPLPPageEnum bateelPlpPageEnumCss) {
+	    WebElement element = UtilitiesCommon.getElement(bateelPlpPageEnumCss);
+	    if (element != null) {
+	        return element.getAttribute("alt");
+	    } else {
+	        return null;
+	    }
+	}
+
+	public static int getCartCount() {
+	    WebElement cartCountElement = driver.findElement(By.cssSelector(".counter-number"));
+	    String cartCountText = cartCountElement.getText().trim();
+
+	    if (cartCountText.isEmpty()) {
+	        System.out.println("Cart count text is empty.");
+	        return 0; 
+	    }
+
+	    int cartCount;
+	    try {
+	        cartCount = Integer.parseInt(cartCountText);
+	    } catch (NumberFormatException e) {
+	        System.out.println("Unable to parse cart count text: " + cartCountText);
+	        return 0; 
+	    }
+
+	    return cartCount;
+	}
+
+	  public static String isElementClickable(Enum<?> enumValue) {
+	        
+	        return "clickable"; // Placeholder value, replace with actual implementation
+	    }
+
+	
 }

@@ -26,7 +26,6 @@ public class BateelGuestCheckoutPage {
 		String state = UtilitiesCommon.getTestData("BateelGuestStateName");
 		String phoneNo = UtilitiesCommon.getTestData("BateelGuestTelephoneName");
 		String trackemail = UtilitiesCommon.getTestData("BateelGuestTrackEmailId");
-
 		UtilitiesCommon.enterValue(BateelCheckoutGuestPageEnum.BATEEL_GUEST_FNAME_ENUM_NAME, firstName);
 		UtilitiesCommon.enterValue(BateelCheckoutGuestPageEnum.BATEEL_GUEST_LNAME_ENUM_NAME, lastName);
 		UtilitiesCommon.enterValue(BateelCheckoutGuestPageEnum.BATEEL_GUEST_STREET_ENUM_NAME, streetAddress);
@@ -36,10 +35,8 @@ public class BateelGuestCheckoutPage {
 		BateelGuestCheckoutPage.selectState(state);
 		UtilitiesCommon.enterValue(BateelCheckoutGuestPageEnum.BATEEL_GUEST_TELEPHONE_ENUM_NAME, phoneNo);
 		UtilitiesCommon.javaScriptWaitAndScroll(BateelCheckoutGuestPageEnum.BATEEL_GUEST_TELEPHONE_ENUM_NAME);
-
 		BateelGuestCheckoutPage.clickAgreeCheckbox();
 		UtilitiesCommon.enterValue(BateelCheckoutGuestPageEnum.BATEEL_GUEST_TRACKEMAIL_ENUM_ID, trackemail);
-
 		BateelGuestCheckoutPage.proccedTOBilling();
 	}
 

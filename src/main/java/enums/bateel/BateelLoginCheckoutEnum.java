@@ -2,7 +2,8 @@ package enums.bateel;
 
 public enum BateelLoginCheckoutEnum {
 
-	BATEEL_EMAIL_ID("customer-email"), BATEEL_PASSWORD_ID("customer-password"),
+	BATEEL_EMAIL_ID("customer-email"),
+	BATEEL_PASSWORD_ID("customer-password"),
 	BATEEL_SIGNIN_BUTTON_CSS("span[data-bind=\"i18n: 'Sign in'\"]"),
 	BATEEL_LOGIN_FNAME_NAME("firstname"), 
 	BATEEL_LOGIN_LNAME_NAME("lastname"),
@@ -19,12 +20,10 @@ public enum BateelLoginCheckoutEnum {
 
 	private final String label;
 
-	// A private constructor that sets the label for each enum constant
 	private BateelLoginCheckoutEnum(String label) {
 		this.label = label;
 	}
 
-	// Override the toString() method to return the label
 	@Override
 	public String toString() {
 		return this.label;
