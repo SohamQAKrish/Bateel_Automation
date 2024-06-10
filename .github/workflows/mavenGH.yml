@@ -27,17 +27,18 @@ jobs:
 
       - name: Run Tests and Generate Allure Report
         run: |
-            mvn clean install
-            mvn allure:report
+          mvn clean install
+          mvn allure:report
+        continue-on-error: true 
 
       - name: Publish Allure Report to GitHub Pages
+        if: always()
         run: |
           allure generate allure-results --clean -o allure-report-html
           touch allure-report-html/.nojekyll
-        continue-on-error: true 
 
       - name: Deploy to GitHub Pages
-        if: success()
+        if: always()
         uses: peaceiris/actions-gh-pages@v3
         with:
             github_token: ${{ secrets.GH_PAT }}
