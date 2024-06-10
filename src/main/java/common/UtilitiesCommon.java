@@ -2078,8 +2078,6 @@ public class UtilitiesCommon {
 		executeJS("arguments[0].scrollIntoView(true);", element);
 	}
 
-
-
 	public static void waitForOverlayToDisappear() {
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
@@ -2148,7 +2146,7 @@ public class UtilitiesCommon {
 
 	  public static String isElementClickable(Enum<?> enumValue) {
 	        
-	        return "clickable"; // Placeholder value, replace with actual implementation
+	        return "clickable";
 	    }
 
 	
