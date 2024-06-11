@@ -19,7 +19,6 @@
     <browser>chrome</browser>
     <defaultTimeout>30</defaultTimeout>
     </properties>
-    <!--Mentioned name and url-->
 
     <name>Bateel QA Automation</name>
     <url>http://www.example.com</url>
