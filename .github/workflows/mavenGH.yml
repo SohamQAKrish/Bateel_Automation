@@ -90,12 +90,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd allure-report
-          git init
-          git config user.email "kashyap.dave@krishtechnolabs.com"
-          git config user.name "KashyapDave95"
-          git checkout -b gh-pages origin/gh-pages  # Checkout the gh-pages branch
-          git add .
-          git commit -m "Update Allure report"
-          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/SohamQAKrish/Bateel_Automation.git
-          git push -f -u origin gh-pages  # Force push to gh-pages branch
+            cd allure-report
+            git config user.email "kashyap.dave@krishtechnolabs.com"
+            git config user.name "KashyapDave95"
+            git checkout -b gh-pages
+            git add .
+            git commit -m "Deploy Allure report to GitHub Pages"
+            git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/SohamQAKrish/Bateel_Automation.git
+            git push -f -u origin gh-pages
