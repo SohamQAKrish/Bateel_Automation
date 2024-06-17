@@ -12,6 +12,16 @@
 					<include name="testBateelShopCategoryNavigation" />
 				</methods>
 			</class>	
+			<class name="sanity.bateel.SanityBateelProduct">
+				<methods>
+					<include name="testBateelclickproduct" />
+				</methods>
+			</class>	
+			<class name="sanity.bateel.SanityBateelProductDetails">
+				<methods>
+					<include name="testBateelproductfilldetails" />
+				</methods>
+			</class>	
 		</classes>
 	</test>
 </suite>
