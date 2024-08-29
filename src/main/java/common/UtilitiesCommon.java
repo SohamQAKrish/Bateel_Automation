@@ -19,6 +19,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -85,7 +86,7 @@ public class UtilitiesCommon {
 	private static final String DEFAULT_TIMEOUT = "30";
 	private static final String USER_DIR_CONSTANT = "user.dir";
 	private static final String ATTRIBUTE_APPLICATION = "ApplicationURL";
-	
+
 	private static final String JAVASCRIPT_BORDER = "arguments[0].style.border='3px solid green'";
 	private static Logger logger = null;
 	private static Map<String, HashMap<String, String>> testCasesData;
@@ -158,10 +159,9 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby kdave
 	 */
 	public static void setupWebdriverWait(int waitTimeInSeconds) {
-	    wait = new WebDriverWait(driver, waitTimeInSeconds);
+		wait = new WebDriverWait(driver, waitTimeInSeconds);
 	}
 
-	
 	/**
 	 * This method is used to setup the JavaScript Executor Instance.
 	 * 
@@ -171,9 +171,11 @@ public class UtilitiesCommon {
 	public static void setupJavaScriptExecutor() {
 		jsExecutor = (JavascriptExecutor) driver;
 	}
-	 static {
-	        setupLogger();
-	    }
+
+	static {
+		setupLogger();
+	}
+
 	/**
 	 * This method will set up the log4j logger
 	 * 
@@ -181,7 +183,7 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby spandit
 	 */
 	public static void setupLogger() {
-        logger = LogManager.getLogger(UtilitiesCommon.class);
+		logger = LogManager.getLogger(UtilitiesCommon.class);
 	}
 
 	/**
@@ -193,11 +195,13 @@ public class UtilitiesCommon {
 	public static void setupActionsBuilder() {
 		builder = new Actions(driver);
 	}
-	 public static void clickWithMouseHover(WebElement element) {
-	        Actions actions = new Actions(driver);
-	        actions.moveToElement(element).click().perform();
-	    }
-	/**	
+
+	public static void clickWithMouseHover(WebElement element) {
+		Actions actions = new Actions(driver);
+		actions.moveToElement(element).click().perform();
+	}
+
+	/**
 	 * This method is used to initialize the object for SoftAssert class
 	 * 
 	 * @author spandit
@@ -283,9 +287,10 @@ public class UtilitiesCommon {
 		}
 	}
 
-	
 	/**
-	 * This method is used to read Test Class Data from TestData.yaml and store it in map
+	 * This method is used to read Test Class Data from TestData.yaml and store it
+	 * in map
+	 * 
 	 * @param testClass Test Class
 	 * @author spandit
 	 * @lastmodifiedby spandit
@@ -307,10 +312,11 @@ public class UtilitiesCommon {
 			throw new CustomExceptions("Test Data is not present in TestData.yaml for Class : " + className);
 		}
 	}
-	
 
 	/**
-	 * This method is used to read Test Case Data from TestData.yaml and store it in map
+	 * This method is used to read Test Case Data from TestData.yaml and store it in
+	 * map
+	 * 
 	 * @param result ITestResult
 	 * @author spandit
 	 * @lastmodifiedby spandit
@@ -335,6 +341,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to set up the web driver using Bonigarcia.
+	 * 
 	 * @param context Context
 	 * @author spandit
 	 * @lastmodifiedby spandit
@@ -353,6 +360,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to add arguments for chrome options
+	 * 
 	 * @author spandit
 	 * @lastmodifiedby spandit
 	 */
@@ -384,8 +392,8 @@ public class UtilitiesCommon {
 							+ File.separator + "resources" + File.separator + "TestData" + File.separator
 							+ "TestDataDownload");
 			chromeOptions.setExperimentalOption("prefs", preferences);
-		  //run test with headless mode for git actions
-			//chromeOptions.addArguments("--headless");
+			// run test with headless mode for git actions
+			// chromeOptions.addArguments("--headless");
 
 			driver = new ChromeDriver(chromeOptions);
 		}
@@ -416,6 +424,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to get the web driver
+	 * 
 	 * @return driver
 	 * @author spandit
 	 * @lastmodifiedby spandit
@@ -426,6 +435,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to get the Javascript Executor
+	 * 
 	 * @return javascript executor
 	 * @author spandit
 	 * @lastmodifiedby spandit
@@ -435,7 +445,10 @@ public class UtilitiesCommon {
 	}
 
 	/**
-	 * This method is used to open browser and initialize webdriver wait, javascript executor, Action builder and then launch the application and starts screen recording.
+	 * This method is used to open browser and initialize webdriver wait, javascript
+	 * executor, Action builder and then launch the application and starts screen
+	 * recording.
+	 * 
 	 * @author spandit
 	 * @lastmodifiedby spandit
 	 */
@@ -448,7 +461,7 @@ public class UtilitiesCommon {
 			driver.manage().window().maximize();
 		}
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		//setupWebdriverWait(60);
+		// setupWebdriverWait(60);
 		setupJavaScriptExecutor();
 		setupActionsBuilder();
 		applicationUrl = UtilitiesCommon.getEnvironmentData(ATTRIBUTE_APPLICATION);
@@ -461,6 +474,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to open url on same browser.
+	 * 
 	 * @author spandit
 	 * @lastmodifiedby spandit
 	 */
@@ -486,17 +500,19 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby kdave
 	 */
 	public static void closeDriver() {
-//		if (driver != null) {
-//			log("Closing Browser");
-//			driver.quit();
-//			driver = null;
-//		} else {
-//			log("Web Driver is NULL and it has not initialized properly");
-//		}
+		if (driver != null) {
+			log("Closing Browser");
+			driver.quit();
+			driver = null;
+		} else {
+			log("Web Driver is NULL and it has not initialized properly");
+		}
 	}
 
 	/**
-	 * This method is used to verify that the attribute is present in Test Case Data map and then returns its value.
+	 * This method is used to verify that the attribute is present in Test Case Data
+	 * map and then returns its value.
+	 * 
 	 * @param attributeKey Attribute Key
 	 * @return attributeValue Attribute Value
 	 * @author spandit
@@ -510,6 +526,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to set the Test Data to map
+	 * 
 	 * @param attributeKey Attribute Key
 	 * @param value        Value
 	 * @author spandit
@@ -520,7 +537,9 @@ public class UtilitiesCommon {
 	}
 
 	/**
-	 * This method is used to verify that the attribute is present Environment Data map and then returns its value.
+	 * This method is used to verify that the attribute is present Environment Data
+	 * map and then returns its value.
+	 * 
 	 * @param attributeKey Attribute Key
 	 * @return attributeValue Attribute Value
 	 * @author spandit
@@ -534,8 +553,9 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to set the Environment Data to map
+	 * 
 	 * @param attributeKey Attribute Key
-	 * @param value Value
+	 * @param value        Value
 	 * @author spandit
 	 * @lastmodifiedby spandit
 	 */
@@ -544,10 +564,12 @@ public class UtilitiesCommon {
 	}
 
 	/**
-	 * This method is used to verify the specified attribute is present in given map.
-	 * @param dataMap Data Map
+	 * This method is used to verify the specified attribute is present in given
+	 * map.
+	 * 
+	 * @param dataMap      Data Map
 	 * @param attributeKey Attribute Key
-	 * @param message Error Message
+	 * @param message      Error Message
 	 * @author spandit
 	 * @lastmodifiedby spandit
 	 */
@@ -559,6 +581,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to navigate to the specified page
+	 * 
 	 * @param pageUrl Page URL
 	 * @author spandit
 	 * @lastmodifiedby spandit
@@ -569,6 +592,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to get the Application Url
+	 * 
 	 * @return applicationUrl
 	 * @author spandit
 	 * @lastmodifiedby spandit
@@ -579,6 +603,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method will return locator of the web element.
+	 * 
 	 * @param enumValue Enum Value
 	 * @author spandit
 	 * @lastmodifiedby spandit
@@ -621,54 +646,58 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method will return web element available on the web page.
+	 * 
 	 * @param enumValue Enum Value
 	 * @return webElement
 	 * @author spandit
 	 * @lastmodifiedby spandit
 	 */
 	public static WebElement getElement(Enum<?> enumValue) {
-	    By locator = getLocator(enumValue);
-	    if (locator == null) {
-	        throw new IllegalArgumentException("Locator is null for enum value: " + enumValue);
-	    }
-	    waitForElementIsVisible(locator);
-	    return driver.findElement(locator);
+		By locator = getLocator(enumValue);
+		if (locator == null) {
+			throw new IllegalArgumentException("Locator is null for enum value: " + enumValue);
+		}
+		waitForElementIsVisible(locator);
+		return driver.findElement(locator);
 	}
 
 	/**
 	 * This method will return list of web elements available on the web page.
+	 * 
 	 * @param enumValue Enum Value
 	 * @return WebElementList
 	 * @author spandit
 	 * @lastmodifiedby spandit
 	 */
 	public static List<WebElement> getElements(Enum<?> enumValue) {
-	    By locator = getLocator(enumValue);
-	    if (locator == null) {
-	        throw new IllegalArgumentException("Locator is null for enum value: " + enumValue);
-	    }
-	    return driver.findElements(locator);
+		By locator = getLocator(enumValue);
+		if (locator == null) {
+			throw new IllegalArgumentException("Locator is null for enum value: " + enumValue);
+		}
+		return driver.findElements(locator);
 	}
 
 	/**
 	 * This method will return web element text
+	 * 
 	 * @param enumValue Enum Value
 	 * @return ElementText
 	 * @author spandit
 	 * @lastmodifiedby spandit
 	 */
 	public static String getElementText(Enum<?> enumValue) {
-	    try {
-	        WebElement element = getElement(enumValue);
-	        return element.getText();
-	    } catch (NoSuchElementException e) {
-	        System.out.println("Element not found for enum value: " + enumValue);
-	        return null; // or you can return an empty string or handle it as per your requirement
-	    }
+		try {
+			WebElement element = getElement(enumValue);
+			return element.getText();
+		} catch (NoSuchElementException e) {
+			System.out.println("Element not found for enum value: " + enumValue);
+			return null; // or you can return an empty string or handle it as per your requirement
+		}
 	}
 
 	/**
 	 * This method will return web elements text
+	 * 
 	 * @param elementList Element List
 	 * @return ElementTextList
 	 * @author spandit
@@ -684,7 +713,8 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method will return specified web element attribute value.
-	 * @param enumValue Enum Value
+	 * 
+	 * @param enumValue     Enum Value
 	 * @param attributeName Attribute Name
 	 * @return Attribute Value
 	 * @author spandit
@@ -698,6 +728,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method will return web element dynamically using specified dynamicValue.
+	 * 
 	 * @param enumValue    Enum Value
 	 * @param dynamicValue Dynamic Value
 	 * @return webElement
@@ -711,7 +742,9 @@ public class UtilitiesCommon {
 	}
 
 	/**
-	 * This method will return List of web elements dynamically using specified dynamicValue.
+	 * This method will return List of web elements dynamically using specified
+	 * dynamicValue.
+	 * 
 	 * @param enumValue    Enum Value
 	 * @param dynamicValue Dynamic Value
 	 * @return webElementList
@@ -726,6 +759,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to generate the Dynamic Xpath
+	 * 
 	 * @param xpath        XPATH
 	 * @param dynamicValue Dynamic Value
 	 * @return String xpathExpression
@@ -901,9 +935,10 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby spandit
 	 */
 	public static void javaScriptClick(Enum<?> enumValue) {
-	    WebElement element = getElement(enumValue);
-	    executeJS("arguments[0].click();", element);
+		WebElement element = getElement(enumValue);
+		executeJS("arguments[0].click();", element);
 	}
+
 	/**
 	 * This method will enter the specified value in the text field using javascript
 	 * executor.
@@ -1993,6 +2028,18 @@ public class UtilitiesCommon {
 	}
 
 	/**
+	 * This method will scroll down till bottom of the page
+	 * 
+	 * @author rammohan
+	 * @lastmodifiedby rammohan
+	 */
+
+	public static void scrolltillpageend() {
+		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+		js1.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+	}
+
+	/**
 	 * This method will compare and assert the actual text contains expected text
 	 * 
 	 * @param enumValue    Enum Value
@@ -2036,5 +2083,35 @@ public class UtilitiesCommon {
 		By locator = getLocator(enumValue);
 		WebElement element = driver.findElement(locator);
 		executeJS("arguments[0].scrollIntoView(true);", element);
+	}
+
+	/**
+	 * This method is to return the page title
+	 * @author rammohan
+	 * @lastmodifiedby rammohan
+	 */
+	public static String gettitle() {
+		String Pagetitle = driver.getTitle();
+		return Pagetitle;
+	}
+
+	/**
+	 * This method is to zoomout the chromebrowser
+	 * @author rammohan
+	 * @lastmodifiedby rammohan
+	 */
+	public static void browserzoomout() {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		String chromezoomoout = "document.body.style.zoom = '80%'";
+		js.executeScript(chromezoomoout);
+	}
+	/**
+	 * This method is to switch the tabs
+	 * @author rammohan
+	 * @lastmodifiedby rammohan
+	 */
+	public static void switchtoTab(int x) {
+		 ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+		    driver.switchTo().window(tabs.get(x));
 	}
 }

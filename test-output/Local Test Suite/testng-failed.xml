@@ -4,13 +4,13 @@
   <test thread-count="5" name="Local Tests(failed)">
     <parameter name="environment" value="${environment}"/>
     <parameter name="defaultTimeout" value="${defaultTimeout}"/>
-    <parameter name="browser" value="${browser}"/>
+    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="sanity.bateel.SanityBateelProductDetails">
+      <class name="sanity.bateel.SanityBateelMainNavigationmenu">
         <methods>
-          <include name="testBateelproductfilldetails"/>
+          <include name="mainmenu"/>
         </methods>
-      </class> <!-- sanity.bateel.SanityBateelProductDetails -->
+      </class> <!-- sanity.bateel.SanityBateelMainNavigationmenu -->
     </classes>
   </test> <!-- Local Tests(failed) -->
 </suite> <!-- Failed suite [Local Test Suite] -->

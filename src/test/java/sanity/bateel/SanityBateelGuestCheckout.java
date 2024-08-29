@@ -37,6 +37,7 @@ public class SanityBateelGuestCheckout {
 		BateelCartPage.addToCart();
 		UtilitiesCommon.setupWebdriverWait(60);
 
+		
 		BateelGuestCheckoutPage.clickGuestCheckoutButton();
 
 		String firstName = UtilitiesCommon.getTestData("BateelGuestFname");

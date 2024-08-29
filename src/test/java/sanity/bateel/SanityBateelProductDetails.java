@@ -37,6 +37,5 @@ public class SanityBateelProductDetails {
 		BateelPLPPage.clickProduct();
 		BateelPDPPage.fillProductDetails();
 		
-		
 }
 }
