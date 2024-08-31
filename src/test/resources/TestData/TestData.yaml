@@ -1,5 +1,7 @@
 SanityBateelLogincheckout:
  - testBateeladdtocartitemloginuser:
+SanityLoginAndNavigationTest:
+ - testWorkOrdersPageHeaderTitle:
     WorkOrderHeader: "Work Order Management"
  - testAssetPageHeaderTitle:
     AssetHeader: "Asset Management"
@@ -46,6 +48,12 @@ SanityBateelLogincheckout:
       BateelGuestStateName: "Delhi"     
       BateelGuestTelephoneName: "0000000000" 
       BateelGuestTrackEmailId: "kashyap.dave@krishtechnolabs.com"
+SanityAssetTest:
+ - testCreateAssetForm:
+    SiteData: "Entity A"
+    CategoryData: "BUILDING MAINTENANCE"
+    SubCategoryData: "ALARM SYSTEM"
+    AssetRecordConfirmation: "New asset created successfully"
 SanityPurchaseOrdersTest:
  - testCreateNewPurchaseOrder:
     PurchaseOrderToastMessage: "New purchase order created successfully!"
@@ -96,3 +104,27 @@ SanityBateelLoginAndNavigationTest:
 SanityBateelMainNavigationmenu:
   - testBateelmainmenu:
       Pagetitle: "Header"    
+
+SanityBateelMainNavigationmenu:
+- mainmenu:
+   Pagetitle: "Header"
+
+SanityBateelFootersection:
+- Footercmslinks:
+   Pagetitle: "Footer"
+- Footerlogo:
+   pagetitle: "footer"
+- Footersocialmediainstagram:
+   Pagetitle: "footer"
+- FootersocialmediaFacebook:
+   Pagetitle: "footer"
+- FootersocialmediaTwitter:
+   Pagetitle: "footer"
+- FootersocialmediaLinkedin:
+   Pagetitle: "footer"
+- FootersocialmediaYoutube:
+   Pagetitle: "footer"
+- FooterTermsandconditionslink:
+   Pagetitle: "footer"
+- FooterPrivacypolicylink:
+   Pagetitle: "footer"
