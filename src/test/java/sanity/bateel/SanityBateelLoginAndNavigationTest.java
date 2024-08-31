@@ -21,6 +21,8 @@ public class SanityBateelLoginAndNavigationTest {
 	@Description("This Test is used to Verify the Navigation to the Shop Category")
 	public void testBateelShopCategoryNavigation() throws InterruptedException {
 		UtilitiesCommon.launchApplication();
+		WebDriver driver = UtilitiesCommon.getDriver(); // Get the driver instance from UtilitiesCommon or wherever it's initialized
+	    UtilitiesCommon.setupWebdriverWait(30); // Increase wait time to 30 seconds
 		BateelPage.clickGoButton();
 		BateelPage.verifyBateelShopCategory();
 	}

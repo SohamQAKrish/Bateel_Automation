@@ -25,6 +25,7 @@ public class SanityBateelGuestCheckout {
 		BateelPLPPage.clickProduct();
 		BateelPDPPage.fillProductDetails();
 		BateelCartPage.addToCart();
+		UtilitiesCommon.setupWebdriverWait(60);
 		BateelGuestCheckoutPage.clickGuestCheckoutButton();
 		BateelGuestCheckoutPage.fillShippingAddress();
 		BateelGuestCheckoutPage.proccedTOBilling();

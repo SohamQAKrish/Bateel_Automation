@@ -22,5 +22,6 @@ public class SanityBateelProductDetails {
 		BateelPage.verifyBateelShopCategory();
 		BateelPLPPage.clickProduct();
 		BateelPDPPage.fillProductDetails();
-	}
+	}		
+}
 }
