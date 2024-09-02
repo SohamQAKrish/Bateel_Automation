@@ -107,6 +107,8 @@ public class UtilitiesCommon {
 	private static String browser;
 	public static WebDriverWait wait;
 	public static JavascriptExecutor jsExecutor;
+	private static WebDriverWait wait;
+	private static JavascriptExecutor jsExecutor;
 	private static Actions builder;
 	private static Robot robot;
 	private static SoftAssert softAssert;
@@ -162,7 +164,10 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby kdave
 	 */
 	public static void setupWebdriverWait(int waitTimeInSeconds) {
-		wait = new WebDriverWait(driver, waitTimeInSeconds);
+	    wait = new WebDriverWait(driver, waitTimeInSeconds);
+	}
+
+			wait = new WebDriverWait(driver, waitTimeInSeconds);
 	}
 
 	/**
@@ -174,6 +179,9 @@ public class UtilitiesCommon {
 	public static void setupJavaScriptExecutor() {
 		jsExecutor = (JavascriptExecutor) driver;
 	}
+	 static {
+	        setupLogger();
+	    }
 
 	static {
 		setupLogger();
@@ -186,6 +194,8 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby spandit
 	 */
 	public static void setupLogger() {
+        logger = LogManager.getLogger(UtilitiesCommon.class);
+	}
 		logger = LogManager.getLogger(UtilitiesCommon.class);
 	}
 		/**
@@ -202,6 +212,8 @@ public class UtilitiesCommon {
 	        Actions actions = new Actions(driver);
 	        actions.moveToElement(element).click().perform();
 	    }
+=======
+	/**	
 
 	public static void clickWithMouseHover(WebElement element) {
 		Actions actions = new Actions(driver);
@@ -295,6 +307,10 @@ public class UtilitiesCommon {
 					"Invalid Environment detail is present in testng xml file or Environments.yaml file : "
 							+ environment);
 		}
+	}
+	
+	/**
+	 * This method is used to read Test Class Data from TestData.yaml and store it in map
 	/**
 	 * This method is used to read Test Class Data from TestData.yaml and store it
 	 * in map
@@ -320,6 +336,10 @@ public class UtilitiesCommon {
 			throw new CustomExceptions("Test Data is not present in TestData.yaml for Class : " + className);
 		}
 	}
+	
+
+	/**
+	 * This method is used to read Test Case Data from TestData.yaml and store it in map
 
 	/**
 	 * This method is used to read Test Case Data from TestData.yaml and store it in
@@ -400,6 +420,8 @@ public class UtilitiesCommon {
 							+ File.separator + "resources" + File.separator + "TestData" + File.separator
 							+ "TestDataDownload");
 			chromeOptions.setExperimentalOption("prefs", preferences);
+		  //run test with headless mode for git actions
+			//chromeOptions.addArguments("--headless");
 			// run test with headless mode for git actions
 			// chromeOptions.addArguments("--headless");
 
@@ -469,6 +491,7 @@ public class UtilitiesCommon {
 			driver.manage().window().maximize();
 		}
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//setupWebdriverWait(60);
 		// setupWebdriverWait(60);
 		setupJavaScriptExecutor();
 		setupActionsBuilder();
@@ -508,6 +531,17 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby kdave
 	 */
 	public static void closeDriver() {
+//		if (driver != null) {
+//			log("Closing Browser");
+//			driver.quit();
+//			driver = null;
+//		} else {
+//			log("Web Driver is NULL and it has not initialized properly");
+//		}
+	}
+
+	/**
+	 * This method is used to verify that the attribute is present in Test Case Data map and then returns its value.
 		if (driver != null) {
 			log("Closing Browser");
 			driver.quit();
@@ -534,7 +568,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to set the Test Data to map
-	 * 
+
 	 * @param attributeKey Attribute Key
 	 * @param value        Value
 	 * @author spandit
@@ -545,9 +579,7 @@ public class UtilitiesCommon {
 	}
 
 	/**
-	 * This method is used to verify that the attribute is present Environment Data
-	 * map and then returns its value.
-	 * 
+	 * This method is used to verify that the attribute is present Environment Data map and then returns its value.
 	 * @param attributeKey Attribute Key
 	 * @return attributeValue Attribute Value
 	 * @author spandit
@@ -561,6 +593,8 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to set the Environment Data to map
+	 * @param attributeKey Attribute Key
+	 * @param value Value
 	 * 
 	 * @param attributeKey Attribute Key
 	 * @param value        Value
@@ -572,9 +606,12 @@ public class UtilitiesCommon {
 	}
 
 	/**
+	 * This method is used to verify the specified attribute is present in given map.
+	 * @param dataMap Data Map
+	 * @param attributeKey Attribute Key
+	 * @param message Error Message
 	 * This method is used to verify the specified attribute is present in given
 	 * map.
-	 * 
 	 * @param dataMap      Data Map
 	 * @param attributeKey Attribute Key
 	 * @param message      Error Message
@@ -661,6 +698,12 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby spandit
 	 */
 	public static WebElement getElement(Enum<?> enumValue) {
+	    By locator = getLocator(enumValue);
+	    if (locator == null) {
+	        throw new IllegalArgumentException("Locator is null for enum value: " + enumValue);
+	    }
+	    waitForElementIsVisible(locator);
+	    return driver.findElement(locator);
 		By locator = getLocator(enumValue);
 		if (locator == null) {
 			throw new IllegalArgumentException("Locator is null for enum value: " + enumValue);
@@ -678,6 +721,11 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby spandit
 	 */
 	public static List<WebElement> getElements(Enum<?> enumValue) {
+	    By locator = getLocator(enumValue);
+	    if (locator == null) {
+	        throw new IllegalArgumentException("Locator is null for enum value: " + enumValue);
+	    }
+	    return driver.findElements(locator);
 		By locator = getLocator(enumValue);
 		if (locator == null) {
 			throw new IllegalArgumentException("Locator is null for enum value: " + enumValue);
@@ -694,6 +742,13 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby spandit
 	 */
 	public static String getElementText(Enum<?> enumValue) {
+	    try {
+	        WebElement element = getElement(enumValue);
+	        return element.getText();
+	    } catch (NoSuchElementException e) {
+	        System.out.println("Element not found for enum value: " + enumValue);
+	        return null; // or you can return an empty string or handle it as per your requirement
+	    }
 		try {
 			WebElement element = getElement(enumValue);
 			return element.getText();
@@ -705,6 +760,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method will return web elements text
+
 	 * 
 	 * @param elementList Element List
 	 * @return ElementTextList
@@ -721,6 +777,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method will return specified web element attribute value.
+	 * @param enumValue Enum Value
 	 * 
 	 * @param enumValue     Enum Value
 	 * @param attributeName Attribute Name
@@ -736,7 +793,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method will return web element dynamically using specified dynamicValue.
-	 * 
+
 	 * @param enumValue    Enum Value
 	 * @param dynamicValue Dynamic Value
 	 * @return webElement
@@ -750,6 +807,7 @@ public class UtilitiesCommon {
 	}
 
 	/**
+	 * This method will return List of web elements dynamically using specified dynamicValue.
 	 * This method will return List of web elements dynamically using specified
 	 * dynamicValue.
 	 * 
@@ -777,7 +835,6 @@ public class UtilitiesCommon {
 	
 	/**
 	 * This method is used to generate the Dynamic Xpath
-	 * 
 	 * @param xpath        XPATH
 	 * @param dynamicValue Dynamic Value
 	 * @return String xpathExpression
@@ -970,6 +1027,9 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby spandit
 	 */
 	public static void javaScriptClick(Enum<?> enumValue) {
+	    WebElement element = getElement(enumValue);
+	    executeJS("arguments[0].click();", element);
+	}
 		WebElement element = getElement(enumValue);
 		executeJS("arguments[0].click();", element);
 	}
@@ -2150,8 +2210,7 @@ public class UtilitiesCommon {
 			String Pagetitle = driver.getTitle();
 			return Pagetitle;
 		}
-	
-	/**
+		/**
 	 * This method is to return the page title
 	 * @author rammohan
 	 * @lastmodifiedby rammohan
@@ -2176,7 +2235,6 @@ public class UtilitiesCommon {
 	 * @author rammohan
 	 * @lastmodifiedby rammohan
 	 */
->>>>>>> origin
 	public static void switchtoTab(int x) {
 		 ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
 		    driver.switchTo().window(tabs.get(x));
