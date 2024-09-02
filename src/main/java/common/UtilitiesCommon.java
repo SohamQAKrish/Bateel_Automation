@@ -212,7 +212,6 @@ public class UtilitiesCommon {
 	        Actions actions = new Actions(driver);
 	        actions.moveToElement(element).click().perform();
 	    }
-=======
 	/**	
 
 	public static void clickWithMouseHover(WebElement element) {
