@@ -19,6 +19,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -86,7 +87,6 @@ public class UtilitiesCommon {
 	private static final String DEFAULT_TIMEOUT = "30";
 	private static final String USER_DIR_CONSTANT = "user.dir";
 	private static final String ATTRIBUTE_APPLICATION = "ApplicationURL";
-
 	private static final String JAVASCRIPT_BORDER = "arguments[0].style.border='3px solid green'";
 	private static Logger logger = null;
 	private static Map<String, HashMap<String, String>> testCasesData;
@@ -102,6 +102,8 @@ public class UtilitiesCommon {
 	private static String defaultTimeout;
 	private static ChromeOptions chromeOptions;
 	private static String browser;
+	public static WebDriverWait wait;
+	public static JavascriptExecutor jsExecutor;
 	private static WebDriverWait wait;
 	private static JavascriptExecutor jsExecutor;
 	private static Actions builder;
@@ -159,7 +161,10 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby kdave
 	 */
 	public static void setupWebdriverWait(int waitTimeInSeconds) {
-		wait = new WebDriverWait(driver, waitTimeInSeconds);
+	    wait = new WebDriverWait(driver, waitTimeInSeconds);
+	}
+
+			wait = new WebDriverWait(driver, waitTimeInSeconds);
 	}
 
 	/**
@@ -171,6 +176,9 @@ public class UtilitiesCommon {
 	public static void setupJavaScriptExecutor() {
 		jsExecutor = (JavascriptExecutor) driver;
 	}
+	 static {
+	        setupLogger();
+	    }
 
 	static {
 		setupLogger();
@@ -183,6 +191,9 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby spandit
 	 */
 	public static void setupLogger() {
+        logger = LogManager.getLogger(UtilitiesCommon.class);
+	}
+=======
 		logger = LogManager.getLogger(UtilitiesCommon.class);
 	}
 
@@ -195,6 +206,12 @@ public class UtilitiesCommon {
 	public static void setupActionsBuilder() {
 		builder = new Actions(driver);
 	}
+	
+	 public static void clickWithMouseHover(WebElement element) {
+	        Actions actions = new Actions(driver);
+	        actions.moveToElement(element).click().perform();
+	    }
+	/**	
 
 	public static void clickWithMouseHover(WebElement element) {
 		Actions actions = new Actions(driver);
@@ -286,7 +303,9 @@ public class UtilitiesCommon {
 							+ environment);
 		}
 	}
-
+	
+	/**
+	 * This method is used to read Test Class Data from TestData.yaml and store it in map
 	/**
 	 * This method is used to read Test Class Data from TestData.yaml and store it
 	 * in map
@@ -312,6 +331,10 @@ public class UtilitiesCommon {
 			throw new CustomExceptions("Test Data is not present in TestData.yaml for Class : " + className);
 		}
 	}
+	
+
+	/**
+	 * This method is used to read Test Case Data from TestData.yaml and store it in map
 
 	/**
 	 * This method is used to read Test Case Data from TestData.yaml and store it in
@@ -392,6 +415,8 @@ public class UtilitiesCommon {
 							+ File.separator + "resources" + File.separator + "TestData" + File.separator
 							+ "TestDataDownload");
 			chromeOptions.setExperimentalOption("prefs", preferences);
+		  //run test with headless mode for git actions
+			//chromeOptions.addArguments("--headless");
 			// run test with headless mode for git actions
 			// chromeOptions.addArguments("--headless");
 
@@ -461,6 +486,7 @@ public class UtilitiesCommon {
 			driver.manage().window().maximize();
 		}
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//setupWebdriverWait(60);
 		// setupWebdriverWait(60);
 		setupJavaScriptExecutor();
 		setupActionsBuilder();
@@ -500,6 +526,17 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby kdave
 	 */
 	public static void closeDriver() {
+//		if (driver != null) {
+//			log("Closing Browser");
+//			driver.quit();
+//			driver = null;
+//		} else {
+//			log("Web Driver is NULL and it has not initialized properly");
+//		}
+	}
+
+	/**
+	 * This method is used to verify that the attribute is present in Test Case Data map and then returns its value.
 		if (driver != null) {
 			log("Closing Browser");
 			driver.quit();
@@ -526,7 +563,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to set the Test Data to map
-	 * 
+
 	 * @param attributeKey Attribute Key
 	 * @param value        Value
 	 * @author spandit
@@ -537,9 +574,7 @@ public class UtilitiesCommon {
 	}
 
 	/**
-	 * This method is used to verify that the attribute is present Environment Data
-	 * map and then returns its value.
-	 * 
+	 * This method is used to verify that the attribute is present Environment Data map and then returns its value.
 	 * @param attributeKey Attribute Key
 	 * @return attributeValue Attribute Value
 	 * @author spandit
@@ -553,6 +588,8 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to set the Environment Data to map
+	 * @param attributeKey Attribute Key
+	 * @param value Value
 	 * 
 	 * @param attributeKey Attribute Key
 	 * @param value        Value
@@ -564,9 +601,12 @@ public class UtilitiesCommon {
 	}
 
 	/**
+	 * This method is used to verify the specified attribute is present in given map.
+	 * @param dataMap Data Map
+	 * @param attributeKey Attribute Key
+	 * @param message Error Message
 	 * This method is used to verify the specified attribute is present in given
 	 * map.
-	 * 
 	 * @param dataMap      Data Map
 	 * @param attributeKey Attribute Key
 	 * @param message      Error Message
@@ -653,6 +693,12 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby spandit
 	 */
 	public static WebElement getElement(Enum<?> enumValue) {
+	    By locator = getLocator(enumValue);
+	    if (locator == null) {
+	        throw new IllegalArgumentException("Locator is null for enum value: " + enumValue);
+	    }
+	    waitForElementIsVisible(locator);
+	    return driver.findElement(locator);
 		By locator = getLocator(enumValue);
 		if (locator == null) {
 			throw new IllegalArgumentException("Locator is null for enum value: " + enumValue);
@@ -670,6 +716,11 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby spandit
 	 */
 	public static List<WebElement> getElements(Enum<?> enumValue) {
+	    By locator = getLocator(enumValue);
+	    if (locator == null) {
+	        throw new IllegalArgumentException("Locator is null for enum value: " + enumValue);
+	    }
+	    return driver.findElements(locator);
 		By locator = getLocator(enumValue);
 		if (locator == null) {
 			throw new IllegalArgumentException("Locator is null for enum value: " + enumValue);
@@ -686,6 +737,13 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby spandit
 	 */
 	public static String getElementText(Enum<?> enumValue) {
+	    try {
+	        WebElement element = getElement(enumValue);
+	        return element.getText();
+	    } catch (NoSuchElementException e) {
+	        System.out.println("Element not found for enum value: " + enumValue);
+	        return null; // or you can return an empty string or handle it as per your requirement
+	    }
 		try {
 			WebElement element = getElement(enumValue);
 			return element.getText();
@@ -697,6 +755,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method will return web elements text
+
 	 * 
 	 * @param elementList Element List
 	 * @return ElementTextList
@@ -713,6 +772,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method will return specified web element attribute value.
+	 * @param enumValue Enum Value
 	 * 
 	 * @param enumValue     Enum Value
 	 * @param attributeName Attribute Name
@@ -728,7 +788,7 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method will return web element dynamically using specified dynamicValue.
-	 * 
+
 	 * @param enumValue    Enum Value
 	 * @param dynamicValue Dynamic Value
 	 * @return webElement
@@ -742,6 +802,7 @@ public class UtilitiesCommon {
 	}
 
 	/**
+	 * This method will return List of web elements dynamically using specified dynamicValue.
 	 * This method will return List of web elements dynamically using specified
 	 * dynamicValue.
 	 * 
@@ -756,10 +817,19 @@ public class UtilitiesCommon {
 		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(xpathExpression)));
 		return driver.findElements(By.xpath(xpathExpression));
 	}
-
+	
+	public static void waitForElementIsClickable(Enum<?> enumValue) {
+	    By locator = getLocator(enumValue);
+	    if (locator == null) {
+	        throw new IllegalArgumentException("Locator is null for enum value: " + enumValue);
+	    }
+	    long timeoutSeconds = Long.parseLong(DEFAULT_TIMEOUT);
+	    WebDriverWait wait = new WebDriverWait(driver, timeoutSeconds);
+	    wait.until(ExpectedConditions.elementToBeClickable(locator));
+	}
+	
 	/**
 	 * This method is used to generate the Dynamic Xpath
-	 * 
 	 * @param xpath        XPATH
 	 * @param dynamicValue Dynamic Value
 	 * @return String xpathExpression
@@ -935,6 +1005,9 @@ public class UtilitiesCommon {
 	 * @lastmodifiedby spandit
 	 */
 	public static void javaScriptClick(Enum<?> enumValue) {
+	    WebElement element = getElement(enumValue);
+	    executeJS("arguments[0].click();", element);
+	}
 		WebElement element = getElement(enumValue);
 		executeJS("arguments[0].click();", element);
 	}
@@ -1190,6 +1263,16 @@ public class UtilitiesCommon {
 			isElementVisible = false;
 		}
 		return isElementVisible;
+	}
+	public static boolean waitForElementIsNotVisible(By locator) {
+	    boolean isElementNotVisible;
+	    try {
+	        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+	        isElementNotVisible = true;
+	    } catch (TimeoutException exception) {
+	        isElementNotVisible = false;
+	    }
+	    return isElementNotVisible;
 	}
 
 	/**
@@ -2085,6 +2168,21 @@ public class UtilitiesCommon {
 		executeJS("arguments[0].scrollIntoView(true);", element);
 	}
 
+	public static void waitForOverlayToDisappear() {
+
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+	    try {  
+	        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.loading-mask")));
+	    } catch (TimeoutException e) {
+	        // Log a message or take appropriate action if the overlay doesn't disappear within the timeout
+	        System.out.println("Overlay did not disappear within the timeout.");
+	    }
+	}
+
+	public static void waitForElementToDisappear(By cssSelector) {
+		// TODO Auto-generated method stub
+		WebDriverWait wait = new WebDriverWait(driver, 30); // Adjust timeout as needed
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(cssSelector));
 	/**
 	 * This method is to return the page title
 	 * @author rammohan
