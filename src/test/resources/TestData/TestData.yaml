@@ -40,6 +40,7 @@ SanityLoginAndNavigationTest:
 SanityBateelLogincheckout:
  - testBateeladdtocartitemloginuser:
       BateelGuestFname: "KD"  
+      BateelGuestLname: "Test"   
       BateelGuestLname: "Testing"   
       BateelGuestStreetname: "123, Main Street" 
       BateelGuestCityxpath: "New Delhi"   

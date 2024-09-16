@@ -56,6 +56,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -69,6 +70,8 @@ import org.testng.asserts.SoftAssert;
 import org.yaml.snakeyaml.Yaml;
 import com.google.common.collect.Ordering;
 import com.opencsv.CSVReader;
+import enums.bateel.BateelLoginCheckoutEnum;
+import enums.bateel.BateelPLPPageEnum;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
 import io.qameta.allure.AllureLifecycle;
@@ -193,11 +196,9 @@ public class UtilitiesCommon {
 	public static void setupLogger() {
         logger = LogManager.getLogger(UtilitiesCommon.class);
 	}
-=======
 		logger = LogManager.getLogger(UtilitiesCommon.class);
 	}
-
-	/**
+		/**
 	 * This method is used to initialize the object for Actions class
 	 * 
 	 * @author spandit
@@ -218,7 +219,6 @@ public class UtilitiesCommon {
 		actions.moveToElement(element).click().perform();
 	}
 
-	/**
 	 * This method is used to initialize the object for SoftAssert class
 	 * 
 	 * @author spandit
@@ -227,7 +227,6 @@ public class UtilitiesCommon {
 	public static void setupSoftAssert() {
 		softAssert = new SoftAssert();
 	}
-
 	/**
 	 * This method will log the message in console as well as in allure report.
 	 * 
@@ -252,6 +251,11 @@ public class UtilitiesCommon {
 		return EncryptDecrypt.decryptPassword(encryptedPassword);
 	}
 
+	public static void scrolltillpageend() {
+		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+		js1.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+	}
+	
 	/**
 	 * This method is used to read .yaml files
 	 * 
@@ -854,6 +858,14 @@ public class UtilitiesCommon {
 		executeJS(JAVASCRIPT_BORDER, element);
 		element.click();
 	}
+	public static boolean clickAndVerifyClickable(BateelLoginCheckoutEnum enumValue) {
+        try {
+            click(enumValue);
+            return true;
+        } catch (AssertionError e) {
+            return false;
+        }
+    }
 
 	/**
 	 * This method will perform click operation on the element available on the web
@@ -981,6 +993,15 @@ public class UtilitiesCommon {
 	public static boolean isElementPresent(Enum<?> enumValue) {
 		WebElement element = getElement(enumValue);
 		return element.isDisplayed();
+	}
+	
+	public static boolean isElementPresent(By locator) {
+	    try {
+	        driver.findElement(locator);
+	        return true;
+	    } catch (NoSuchElementException e) {
+	        return false;
+	    }
 	}
 
 	/**
@@ -1274,7 +1295,6 @@ public class UtilitiesCommon {
 	    }
 	    return isElementNotVisible;
 	}
-
 	/**
 	 * This method will check if the dynamically generated element is displayed.
 	 * 
@@ -2183,7 +2203,13 @@ public class UtilitiesCommon {
 		// TODO Auto-generated method stub
 		WebDriverWait wait = new WebDriverWait(driver, 30); // Adjust timeout as needed
         wait.until(ExpectedConditions.invisibilityOfElementLocated(cssSelector));
-	/**
+	}
+
+	public static String gettitle() {
+			String Pagetitle = driver.getTitle();
+			return Pagetitle;
+		}
+		/**
 	 * This method is to return the page title
 	 * @author rammohan
 	 * @lastmodifiedby rammohan
@@ -2212,4 +2238,51 @@ public class UtilitiesCommon {
 		 ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
 		    driver.switchTo().window(tabs.get(x));
 	}
+
+	public static void scrollDownByPixels(int pixels) {
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript("window.scrollBy(0, arguments[0]);", pixels);
+	}
+
+	public static String getCurrentUrl() {
+		// TODO Auto-generated method stub
+        return driver.getCurrentUrl();
+	}
+
+	public static String getTextFromElement(BateelPLPPageEnum bateelPlpPageEnumCss) {
+	    WebElement element = UtilitiesCommon.getElement(bateelPlpPageEnumCss);
+	    if (element != null) {
+	        return element.getAttribute("alt");
+	    } else {
+	        return null;
+	    }
+	}
+
+	public static int getCartCount() {
+	    WebElement cartCountElement = driver.findElement(By.cssSelector(".counter-number"));
+	    String cartCountText = cartCountElement.getText().trim();
+
+	    if (cartCountText.isEmpty()) {
+	        System.out.println("Cart count text is empty.");
+	        return 0; 
+	    }
+
+	    int cartCount;
+	    try {
+	        cartCount = Integer.parseInt(cartCountText);
+	    } catch (NumberFormatException e) {
+	        System.out.println("Unable to parse cart count text: " + cartCountText);
+	        return 0; 
+	    }
+
+	    return cartCount;
+	}
+
+	  public static String isElementClickable(Enum<?> enumValue) {
+	        
+	        return "clickable";
+	    }
+
+	
 }
+

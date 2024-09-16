@@ -17,7 +17,7 @@
 				<methods>
 					<include name="mainmenu" />
 				</methods>
-			</class>		
+			</class>	
 		</classes>
 	</test>
 </suite>
