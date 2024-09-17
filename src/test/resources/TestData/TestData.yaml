@@ -1,5 +1,7 @@
 SanityBateelLogincheckout:
  - testBateeladdtocartitemloginuser:
+SanityLoginAndNavigationTest:
+ - testWorkOrdersPageHeaderTitle:
     WorkOrderHeader: "Work Order Management"
  - testAssetPageHeaderTitle:
     AssetHeader: "Asset Management"
@@ -39,6 +41,7 @@ SanityBateelLogincheckout:
  - testBateeladdtocartitemloginuser:
       BateelGuestFname: "KD"  
       BateelGuestLname: "Test"   
+      BateelGuestLname: "Testing"   
       BateelGuestStreetname: "123, Main Street" 
       BateelGuestCityxpath: "New Delhi"   
       BateelGuestCountryName: "India"  
@@ -46,6 +49,12 @@ SanityBateelLogincheckout:
       BateelGuestStateName: "Delhi"     
       BateelGuestTelephoneName: "0000000000" 
       BateelGuestTrackEmailId: "kashyap.dave@krishtechnolabs.com"
+SanityAssetTest:
+ - testCreateAssetForm:
+    SiteData: "Entity A"
+    CategoryData: "BUILDING MAINTENANCE"
+    SubCategoryData: "ALARM SYSTEM"
+    AssetRecordConfirmation: "New asset created successfully"
 SanityPurchaseOrdersTest:
  - testCreateNewPurchaseOrder:
     PurchaseOrderToastMessage: "New purchase order created successfully!"
@@ -93,6 +102,9 @@ SanityBateelLoginAndNavigationTest:
     BateelHeader: "Luxury Gourmet Dates & Gift Boxes | Organic Dates | Bateel"
  - testBateelShopCategoryNavigation:
     BateelPageTitle: "Shop"
+SanityBateelMainNavigationmenu:
+  - testBateelmainmenu:
+      Pagetitle: "Header"    
 
 SanityBateelMainNavigationmenu:
 - mainmenu:
