@@ -6,6 +6,16 @@ on:
   pull_request:
     branches:
       - IAT-4
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: 'Specify which test suite to run'
+        required: true
+        default: 'LocalTestSuite.xml'
+        type: choice
+        options:
+          - LocalTestSuite.xml
+          - SanityTestSuite.xml
 
 jobs:
   build:
