@@ -86,6 +86,7 @@ jobs:
   publish-allure-report:
     runs-on: windows-latest
     needs: allure-report
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'push' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
