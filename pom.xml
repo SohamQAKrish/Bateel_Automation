@@ -174,17 +174,18 @@
                 </configuration>
             </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
-                    <testSource>${maven.compiler.source}</testSource>
-                    <testTarget>${maven.compiler.target}</testTarget>
-                </configuration>
-            </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<compilerVersion>17</compilerVersion>
+					<source>17</source>
+					<target>17</target>
+					<testSource>17</testSource>
+					<testTarget>17</testTarget>
+				</configuration>
+			</plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
