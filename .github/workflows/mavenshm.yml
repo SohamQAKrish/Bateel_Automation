@@ -42,7 +42,6 @@ jobs:
 
       - name: Run Tests
         run: mvn clean test -DskipTests
-        continue-on-error: true
         
 
   allure-report:
@@ -63,7 +62,6 @@ jobs:
 
       - name: Generate Allure Report
         run: mvn allure:report
-        continue-on-error: true
 
       - name: Verify Environment Properties File
         run: ls -l allure-results/environment.properties
