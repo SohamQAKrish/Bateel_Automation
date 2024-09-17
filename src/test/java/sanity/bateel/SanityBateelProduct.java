@@ -18,9 +18,13 @@ public class SanityBateelProduct {
 	@Description("This Test is used to click product")
 	public void testBateelclickproduct() throws InterruptedException {
 		UtilitiesCommon.launchApplication();
+		UtilitiesCommon.log("Application is launched successfully in the browser");
 		BateelPage.clickGoButton();
+		UtilitiesCommon.log("User has successfully trigger the Go button");
 		BateelFooter.Acceptcookies();
+		UtilitiesCommon.log("Cookies accept button clicked successfully at the footer");
 		BateelPage.verifyBateelShopCategory();
+		UtilitiesCommon.log("Successfully clicked on 'Shop' category from the menu and opened the category page");
 		BateelPLPPage.clickProduct();
 		UtilitiesCommon.log("User has successfully clicked on the product from the PLP");
 	}

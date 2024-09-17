@@ -3,6 +3,7 @@ package sanity.bateel;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import common.UtilitiesCommon;
+import page.bateel.BateelFooter;
 import page.bateel.BateelPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.TmsLink;
@@ -21,10 +22,13 @@ public class SanityBateelLoginAndNavigationTest {
 	@Description("This Test is used to Verify the Navigation to the Shop Category")
 	public void testBateelShopCategoryNavigation() throws InterruptedException {
 		UtilitiesCommon.launchApplication();
-		UtilitiesCommon.getDriver(); // Get the driver instance from UtilitiesCommon or wherever it's initialized
-	    UtilitiesCommon.setupWebdriverWait(30); // Increase wait time to 30 seconds
+		UtilitiesCommon.log("Application is launched successfully in the browser");
+	    UtilitiesCommon.setupWebdriverWait(30);
 		BateelPage.clickGoButton();
+		UtilitiesCommon.log("User has successfully trigger the Go button");
+		BateelFooter.Acceptcookies();
+		UtilitiesCommon.log("Cookies accept button clicked successfully at the footer");
 		BateelPage.verifyBateelShopCategory();
-		UtilitiesCommon.log("User is navigating to the shop category landing page");	
+		UtilitiesCommon.log("Successfully clicked on 'Shop' category from the menu and opened the category page");
 	}
 }
