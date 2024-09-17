@@ -1,5 +1,6 @@
 package page.bateel;
 
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import common.UtilitiesCommon;
 import enums.bateel.BateelHomePageEnum;
@@ -18,30 +19,9 @@ public class BateelPage {
 	 * @lastmodifiedby kdave
 	 */
 	public static void verifyBateelPageHeaderTitle() {
-
 		UtilitiesCommon.waitForElementIsPresent(BateelHomePageEnum.BATEEL_HOME_PAGE_TITLE_NAME);
 		UtilitiesCommon.verifyText(BateelHomePageEnum.BATEEL_HOME_PAGE_TITLE_NAME, UtilitiesCommon.getTestData("BateelHeader"));
-		public static void verifyBateelPageHeaderTitle() {
-			
-			UtilitiesCommon.waitForElementIsPresent(BateelHomePageEnum.BATEEL_HOME_PAGE_TITLE_NAME);
-			UtilitiesCommon.verifyText(BateelHomePageEnum.BATEEL_HOME_PAGE_TITLE_NAME, UtilitiesCommon.getTestData("BateelHeader"));
-		}
-		
-		/**
-		 * This method is used to verify Onitsuka Tiger's Men Category.
-		 * @author spandit
-		 * @lastmodifiedby kdave
-		 */
-		public static void verifyBateelShopCategory() {
-			UtilitiesCommon.waitForElementIsPresent(BateelHomePageEnum.BATEEL_HOME_PAGE_SHOP_CATEGORY_ID);
-			UtilitiesCommon.click(BateelHomePageEnum.BATEEL_HOME_PAGE_SHOP_CATEGORY_ID);
-		}
-	
-      
-	public static void clickGoButton() {
-		UtilitiesCommon.waitForElementIsPresent(BateelHomePageEnum.BATEEL_HOME_PAGE_OK_BUTTON_XPATH);
-        UtilitiesCommon.click(BateelHomePageEnum.BATEEL_HOME_PAGE_OK_BUTTON_XPATH);
-    }
+	}
     
 	public static void clickProfileIcon() {
         UtilitiesCommon.click(BateelHomePageEnum.BATEEL_HOME_PAGE_LOGIN_PROFILE_CSS);
@@ -61,9 +41,8 @@ public class BateelPage {
 	 */
 	public static void verifyBateelShopCategory() throws InterruptedException {
 	    String currentUrlBeforeClick = UtilitiesCommon.getCurrentUrl();
-
-		UtilitiesCommon.waitForElementIsPresent(BateelHomePageEnum.BATEEL_HOME_PAGE_SHOP_CATEGORY_ID);
-		UtilitiesCommon.setupWebdriverWait(60);
+	    UtilitiesCommon.waitForElementIsPresent(BateelHomePageEnum.BATEEL_HOME_PAGE_SHOP_CATEGORY_ID);
+		//UtilitiesCommon.setupWebdriverWait(60);
 		UtilitiesCommon.waitForMilliseconds(5000);
 		UtilitiesCommon.click(BateelHomePageEnum.BATEEL_HOME_PAGE_SHOP_CATEGORY_ID);
 	    String currentUrlAfterClick = UtilitiesCommon.getCurrentUrl();

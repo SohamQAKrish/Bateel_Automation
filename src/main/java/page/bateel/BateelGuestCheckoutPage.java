@@ -8,7 +8,7 @@ import enums.bateel.BateelCheckoutGuestPageEnum;
 public class BateelGuestCheckoutPage {
 
 	public static void clickGuestCheckoutButton() throws InterruptedException {
-		UtilitiesCommon.waitForMilliseconds(5000);
+		UtilitiesCommon.waitForMilliseconds(3000);
 		WebElement buttonElement = UtilitiesCommon.getElement(BateelCheckoutGuestPageEnum.BATEEL_GUEST_BUTTON_ENUM_XPATH);
 		UtilitiesCommon.javaScriptWaitAndScroll(BateelCheckoutGuestPageEnum.BATEEL_GUEST_BUTTON_ENUM_XPATH);
 		UtilitiesCommon.waitForElementIsClickable(buttonElement);
@@ -16,7 +16,7 @@ public class BateelGuestCheckoutPage {
 	}
 
 	public static void fillShippingAddress() throws InterruptedException {
-		UtilitiesCommon.waitForMilliseconds(5000);
+		UtilitiesCommon.waitForMilliseconds(3000);
 		String firstName = UtilitiesCommon.getTestData("BateelGuestFname");
 		String lastName = UtilitiesCommon.getTestData("BateelGuestLname");
 		String streetAddress = UtilitiesCommon.getTestData("BateelGuestStreetname");
@@ -58,7 +58,6 @@ public class BateelGuestCheckoutPage {
 	public static void proccedTOBilling() throws InterruptedException {
 		try {
 			UtilitiesCommon.waitForElementIsNotVisible(By.cssSelector(".loading-mask"));
-
 			WebElement buttonElement = UtilitiesCommon.getElement(BateelCheckoutGuestPageEnum.BATEEL_GUEST_PROCEEDTOBILLING_ENUM_XPATH);
 			UtilitiesCommon.javaScriptWaitAndScroll(BateelCheckoutGuestPageEnum.BATEEL_GUEST_PROCEEDTOBILLING_ENUM_XPATH);
 			UtilitiesCommon.waitForElementIsClickable(buttonElement);

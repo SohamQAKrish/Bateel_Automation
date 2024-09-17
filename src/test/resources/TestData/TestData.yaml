@@ -81,13 +81,13 @@ SanityInspectionTest:
     NewInspectionCreatedToastMessage: "Inspection completed."
 SanityBateelCart:
  - testBateeladdtocartitem:
-    productName: "Stella Green Tree Gift Box"
+    productName: "Emerald Gift Set"
 SanityBateelProductDetails:
  - testBateelproductfilldetails:
     productName: "Stella Green Tree Gift Box"
 SanityBateelProduct:
  - testBateelclickproduct:
-    productName: "Stella Green Tree Gift Box"
+    productName: "Emerald Gift Set"
 SanityBateelLoginAndNavigationTest:
  - testBateelPageHeaderTitle:
     BateelHeader: "Luxury Gourmet Dates & Gift Boxes | Organic Dates | Bateel"

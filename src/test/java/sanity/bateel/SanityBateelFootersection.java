@@ -39,6 +39,7 @@ public class SanityBateelFootersection {
 		BateelFooter.Acceptcookies();
 		BateelFooter.footerinstagramlinkcheck();
 	}
+	
 	@Test(testName = "Footer section Social media Facebook link verification")
 	@Description("This Test is used to Verify the Facebook social media link in Footersection")
 	public void FootersocialmediaFacebook() throws InterruptedException {
@@ -48,6 +49,7 @@ public class SanityBateelFootersection {
 		BateelFooter.Acceptcookies();
 		BateelFooter.footerfacebooklinkcheck();
 	}
+	
 	@Test(testName = "Footer section Social media Twitter link verification")
 	@Description("This Test is used to Verify the Twitter social media link in Footersection")
 	public void FootersocialmediaTwitter() throws InterruptedException {
@@ -57,6 +59,7 @@ public class SanityBateelFootersection {
 		BateelFooter.Acceptcookies();
 		BateelFooter.footertwitterlinkcheck();
 	}
+	
 	@Test(testName = "Footer section Social media Linkedin link verification")
 	@Description("This Test is used to Verify the Linkedin social media link in Footersection")
 	public void FootersocialmediaLinkedin() throws InterruptedException {
@@ -66,6 +69,7 @@ public class SanityBateelFootersection {
 		BateelFooter.Acceptcookies();
 		BateelFooter.footerlinkedinlinkcheck();
 	}
+	
 	@Test(testName = "Footer section Social media Youtube link verification")
 	@Description("This Test is used to Verify the Youtube social media link in Footersection")
 	public void FootersocialmediaYoutube() throws InterruptedException {
@@ -75,6 +79,7 @@ public class SanityBateelFootersection {
 		BateelFooter.Acceptcookies();
 		BateelFooter.footeryoutubelinkcheck();
 	}
+	
 	@Test(testName = "Footer section Terms and conditions link verification")
 	@Description("This Test is used to Verify the Youtube social media link in Footersection")
 	public void FooterTermsandconditionslink() {
@@ -84,6 +89,7 @@ public class SanityBateelFootersection {
 		BateelFooter.Acceptcookies();
 		BateelFooter.footertermsandconditionslinkcheck();
 	}
+	
 	@Test(testName = "Footer section Privacy policy link verification")
 	@Description("This Test is used to Verify the Youtube social media link in Footersection")
 	public void FooterPrivacypolicylink() {
@@ -93,5 +99,4 @@ public class SanityBateelFootersection {
 		BateelFooter.Acceptcookies();
 		BateelFooter.footerPrivacypolicylinkcheck();
 	}
-
 }

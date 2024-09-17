@@ -1,8 +1,8 @@
 package enums.bateel;
 
 public enum BateelCartPageEnum {
-	
-	BATEEL_CART_ICON_ENUM_CSS(".counter-number"), BATEEL_CART_QTYUPDATE_ENUM_CSS(".more"),
+	BATEEL_CART_ICON_ENUM_CSS(".counter-number"), 
+	BATEEL_CART_QTYUPDATE_ENUM_CSS(".more"),
 	BATEEL_CART_CHECKOUT_ENUM_CSS("#top-cart-btn-checkout");
 
 	private final String label;

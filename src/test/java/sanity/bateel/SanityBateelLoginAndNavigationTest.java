@@ -10,7 +10,7 @@ import io.qameta.allure.TmsLink;
 /**
  * @author kdave
  * @lastmodifiedby kdave This class will contain all Sanity tests related to
- *                 Login and Navigations to different modules across the Bateel
+ *                 shop category Navigations to different modules across the Bateel
  *                 application.
  */
 @Listeners({ listeners.ScriptExecutionListener.class })
@@ -21,9 +21,10 @@ public class SanityBateelLoginAndNavigationTest {
 	@Description("This Test is used to Verify the Navigation to the Shop Category")
 	public void testBateelShopCategoryNavigation() throws InterruptedException {
 		UtilitiesCommon.launchApplication();
-		WebDriver driver = UtilitiesCommon.getDriver(); // Get the driver instance from UtilitiesCommon or wherever it's initialized
+		UtilitiesCommon.getDriver(); // Get the driver instance from UtilitiesCommon or wherever it's initialized
 	    UtilitiesCommon.setupWebdriverWait(30); // Increase wait time to 30 seconds
 		BateelPage.clickGoButton();
 		BateelPage.verifyBateelShopCategory();
+		UtilitiesCommon.log("User is navigating to the shop category landing page");	
 	}
 }

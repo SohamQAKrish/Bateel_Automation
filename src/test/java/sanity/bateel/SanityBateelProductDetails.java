@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import common.UtilitiesCommon;
 import io.qameta.allure.Description;
 import io.qameta.allure.TmsLink;
+import page.bateel.BateelFooter;
 import page.bateel.BateelPDPPage;
 import page.bateel.BateelPLPPage;
 import page.bateel.BateelPage;
@@ -19,9 +20,11 @@ public class SanityBateelProductDetails {
 	public void testBateelproductfilldetails() throws InterruptedException {
 		UtilitiesCommon.launchApplication();
 		BateelPage.clickGoButton();
+		BateelFooter.Acceptcookies();
 		BateelPage.verifyBateelShopCategory();
 		BateelPLPPage.clickProduct();
 		BateelPDPPage.fillProductDetails();
+		UtilitiesCommon.log("User has successfully verified product detail");
 	}		
 }
-}
+

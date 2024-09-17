@@ -16,8 +16,8 @@ package enums.login;
  * This class will contain all the Enums for Login Page
  */
 public enum LoginPageEnum {
-
-	LOGINPAGE_USERNAME_TEXT_BOX_NAME("login[username]"), LOGINPAGE_PASSWORD_TEXT_BOX_NAME("login[password]"),
+	LOGINPAGE_USERNAME_TEXT_BOX_NAME("login[username]"),
+	LOGINPAGE_PASSWORD_TEXT_BOX_NAME("login[password]"),
 	LOGINPAGE_LOGIN_BUTTON_NAME("send");
 
 	// Store the label for each enum constant

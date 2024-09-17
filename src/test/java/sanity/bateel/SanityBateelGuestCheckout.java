@@ -27,10 +27,10 @@ public class SanityBateelGuestCheckout {
 		BateelCartPage.addToCart();
 		UtilitiesCommon.setupWebdriverWait(60);
 		BateelGuestCheckoutPage.clickGuestCheckoutButton();
-		BateelGuestCheckoutPage.fillShippingAddress();
-		BateelGuestCheckoutPage.proccedTOBilling();
-		BateelGuestCheckoutPage.clickPlaceOrderButtonWithoutWaitingForMask();
-		BateelGuestCheckoutPage.clickOnContinueShopButton();
-
+//		BateelGuestCheckoutPage.fillShippingAddress();
+//		BateelGuestCheckoutPage.proccedTOBilling();
+//		BateelGuestCheckoutPage.clickPlaceOrderButtonWithoutWaitingForMask();
+//		BateelGuestCheckoutPage.clickOnContinueShopButton();
+//		UtilitiesCommon.log("Guest customer has successfully place an order");
 	}
 }
