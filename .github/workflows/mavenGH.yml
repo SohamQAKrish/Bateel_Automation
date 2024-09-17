@@ -1,4 +1,4 @@
-name: Continuous Integration and Deployment - Kashyap
+name: Continuous Integration and Deployment | Kashyap
 on:
   push:
     branches:
