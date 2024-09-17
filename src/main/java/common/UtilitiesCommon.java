@@ -70,6 +70,7 @@ import org.testng.asserts.SoftAssert;
 import org.yaml.snakeyaml.Yaml;
 import com.google.common.collect.Ordering;
 import com.opencsv.CSVReader;
+
 import enums.bateel.BateelLoginCheckoutEnum;
 import enums.bateel.BateelPLPPageEnum;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -186,7 +187,6 @@ public class UtilitiesCommon {
 	static {
 		setupLogger();
 	}
-
 	/**
 	 * This method will set up the log4j logger
 	 * 
@@ -306,14 +306,13 @@ public class UtilitiesCommon {
 					"Invalid Environment detail is present in testng xml file or Environments.yaml file : "
 							+ environment);
 		}
+	}	
 	}
 	
 	/**
 	 * This method is used to read Test Class Data from TestData.yaml and store it in map
 	/**
-	 * This method is used to read Test Class Data from TestData.yaml and store it
-	 * in map
-	 * 
+	 * This method is used to read Test Class Data from TestData.yaml and store it in map
 	 * @param testClass Test Class
 	 * @author spandit
 	 * @lastmodifiedby spandit
@@ -339,11 +338,8 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to read Test Case Data from TestData.yaml and store it in map
-
 	/**
-	 * This method is used to read Test Case Data from TestData.yaml and store it in
-	 * map
-	 * 
+	 * This method is used to read Test Case Data from TestData.yaml and store it in map
 	 * @param result ITestResult
 	 * @author spandit
 	 * @lastmodifiedby spandit
@@ -368,7 +364,6 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to set up the web driver using Bonigarcia.
-	 * 
 	 * @param context Context
 	 * @author spandit
 	 * @lastmodifiedby spandit
@@ -387,7 +382,6 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to add arguments for chrome options
-	 * 
 	 * @author spandit
 	 * @lastmodifiedby spandit
 	 */
@@ -453,7 +447,6 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to get the web driver
-	 * 
 	 * @return driver
 	 * @author spandit
 	 * @lastmodifiedby spandit
@@ -464,7 +457,6 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to get the Javascript Executor
-	 * 
 	 * @return javascript executor
 	 * @author spandit
 	 * @lastmodifiedby spandit
@@ -474,10 +466,7 @@ public class UtilitiesCommon {
 	}
 
 	/**
-	 * This method is used to open browser and initialize webdriver wait, javascript
-	 * executor, Action builder and then launch the application and starts screen
-	 * recording.
-	 * 
+	 * This method is used to open browser and initialize webdriver wait, javascript executor, Action builder and then launch the application and starts screen recording.
 	 * @author spandit
 	 * @lastmodifiedby spandit
 	 */
@@ -504,7 +493,6 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to open url on same browser.
-	 * 
 	 * @author spandit
 	 * @lastmodifiedby spandit
 	 */
@@ -551,9 +539,7 @@ public class UtilitiesCommon {
 	}
 
 	/**
-	 * This method is used to verify that the attribute is present in Test Case Data
-	 * map and then returns its value.
-	 * 
+	 * This method is used to verify that the attribute is present in Test Case Data map and then returns its value.
 	 * @param attributeKey Attribute Key
 	 * @return attributeValue Attribute Value
 	 * @author spandit
@@ -596,7 +582,7 @@ public class UtilitiesCommon {
 	 * @param value Value
 	 * 
 	 * @param attributeKey Attribute Key
-	 * @param value        Value
+	 * @param value Value
 	 * @author spandit
 	 * @lastmodifiedby spandit
 	 */
@@ -613,7 +599,7 @@ public class UtilitiesCommon {
 	 * map.
 	 * @param dataMap      Data Map
 	 * @param attributeKey Attribute Key
-	 * @param message      Error Message
+	 * @param message Error Message
 	 * @author spandit
 	 * @lastmodifiedby spandit
 	 */
@@ -625,7 +611,6 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to navigate to the specified page
-	 * 
 	 * @param pageUrl Page URL
 	 * @author spandit
 	 * @lastmodifiedby spandit
@@ -636,7 +621,6 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method is used to get the Application Url
-	 * 
 	 * @return applicationUrl
 	 * @author spandit
 	 * @lastmodifiedby spandit
@@ -647,7 +631,6 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method will return locator of the web element.
-	 * 
 	 * @param enumValue Enum Value
 	 * @author spandit
 	 * @lastmodifiedby spandit
@@ -690,7 +673,6 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method will return web element available on the web page.
-	 * 
 	 * @param enumValue Enum Value
 	 * @return webElement
 	 * @author spandit
@@ -713,7 +695,6 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method will return list of web elements available on the web page.
-	 * 
 	 * @param enumValue Enum Value
 	 * @return WebElementList
 	 * @author spandit
@@ -725,6 +706,7 @@ public class UtilitiesCommon {
 	        throw new IllegalArgumentException("Locator is null for enum value: " + enumValue);
 	    }
 	    return driver.findElements(locator);
+=======
 		By locator = getLocator(enumValue);
 		if (locator == null) {
 			throw new IllegalArgumentException("Locator is null for enum value: " + enumValue);
@@ -734,7 +716,6 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method will return web element text
-	 * 
 	 * @param enumValue Enum Value
 	 * @return ElementText
 	 * @author spandit
@@ -748,6 +729,7 @@ public class UtilitiesCommon {
 	        System.out.println("Element not found for enum value: " + enumValue);
 	        return null; // or you can return an empty string or handle it as per your requirement
 	    }
+
 		try {
 			WebElement element = getElement(enumValue);
 			return element.getText();
@@ -760,7 +742,6 @@ public class UtilitiesCommon {
 	/**
 	 * This method will return web elements text
 
-	 * 
 	 * @param elementList Element List
 	 * @return ElementTextList
 	 * @author spandit
@@ -792,7 +773,6 @@ public class UtilitiesCommon {
 
 	/**
 	 * This method will return web element dynamically using specified dynamicValue.
-
 	 * @param enumValue    Enum Value
 	 * @param dynamicValue Dynamic Value
 	 * @return webElement
@@ -809,7 +789,6 @@ public class UtilitiesCommon {
 	 * This method will return List of web elements dynamically using specified dynamicValue.
 	 * This method will return List of web elements dynamically using specified
 	 * dynamicValue.
-	 * 
 	 * @param enumValue    Enum Value
 	 * @param dynamicValue Dynamic Value
 	 * @return webElementList
@@ -957,7 +936,6 @@ public class UtilitiesCommon {
 	public static void waitForElementIsClickable(WebElement element) {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
-
 	/**
 	 * This method is used to wait until web element is located on DOM and visible
 	 * 
@@ -1032,7 +1010,6 @@ public class UtilitiesCommon {
 		WebElement element = getElement(enumValue);
 		executeJS("arguments[0].click();", element);
 	}
-
 	/**
 	 * This method will enter the specified value in the text field using javascript
 	 * executor.
@@ -2131,18 +2108,6 @@ public class UtilitiesCommon {
 	}
 
 	/**
-	 * This method will scroll down till bottom of the page
-	 * 
-	 * @author rammohan
-	 * @lastmodifiedby rammohan
-	 */
-
-	public static void scrolltillpageend() {
-		JavascriptExecutor js1 = (JavascriptExecutor) driver;
-		js1.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-	}
-
-	/**
 	 * This method will compare and assert the actual text contains expected text
 	 * 
 	 * @param enumValue    Enum Value
@@ -2209,7 +2174,7 @@ public class UtilitiesCommon {
 			String Pagetitle = driver.getTitle();
 			return Pagetitle;
 		}
-		/**
+			/**
 	 * This method is to return the page title
 	 * @author rammohan
 	 * @lastmodifiedby rammohan
@@ -2285,4 +2250,3 @@ public class UtilitiesCommon {
 
 	
 }
-

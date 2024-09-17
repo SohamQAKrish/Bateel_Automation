@@ -1,7 +1,6 @@
 package enums.bateel;
 
 public enum BateelLoginCheckoutEnum {
-
 	BATEEL_EMAIL_ID("customer-email"),
 	BATEEL_PASSWORD_ID("customer-password"),
 	BATEEL_SIGNIN_BUTTON_CSS("span[data-bind=\"i18n: 'Sign in'\"]"),
@@ -18,12 +17,15 @@ public enum BateelLoginCheckoutEnum {
 	BATEEL_LOGIN_PLACEORDER_XPATH("//*[@id=\"checkout-payment-method-load\"]/div/div/div[2]/div[2]/div[4]/div/button"),
 	BATEEL_LOGIN_CONTINUESHOPPING_CSS("a[class='action primary continue'] span");
 
+	// A private variable to store the label
 	private final String label;
 
+	// A private constructor that sets the label for each enum constant
 	private BateelLoginCheckoutEnum(String label) {
 		this.label = label;
 	}
 
+	// Override the toString() method to return the label
 	@Override
 	public String toString() {
 		return this.label;

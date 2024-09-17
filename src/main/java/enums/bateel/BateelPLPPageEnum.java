@@ -1,8 +1,7 @@
 package enums.bateel;
 
 public enum BateelPLPPageEnum {
-
-	BATEEL_PLP_PAGE_ENUM_CSS("img[alt='Stella Green Tree Gift Box']");
+	BATEEL_PLP_PAGE_ENUM_XPATH("//a[normalize-space()='Emerald Gift Set']");
 
 	// A private variable to store the label
 	private final String label;

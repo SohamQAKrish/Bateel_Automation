@@ -1,7 +1,6 @@
 package page.login;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import common.UtilitiesCommon;
 import enums.login.LoginPageEnum;
 
@@ -28,7 +27,6 @@ public class LoginPage {
 //		UtilitiesCommon.click(LoginPageEnum.LOGINPAGE_LOGIN_BUTTON_NAME);
 //		
 	}
-
 
 	/**
 	 * This method is used to re-Login into the application after Logout
