@@ -4,12 +4,6 @@
 
 	<test name="Local Tests">
 		<parameter name="environment" value="${environment}" />
-		<parameter name="browser" value="${browser}" />
-		<parameter name="defaultTimeout" value="${defaultTimeout}" />
-		<classes>
-			<class name="sanity.bateel.SanityBateelLoginAndNavigationTest">
-				<methods>
-					<include name="testBateelShopCategoryNavigation" />
 		<parameter name="browser" value="chrome" />
 		<parameter name="defaultTimeout" value="${defaultTimeout}" />
 		<classes>
