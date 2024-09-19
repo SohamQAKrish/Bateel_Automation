@@ -1,6 +1,13 @@
 name: Shivam 
 
 on:
+on:
+  push:
+    branches:
+      - IAT-4
+  pull_request:
+    branches:
+      - IAT-4
   workflow_dispatch:
     inputs:
       suite:
