@@ -1,7 +1,6 @@
 name: Shivam 
 
 on:
-on:
   push:
     branches:
       - IAT-4
