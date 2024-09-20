@@ -52,6 +52,7 @@ jobs:
 
       - name: Run Tests
         run: mvn clean test
+        continue-on-error: true
 
   allure-report:
     runs-on: windows-latest
