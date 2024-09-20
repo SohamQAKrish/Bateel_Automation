@@ -33,5 +33,8 @@ public class SanityBateelCart {
 		UtilitiesCommon.log("User has successfully verified product detail");
 		BateelCartPage.addToCart();
 		UtilitiesCommon.log("User has successfully added a product into cart");
+		BateelCartPage.viewANDEditCart();
+		UtilitiesCommon.log("Successfully updated main cart and proceed to checkout");
+
 	}
 }

@@ -33,6 +33,8 @@ public class SanityBateelLogincheckout {
 		UtilitiesCommon.log("User has successfully verified product detail");
 		BateelCartPage.addToCart();
 		UtilitiesCommon.log("User has successfully added a product into cart");
+		BateelCartPage.viewANDEditCart();
+		UtilitiesCommon.log("Updated main cart");
 		BateelLoginCheckoutPage.loginCheckout("Email", "Password");
 		UtilitiesCommon.log("User logged-in on the checkout");
 		BateelLoginCheckoutPage.fillShippingAddressLoginCheckout();
