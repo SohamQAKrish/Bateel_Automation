@@ -2,10 +2,11 @@ name: Continuous Integration and Deployment | Kashyap
 on:
   push:
     branches:
+      - main
       - IAT-4
   pull_request:
     branches:
-      - IAT-4
+      - main
   workflow_dispatch:
     inputs:
       suite:
