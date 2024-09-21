@@ -107,7 +107,7 @@ jobs:
           ls -l allure-report  # Optional: List files in allure-report for verification
 
       - name: Login to Docker
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login bateel-automation-demo.magentoprojects.net -u soham --password-stdin
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login bateel-automation-demo.magentoprojects.net/v2/ -u soham --password-stdin
         
       - name: Zip Allure Results
         run: |
@@ -116,7 +116,7 @@ jobs:
       - name: Upload Allure Results to Server
         run: |
             curl -u soham:soham@#$1036 -X POST -F "file=@allure-results.zip" https://bateel-automation-demo.magentoprojects.net/upload
-            
+
       - name: Deploy to GitHub Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
