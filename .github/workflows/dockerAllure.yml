@@ -3,9 +3,6 @@ on:
   push:
     branches:
       - IAT-4
-  pull_request:
-    branches:
-      - IAT-4
   workflow_dispatch:
     inputs:
       suite:
@@ -106,13 +103,10 @@ jobs:
           allure generate allure-results --clean -o allure-report
           ls -l allure-report  # Optional: List files in allure-report for verification
 
-      - name: Login to Docker
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login bateel-automation-demo.magentoprojects.net/v2/ -u soham --password-stdin
-        
       - name: Zip Allure Results
         run: |
-          zip -r allure-results.zip allure-results
-        
+            zip -r allure-results.zip allure-report  # Zip the generated HTML report
+  
       - name: Upload Allure Results to Server
         run: |
             curl -u soham:soham@#$1036 -X POST -F "file=@allure-results.zip" https://bateel-automation-demo.magentoprojects.net/upload
