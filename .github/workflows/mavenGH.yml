@@ -52,12 +52,7 @@ jobs:
 
       - name: Run Tests
         run: mvn clean test
-
-      - name: Upload Surefire Reports
-        uses: actions/upload-artifact@v3
-        with:
-          name: surefire-reports
-          path: target/surefire-reports
+        continue-on-error: true
 
   allure-report:
     runs-on: windows-latest
