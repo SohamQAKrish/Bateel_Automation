@@ -23,7 +23,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up JDK 17
         uses: actions/setup-java@v2
@@ -39,7 +39,7 @@ jobs:
     needs: build
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up JDK 17
         uses: actions/setup-java@v2
@@ -52,6 +52,12 @@ jobs:
 
       - name: Run Tests
         run: mvn clean test
+
+      - name: Upload Surefire Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: surefire-reports
+          path: target/surefire-reports
 
   allure-report:
     runs-on: windows-latest
