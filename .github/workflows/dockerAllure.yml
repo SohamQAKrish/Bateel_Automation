@@ -105,7 +105,7 @@ jobs:
 
       - name: Zip Allure Results
         run: |
-            zip -r allure-results.zip allure-report  # Zip the generated HTML report
+            Compress-Archive -Path allure-report\* -DestinationPath allure-results.zip  # Zip the generated HTML report
   
       - name: Upload Allure Results to Server
         run: |
