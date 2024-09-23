@@ -70,7 +70,7 @@ jobs:
           path: allure-results
 
   publish-allure-report:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     needs: allure-report
     if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'push' }}
     steps:
@@ -84,12 +84,13 @@ jobs:
 
       - name: Upload Allure Results to Server
         run: |
-            # Install SSH client if not present
-            choco install openssh
+            # Install OpenSSH if not present (usually pre-installed on Ubuntu)
+            sudo apt-get update
+            sudo apt-get install -y openssh-client
   
-            # Upload Allure report to the Docker container
+            # Upload Allure report to the server
             scp -P 2255 -r allure-report/* bateel-automation-demo@bateel-automation-demo.magentoprojects.net:/var/www/html/bateel-automation-demo/webroot
-
+            
       - name: Deploy to GitHub Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
