@@ -84,12 +84,12 @@ jobs:
 
       - name: Upload Allure Results to Server
         run: |
-            # Install OpenSSH if not present (usually pre-installed on Ubuntu)
+            # Install OpenSSH and sshpass
             sudo apt-get update
-            sudo apt-get install -y openssh-client
+            sudo apt-get install -y openssh-client sshpass
   
             # Upload Allure report to the server
-            scp -o StrictHostKeyChecking=no -P 2255 -r allure-report/* bateel-automation-demo@bateel-automation-demo.magentoprojects.net:/var/www/html/bateel-automation-demo/webroot
+            sshpass -p 'LaQSZC0byfgE4fxG' scp -o StrictHostKeyChecking=no -P 2255 -r allure-report/* bateel-automation-demo@bateel-automation-demo.magentoprojects.net:/var/www/html/bateel-automation-demo/webroot
             
       - name: Deploy to GitHub Pages
         env:
