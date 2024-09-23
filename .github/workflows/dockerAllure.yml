@@ -82,13 +82,13 @@ jobs:
           allure generate allure-results --clean -o allure-report
           ls -l allure-report  # Optional: List files in allure-report for verification
 
-      - name: Zip Allure Results
-        run: |
-            Compress-Archive -Path allure-report\* -DestinationPath allure-results.zip
-
       - name: Upload Allure Results to Server
         run: |
-          $response = curl -u "${{ secrets.USERNAME }}:${{ secrets.PASSWORD }}" -X POST -F "file=@allure-results.zip" "https://bateel-automation-demo.magentoprojects.net/upload"
+            # Install SSH client if not present
+            choco install openssh
+  
+            # Upload Allure report to the Docker container
+            scp -P 2255 -r allure-report/* bateel-automation-demo@bateel-automation-demo.magentoprojects.net:/var/www/html/bateel-automation-demo/webroot
 
       - name: Deploy to GitHub Pages
         env:
