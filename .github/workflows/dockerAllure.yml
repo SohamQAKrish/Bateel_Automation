@@ -89,7 +89,7 @@ jobs:
             sudo apt-get install -y openssh-client
   
             # Upload Allure report to the server
-            scp -P 2255 -r allure-report/* bateel-automation-demo@bateel-automation-demo.magentoprojects.net:/var/www/html/bateel-automation-demo/webroot
+            scp -o StrictHostKeyChecking=no -P 2255 -r allure-report/* bateel-automation-demo@bateel-automation-demo.magentoprojects.net:/var/www/html/bateel-automation-demo/webroot
             
       - name: Deploy to GitHub Pages
         env:
