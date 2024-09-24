@@ -129,3 +129,22 @@ SanityBateelFootersection:
    Pagetitle: "footer"
 - FooterPrivacypolicylink:
    Pagetitle: "footer"
+SanityBateelLiveCheckout:
+  - testBateelLiveCheckout:
+      country: "United Arab Emirates"
+SanityBateelLiveCheckoutWithInvalidCardDetails:
+  - testBateelLiveCheckoutWithInvalidCard:
+      country: "United Arab Emirates"
+      BateelGuestFname: "KD"  
+      BateelGuestLname: "Test"   
+      BateelGuestLname: "Testing"   
+      BateelGuestStreetname: "123, Main Street" 
+      BateelGuestCityxpath: "Abu Dhabi"   
+      BateelGuestCountryName: "India"  
+      BateelGuestPostcodeName: "110001"  
+      BateelGuestStateName: "Delhi"     
+      BateelGuestTelephoneName: "500000000" 
+      CARDNUMBER: "4242 4242 4242 4242"
+      CARDEXPIRY: "12/26"
+      CARDCVV: "123"
+     

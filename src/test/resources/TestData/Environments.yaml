@@ -1,7 +1,7 @@
 QA:
-  ApplicationURL: "https://staging2.bateel.com/en_in/"
-  Email: "govind.daware+ind@krishtechnolabs.com"
-  Password: "R292aW5kMzE="
+  ApplicationURL: "https://bateel.com/en_in/"
+  Email: "shivam.rai@krishtechnolabs.com"
+  Password: "U2hpdmFtQDEyMw=="
 
 TESTRAIL:
  URL: "https://teem.testrail.net"

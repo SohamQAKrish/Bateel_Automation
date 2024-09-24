@@ -23,20 +23,20 @@ public class BateelLoginCheckoutPage {
 		String firstName = UtilitiesCommon.getTestData("BateelGuestFname");
 		String lastName = UtilitiesCommon.getTestData("BateelGuestLname");
 		String streetAddress = UtilitiesCommon.getTestData("BateelGuestStreetname");
-		String city = UtilitiesCommon.getTestData("BateelGuestCityxpath");
-		String country = UtilitiesCommon.getTestData("BateelGuestCountryName");
+//		String city = UtilitiesCommon.getTestData("BateelGuestCityxpath");
+//		String country = UtilitiesCommon.getTestData("BateelGuestCountryName");
 		String postcode = UtilitiesCommon.getTestData("BateelGuestPostcodeName");
 		String state = UtilitiesCommon.getTestData("BateelGuestStateName");
 		String phoneNo = UtilitiesCommon.getTestData("BateelGuestTelephoneName");
 		UtilitiesCommon.enterValue(BateelLoginCheckoutEnum.BATEEL_LOGIN_FNAME_NAME, firstName);
 		UtilitiesCommon.enterValue(BateelLoginCheckoutEnum.BATEEL_LOGIN_LNAME_NAME, lastName);
 		UtilitiesCommon.enterValue(BateelLoginCheckoutEnum.BATEEL_LOGIN_STREET_NAME, streetAddress);
-		UtilitiesCommon.enterValue(BateelLoginCheckoutEnum.BATEEL_LOGIN_CITY_XPATH, city);
-		BateelGuestCheckoutPage.verifyCountryAutoFilled(country);
-		UtilitiesCommon.enterValue(BateelLoginCheckoutEnum.BATEEL_LOGIN_POSTCODE_NAME, postcode);
-		BateelGuestCheckoutPage.selectState(state);
-		UtilitiesCommon.enterValue(BateelLoginCheckoutEnum.BATEEL_LOGIN_TELEPHONE_NAME, phoneNo);
-		UtilitiesCommon.javaScriptWaitAndScroll(BateelLoginCheckoutEnum.BATEEL_LOGIN_TELEPHONE_NAME);
+//		UtilitiesCommon.enterValue(BateelLoginCheckoutEnum.BATEEL_LOGIN_CITY_XPATH, city);
+//		BateelGuestCheckoutPage.verifyCountryAutoFilled(country);
+		UtilitiesCommon.enterValue(BateelLoginCheckoutEnum.BATEEL_LOGIN_POSTALCODE_XPATH, postcode);
+		UtilitiesCommon.enterValue(BateelLoginCheckoutEnum.BATEEL_LOGIN_CITYAREA_XPATH, state);
+		UtilitiesCommon.enterValue(BateelLoginCheckoutEnum.BATEEL_LOGIN_TELEPHONE_NUMBER_XPATH, phoneNo);
+		//UtilitiesCommon.javaScriptWaitAndScroll(BateelLoginCheckoutEnum.BATEEL_LOGIN_TELEPHONE_NAME);
 		BateelLoginCheckoutPage.clickAgreeCheckbox();
 		BateelLoginCheckoutPage.proccedTOBilling();
 	}
@@ -47,9 +47,11 @@ public class BateelLoginCheckoutPage {
 		return actualCountry.equalsIgnoreCase(expectedCountry);
 	}
 
-	public static void selectState(String state) {
-		UtilitiesCommon.selectByVisibleText(BateelLoginCheckoutEnum.BATEEL_LOGIN_STATE_NAME, state);
-	}
+	/*
+	 * public static void selectState(String state) {
+	 * UtilitiesCommon.selectByVisibleText(BateelLoginCheckoutEnum.
+	 * BATEEL_LOGIN_STATE_NAME, state); }
+	 */
 
 	public static void clickAgreeCheckbox() throws InterruptedException {
 		UtilitiesCommon.click(BateelCheckoutGuestPageEnum.BATEEL_GUEST_AGREE_ENUM_NAME);
@@ -75,5 +77,31 @@ public class BateelLoginCheckoutPage {
 
 	public static void clickOnContinueShopButton() {
 		UtilitiesCommon.click(BateelLoginCheckoutEnum.BATEEL_LOGIN_CONTINUESHOPPING_CSS);
+	}
+	
+	public static void enterCardDetails() {
+		
+		UtilitiesCommon.scrolltillpageend();
+		String CreditCard = UtilitiesCommon.getTestData("CARDNUMBER");
+		UtilitiesCommon.click(BateelLoginCheckoutEnum.BATEEL_LOGIN_CARDNUMBER_XPATH);
+		UtilitiesCommon.enterValue(BateelLoginCheckoutEnum.BATEEL_LOGIN_CARDNUMBER_XPATH, CreditCard);
+		
+		String ExpiryDate = UtilitiesCommon.getTestData("CARDEXPIRY");
+		UtilitiesCommon.click(BateelLoginCheckoutEnum.BATEEL_LOGIN_EXPIRYDATE_XPATH);
+		UtilitiesCommon.enterValue(BateelLoginCheckoutEnum.BATEEL_LOGIN_EXPIRYDATE_XPATH, ExpiryDate);
+		
+		String CVV = UtilitiesCommon.getTestData("CARDCVV");
+		UtilitiesCommon.click(BateelLoginCheckoutEnum.BATEEL_LOGIN_CVV_XPATH);
+		UtilitiesCommon.enterValue(BateelLoginCheckoutEnum.BATEEL_LOGIN_CVV_XPATH, CVV);
+		
+		UtilitiesCommon.waitForMilliseconds(2000);
+		UtilitiesCommon.click(BateelLoginCheckoutEnum.BATEEL_LOGIN_PROCEED_XPATH);
+		
+		/*
+		 * UtilitiesCommon.waitForMilliseconds(2000);
+		 * UtilitiesCommon.getElementText(BateelLoginCheckoutEnum.
+		 * BATEEL_LOGIN_TRANSACTIONFAILED_XPATH);
+		 */
+		
 	}
 }
