@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Sep 24 12:12:08 IST 2024</td>
+<td>Started on:</td><td>Wed Sep 25 13:28:55 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>133 seconds (133692 ms)</td>
+<tr><td>Total time:</td><td>73 seconds (73303 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,11 +76,14 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='sanity.bateel.SanityBateelLiveCheckoutWithInvalidCardDetails.testBateelLiveCheckoutWithInvalidCard()'><b>testBateelLiveCheckoutWithInvalidCard</b><br>Test class: sanity.bateel.SanityBateelLiveCheckoutWithInvalidCardDetails</td>
-<td><div><pre>common.CustomExceptions: Attribute is not present in Test case data in TestData.yaml : BateelGuestFname
-	at common.UtilitiesCommon.verifyAttribute(UtilitiesCommon.java:560)
-	at common.UtilitiesCommon.getTestData(UtilitiesCommon.java:510)
-	at page.bateel.BateelLoginCheckoutPage.fillShippingAddressLoginCheckout(BateelLoginCheckoutPage.java:23)
-	at sanity.bateel.SanityBateelLiveCheckoutWithInvalidCardDetails.testBateelLiveCheckoutWithInvalidCard(SanityBateelLiveCheckoutWithInvalidCardDetails.java:41)
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //span[@class=&apos;IN_flag&apos;] (tried for 50 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at common.UtilitiesCommon.waitForElementIsVisible(UtilitiesCommon.java:874)
+	at common.UtilitiesCommon.getElement(UtilitiesCommon.java:638)
+	at common.UtilitiesCommon.click(UtilitiesCommon.java:762)
+	at page.bateel.BateelPage.selectCountry(BateelPage.java:60)
+	at sanity.bateel.SanityBateelLiveCheckoutWithInvalidCardDetails.testBateelLiveCheckoutWithInvalidCard(SanityBateelLiveCheckoutWithInvalidCardDetails.java:23)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -107,12 +110,41 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1435423859", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1435423859'><pre>common.CustomExceptions: Attribute is not present in Test case data in TestData.yaml : BateelGuestFname
-	at common.UtilitiesCommon.verifyAttribute(UtilitiesCommon.java:560)
-	at common.UtilitiesCommon.getTestData(UtilitiesCommon.java:510)
-	at page.bateel.BateelLoginCheckoutPage.fillShippingAddressLoginCheckout(BateelLoginCheckoutPage.java:23)
-	at sanity.bateel.SanityBateelLiveCheckoutWithInvalidCardDetails.testBateelLiveCheckoutWithInvalidCard(SanityBateelLiveCheckoutWithInvalidCardDetails.java:41)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[@class=&apos;IN_flag&apos;]&quot;}
+  (Session info: chrome=129.0.6668.59)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;KRISH107&apos;, ip: &apos;172.20.10.12&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 129.0.6668.59, chrome: {chromedriverVersion: 129.0.6668.70 (df87d5cf12b1..., userDataDir: C:\Users\SHIVAM~1.KRI\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60776}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: cec4638d0cf57e8c5d432838bbdb20f8
+*** Element info: {Using=xpath, value=//span[@class=&apos;IN_flag&apos;]}
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 31 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace1243165922", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1243165922'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //span[@class=&apos;IN_flag&apos;] (tried for 50 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at common.UtilitiesCommon.waitForElementIsVisible(UtilitiesCommon.java:874)
+	at common.UtilitiesCommon.getElement(UtilitiesCommon.java:638)
+	at common.UtilitiesCommon.click(UtilitiesCommon.java:762)
+	at page.bateel.BateelPage.selectCountry(BateelPage.java:60)
+	at sanity.bateel.SanityBateelLiveCheckoutWithInvalidCardDetails.testBateelLiveCheckoutWithInvalidCard(SanityBateelLiveCheckoutWithInvalidCardDetails.java:23)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -139,9 +171,35 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[@class=&apos;IN_flag&apos;]&quot;}
+  (Session info: chrome=129.0.6668.59)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;KRISH107&apos;, ip: &apos;172.20.10.12&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 129.0.6668.59, chrome: {chromedriverVersion: 129.0.6668.70 (df87d5cf12b1..., userDataDir: C:\Users\SHIVAM~1.KRI\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60776}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: cec4638d0cf57e8c5d432838bbdb20f8
+*** Element info: {Using=xpath, value=//span[@class=&apos;IN_flag&apos;]}
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 31 more
 </pre></div></td>
-<td>130</td>
-<td>sanity.bateel.SanityBateelLiveCheckoutWithInvalidCardDetails@614aeccc</td></tr>
+<td>68</td>
+<td>sanity.bateel.SanityBateelLiveCheckoutWithInvalidCardDetails@659925f4</td></tr>
 </table><p>
 </body>
 </html>

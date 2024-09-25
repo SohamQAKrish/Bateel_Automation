@@ -11,12 +11,16 @@ import page.bateel.BateelLoginCheckoutPage;
 import page.bateel.BateelPDPPage;
 import page.bateel.BateelPLPPage;
 import page.bateel.BateelPage;
-
+/**
+ * This class will contain all Sanity tests related to Checkout with Invalid Card Details
+ * @author RShivam
+ * @lastmodifiedby RShivam 
+ */
 @Listeners({ listeners.ScriptExecutionListener.class })
 public class SanityBateelLiveCheckoutWithInvalidCardDetails {
-	@Test(testName = "Bateel live checkout")
+	@Test(testName = "Bateel live checkout with Invalid Card Details")
 	@TmsLink("49700")
-	@Description("This test is use for the live checkout customer flow with online payment")
+	@Description("This test is use for the live checkout customer flow with online payment with Invalid Card Details")
 	public void testBateelLiveCheckoutWithInvalidCard() throws InterruptedException {
 		UtilitiesCommon.launchApplication();
 		UtilitiesCommon.log("Application is launched successfully in the browser");
@@ -43,6 +47,7 @@ public class SanityBateelLiveCheckoutWithInvalidCardDetails {
 		BateelLoginCheckoutPage.proccedTOBilling();
 		UtilitiesCommon.log("Clicked on proceed to billing button");
 		BateelLoginCheckoutPage.enterCardDetails();
-		UtilitiesCommon.log("Enter Card Details");
+		UtilitiesCommon.log("User has successfully entered card details");
+		BateelLoginCheckoutPage.handleErrorMessage();    
 	}
 }
