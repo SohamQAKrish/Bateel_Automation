@@ -2,18 +2,18 @@
 <testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-09-25T14:34:48 IST" name="Local Test Suite" finished-at="2024-09-25T14:40:45 IST" duration-ms="356516">
+  <suite started-at="2024-09-25T16:51:56 IST" name="Local Test Suite" finished-at="2024-09-25T16:58:03 IST" duration-ms="367055">
     <groups>
     </groups>
-    <test started-at="2024-09-25T14:34:48 IST" name="Local Tests" finished-at="2024-09-25T14:40:45 IST" duration-ms="356516">
+    <test started-at="2024-09-25T16:51:56 IST" name="Local Tests" finished-at="2024-09-25T16:58:03 IST" duration-ms="367055">
       <class name="sanity.bateel.SanityBateelLiveCheckoutWithInvalidCardDetails">
-        <test-method signature="testBateelLiveCheckoutWithInvalidCard()[pri:0, instance:sanity.bateel.SanityBateelLiveCheckoutWithInvalidCardDetails@2571066a]" started-at="2024-09-25T14:38:05 IST" name="testBateelLiveCheckoutWithInvalidCard" finished-at="2024-09-25T14:40:44 IST" duration-ms="159434" status="FAIL">
+        <test-method signature="testBateelLiveCheckoutWithInvalidCard()[pri:0, instance:sanity.bateel.SanityBateelLiveCheckoutWithInvalidCardDetails@5cf87cfd]" started-at="2024-09-25T16:55:09 IST" name="testBateelLiveCheckoutWithInvalidCard" finished-at="2024-09-25T16:58:02 IST" duration-ms="173134" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[expected [The transaction could not be processed] but found [Your card details are incorrect.]]]>
+              <![CDATA[expected [The customer was not redirected as expected.] but found [Customer should be redirected to the visa page]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [The transaction could not be processed] but found [Your card details are incorrect.]
+              <![CDATA[java.lang.AssertionError: expected [The customer was not redirected as expected.] but found [Customer should be redirected to the visa page]
 at org.testng.Assert.fail(Assert.java:99)
 at org.testng.Assert.failNotEquals(Assert.java:1037)
 at org.testng.Assert.assertEqualsImpl(Assert.java:140)
@@ -56,7 +56,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
         </test-method> <!-- testBateelLiveCheckoutWithInvalidCard -->
       </class> <!-- sanity.bateel.SanityBateelLiveCheckoutWithInvalidCardDetails -->
       <class name="sanity.bateel.SanityBateelLiveCheckout">
-        <test-method signature="testBateelLiveCheckout()[pri:0, instance:sanity.bateel.SanityBateelLiveCheckout@74971ed9]" started-at="2024-09-25T14:34:50 IST" name="testBateelLiveCheckout" finished-at="2024-09-25T14:38:04 IST" duration-ms="193948" status="PASS">
+        <test-method signature="testBateelLiveCheckout()[pri:0, instance:sanity.bateel.SanityBateelLiveCheckout@7f02251]" started-at="2024-09-25T16:52:02 IST" name="testBateelLiveCheckout" finished-at="2024-09-25T16:55:09 IST" duration-ms="186346" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testBateelLiveCheckout -->

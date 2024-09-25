@@ -128,7 +128,7 @@ public class BateelLoginCheckoutPage {
 	 * @lastmodifiedby RShivam
 	 */
 	public static void handleErrorMessage() {
-		String expectedErrorMessage = "Your card details are incorrect."; 
-		Assert.assertEquals(expectedErrorMessage, "The transaction could not be processed");
+		String expectedErrorMessage = "Customer should be redirected to the visa page"; 
+		Assert.assertEquals(expectedErrorMessage, "The customer was not redirected as expected.");
 	}	
 }
