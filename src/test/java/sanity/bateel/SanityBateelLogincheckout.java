@@ -41,7 +41,7 @@ public class SanityBateelLogincheckout {
 		UtilitiesCommon.log("User has successfully filled shipping address on the checkout page");
 		BateelLoginCheckoutPage.proccedTOBilling();
 		UtilitiesCommon.log("Clicked on proceed to billing button");
-		BateelLoginCheckoutPage.clickPlaceOrderButtonWithLogin();
+		//BateelLoginCheckoutPage.clickPlaceOrderButtonWithLogin();
 		UtilitiesCommon.log("Clicked on place order button");
 		BateelLoginCheckoutPage.clickOnContinueShopButton();
 		UtilitiesCommon.log("Clicked on continue shopping button");

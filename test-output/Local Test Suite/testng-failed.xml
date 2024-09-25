@@ -2,15 +2,15 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Local Test Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Local Tests(failed)">
-    <parameter name="environment" value="${environment}"/>
-    <parameter name="defaultTimeout" value="${defaultTimeout}"/>
+    <parameter name="environment" value="QA"/>
+    <parameter name="defaultTimeout" value="30"/>
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="sanity.bateel.SanityBateelMainNavigationmenu">
+      <class name="sanity.bateel.SanityBateelLogincheckout">
         <methods>
-          <include name="mainmenu"/>
+          <include name="testBateeladdtocartitemloginuser"/>
         </methods>
-      </class> <!-- sanity.bateel.SanityBateelMainNavigationmenu -->
+      </class> <!-- sanity.bateel.SanityBateelLogincheckout -->
     </classes>
   </test> <!-- Local Tests(failed) -->
 </suite> <!-- Failed suite [Local Test Suite] -->

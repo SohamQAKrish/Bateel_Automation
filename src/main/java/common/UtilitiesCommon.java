@@ -238,7 +238,9 @@ public class UtilitiesCommon {
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 	}
-	
+	public static void focusOnElement(WebElement element) {
+	    jsExecutor.executeScript("arguments[0].focus();", element);
+	}
 	/**
 	 * This method is used to read .yaml files
 	 * 
@@ -2147,6 +2149,5 @@ public class UtilitiesCommon {
 	        
 	        return "clickable";
 	    }
-
 	
 }

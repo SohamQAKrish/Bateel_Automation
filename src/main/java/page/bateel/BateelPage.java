@@ -1,9 +1,12 @@
 package page.bateel;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import common.UtilitiesCommon;
 import enums.bateel.BateelHomePageEnum;
+import enums.bateel.BateelLoginCheckoutEnum;
 
 /**
  * @author kdave
@@ -41,10 +44,10 @@ public class BateelPage {
 	 */
 	public static void verifyBateelShopCategory() throws InterruptedException {
 	    String currentUrlBeforeClick = UtilitiesCommon.getCurrentUrl();
-	    UtilitiesCommon.waitForElementIsPresent(BateelHomePageEnum.BATEEL_HOME_PAGE_SHOP_CATEGORY_ID);
+	    UtilitiesCommon.waitForElementIsPresent(BateelHomePageEnum.BATEEL_HOME_PAGE_SHOP_CATEGORY_XPATH);
 		//UtilitiesCommon.setupWebdriverWait(60);
-		UtilitiesCommon.waitForMilliseconds(5000);
-		UtilitiesCommon.click(BateelHomePageEnum.BATEEL_HOME_PAGE_SHOP_CATEGORY_ID);
+		UtilitiesCommon.waitForMilliseconds(3000);
+		UtilitiesCommon.click(BateelHomePageEnum.BATEEL_HOME_PAGE_SHOP_CATEGORY_XPATH);
 	    String currentUrlAfterClick = UtilitiesCommon.getCurrentUrl();
 	    Assert.assertNotEquals(currentUrlBeforeClick, currentUrlAfterClick, "Clicking on the shop category did not redirect to a different page");
 	}
@@ -53,5 +56,20 @@ public class BateelPage {
 		UtilitiesCommon.setupWebdriverWait(30);
 		UtilitiesCommon.click(BateelHomePageEnum.BATEEL_HOME_PAGE_OK_BUTTON_XPATH);
 	}
+	public static void selectCountry(String country) {
+	    UtilitiesCommon.setupWebdriverWait(50);
+	    
+	    UtilitiesCommon.click(BateelHomePageEnum.BATEEL_HOME_PAGE_SELECT_COUNTRY_CLICK_XPATH);
+	  	 UtilitiesCommon.setupWebdriverWait(30); 
+	    List<WebElement> options = UtilitiesCommon.getElements(BateelHomePageEnum.BATEEL_HOME_PAGE_SELECT_COUNTRY_OPTION_XPATH);
+	    
+	    for (WebElement option : options) {
+	        if (option.getText().equalsIgnoreCase(country)) {
+	            option.click(); // Click the matching country option
+	            break; // Exit after clicking
+	        }
+	    }
+	}
+	
 }
 
