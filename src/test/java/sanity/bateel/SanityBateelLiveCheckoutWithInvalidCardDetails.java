@@ -48,6 +48,7 @@ public class SanityBateelLiveCheckoutWithInvalidCardDetails {
 		UtilitiesCommon.log("Clicked on proceed to billing button");
 		BateelLoginCheckoutPage.enterCardDetails();
 		UtilitiesCommon.log("User has successfully entered card details");
-		BateelLoginCheckoutPage.handleErrorMessage();    
+		BateelLoginCheckoutPage.handleErrorMessage(); 
+		UtilitiesCommon.log("The customer was not redirected as expected.");
 	}
 }

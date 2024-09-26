@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-09-25T16:51:56 IST" name="Local Test Suite" finished-at="2024-09-25T16:58:03 IST" duration-ms="367055">
+  <suite started-at="2024-09-26T14:55:38 IST" name="Local Test Suite" finished-at="2024-09-26T15:02:01 IST" duration-ms="383413">
     <groups>
     </groups>
-    <test started-at="2024-09-25T16:51:56 IST" name="Local Tests" finished-at="2024-09-25T16:58:03 IST" duration-ms="367055">
+    <test started-at="2024-09-26T14:55:38 IST" name="Local Tests" finished-at="2024-09-26T15:02:01 IST" duration-ms="383413">
       <class name="sanity.bateel.SanityBateelLiveCheckoutWithInvalidCardDetails">
-        <test-method signature="testBateelLiveCheckoutWithInvalidCard()[pri:0, instance:sanity.bateel.SanityBateelLiveCheckoutWithInvalidCardDetails@5cf87cfd]" started-at="2024-09-25T16:55:09 IST" name="testBateelLiveCheckoutWithInvalidCard" finished-at="2024-09-25T16:58:02 IST" duration-ms="173134" status="FAIL">
+        <test-method signature="testBateelLiveCheckoutWithInvalidCard()[pri:0, instance:sanity.bateel.SanityBateelLiveCheckoutWithInvalidCardDetails@2571066a]" started-at="2024-09-26T14:58:53 IST" name="testBateelLiveCheckoutWithInvalidCard" finished-at="2024-09-26T15:02:00 IST" duration-ms="186442" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [The customer was not redirected as expected.] but found [Customer should be redirected to the visa page]]]>
@@ -56,7 +56,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
         </test-method> <!-- testBateelLiveCheckoutWithInvalidCard -->
       </class> <!-- sanity.bateel.SanityBateelLiveCheckoutWithInvalidCardDetails -->
       <class name="sanity.bateel.SanityBateelLiveCheckout">
-        <test-method signature="testBateelLiveCheckout()[pri:0, instance:sanity.bateel.SanityBateelLiveCheckout@7f02251]" started-at="2024-09-25T16:52:02 IST" name="testBateelLiveCheckout" finished-at="2024-09-25T16:55:09 IST" duration-ms="186346" status="PASS">
+        <test-method signature="testBateelLiveCheckout()[pri:0, instance:sanity.bateel.SanityBateelLiveCheckout@74971ed9]" started-at="2024-09-26T14:55:41 IST" name="testBateelLiveCheckout" finished-at="2024-09-26T14:58:53 IST" duration-ms="191689" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testBateelLiveCheckout -->
