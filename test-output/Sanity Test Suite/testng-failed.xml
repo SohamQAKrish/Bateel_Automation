@@ -3,15 +3,25 @@
 <suite name="Failed suite [Sanity Test Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Sanity Tests(failed)">
     <parameter name="environment" value="QA"/>
-    <parameter name="testrailSuiteID" value="303"/>
     <parameter name="defaultTimeout" value="30"/>
-    <parameter name="browser" value="Chrome"/>
+    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="sanity.onitsuka.SanityOnitsukaLoginAndNavigationTest">
+      <class name="sanity.bateel.SanityBateelLogincheckout">
         <methods>
-          <include name="testOnitSukaPageHeaderTitle"/>
+          <include name="testBateeladdtocartitemloginuser"/>
         </methods>
-      </class> <!-- sanity.onitsuka.SanityOnitsukaLoginAndNavigationTest -->
+      </class> <!-- sanity.bateel.SanityBateelLogincheckout -->
+      <class name="sanity.bateel.SanityBateelMainNavigationmenu">
+        <methods>
+          <include name="mainmenu"/>
+        </methods>
+      </class> <!-- sanity.bateel.SanityBateelMainNavigationmenu -->
+      <class name="sanity.bateel.SanityBateelFootersection">
+        <methods>
+          <include name="FootersocialmediaYoutube"/>
+          <include name="FooterTermsandconditionslink"/>
+        </methods>
+      </class> <!-- sanity.bateel.SanityBateelFootersection -->
     </classes>
   </test> <!-- Sanity Tests(failed) -->
 </suite> <!-- Failed suite [Sanity Test Suite] -->

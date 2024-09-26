@@ -34,6 +34,8 @@ public class SanityBateelGuestCheckout {
 		UtilitiesCommon.log("User has successfully verified product detail");
 		BateelCartPage.addToCart();
 		UtilitiesCommon.log("Product successfully added to the cart");
+		BateelCartPage.viewANDEditCart();
+		UtilitiesCommon.log("Updated main cart");
 		UtilitiesCommon.setupWebdriverWait(30);
 		BateelGuestCheckoutPage.clickGuestCheckoutButton();
 		UtilitiesCommon.log("Successfully clicked guest checkout button for the guest customer flow");

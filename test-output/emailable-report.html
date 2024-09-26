@@ -8,11 +8,84 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">115,912</td><td></td><td></td></tr>
+<tr><th colspan="8">Sanity Test Suite</th></tr>
+<tr><td><a href="#t0">Sanity Tests</a></td><td class="num">12</td><td class="num">0</td><td class="num">0</td><td class="num attn">4</td><td class="num">1,109,950</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">sanity.bateel.SanityBateelGuestCheckout</td><td><a href="#m0">testguestcheckout</a></td><td rowspan="1">1726552510967</td><td rowspan="1">111064</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Sanity Test Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Sanity Tests &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">sanity.bateel.SanityBateelFootersection</td><td><a href="#m0">FooterTermsandconditionslink</a></td><td rowspan="1">1727339627648</td><td rowspan="1">35914</td></tr><tr class="failedeven"><td><a href="#m1">FootersocialmediaYoutube</a></td><td rowspan="1">1727339914273</td><td rowspan="1">44991</td></tr><tr class="failedodd"><td rowspan="1">sanity.bateel.SanityBateelLogincheckout</td><td><a href="#m2">testBateeladdtocartitemloginuser</a></td><td rowspan="1">1727340226639</td><td rowspan="1">160015</td></tr><tr class="failedeven"><td rowspan="1">sanity.bateel.SanityBateelMainNavigationmenu</td><td><a href="#m3">mainmenu</a></td><td rowspan="1">1727340387518</td><td rowspan="1">119636</td></tr><tr><th colspan="4">Sanity Tests &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">sanity.bateel.SanityBateelCart</td><td><a href="#m4">testBateeladdtocartitem</a></td><td rowspan="1">1727339490495</td><td rowspan="1">104245</td></tr><tr class="passedodd"><td rowspan="7">sanity.bateel.SanityBateelFootersection</td><td><a href="#m5">FooterPrivacypolicylink</a></td><td rowspan="1">1727339595949</td><td rowspan="1">31575</td></tr><tr class="passedodd"><td><a href="#m6">Footercmslinks</a></td><td rowspan="1">1727339665075</td><td rowspan="1">88569</td></tr><tr class="passedodd"><td><a href="#m7">Footerlogo</a></td><td rowspan="1">1727339754002</td><td rowspan="1">19711</td></tr><tr class="passedodd"><td><a href="#m8">FootersocialmediaFacebook</a></td><td rowspan="1">1727339774126</td><td rowspan="1">47966</td></tr><tr class="passedodd"><td><a href="#m9">FootersocialmediaLinkedin</a></td><td rowspan="1">1727339822297</td><td rowspan="1">44672</td></tr><tr class="passedodd"><td><a href="#m10">FootersocialmediaTwitter</a></td><td rowspan="1">1727339867153</td><td rowspan="1">46290</td></tr><tr class="passedodd"><td><a href="#m11">Footersocialmediainstagram</a></td><td rowspan="1">1727339959843</td><td rowspan="1">53772</td></tr><tr class="passedeven"><td rowspan="1">sanity.bateel.SanityBateelGuestCheckout</td><td><a href="#m12">testguestcheckout</a></td><td rowspan="1">1727340013921</td><td rowspan="1">180015</td></tr><tr class="passedodd"><td rowspan="1">sanity.bateel.SanityBateelLoginAndNavigationTest</td><td><a href="#m13">testBateelShopCategoryNavigation</a></td><td rowspan="1">1727340194620</td><td rowspan="1">31743</td></tr><tr class="passedeven"><td rowspan="1">sanity.bateel.SanityBateelProduct</td><td><a href="#m14">testBateelclickproduct</a></td><td rowspan="1">1727340508151</td><td rowspan="1">37346</td></tr><tr class="passedodd"><td rowspan="1">sanity.bateel.SanityBateelProductDetails</td><td><a href="#m15">testBateelproductfilldetails</a></td><td rowspan="1">1727340545803</td><td rowspan="1">51016</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">sanity.bateel.SanityBateelGuestCheckout#testguestcheckout</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Sanity Tests</h2><h3 id="m0">sanity.bateel.SanityBateelFootersection#FooterTermsandconditionslink</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Terms and conditions page title is not proper expected [Terms &amp; Conditions | Bateel] but found [Luxury Gourmet Dates &amp; Gift Boxes | Organic Dates | Bateel]
+	at page.bateel.BateelFooter.footertermsandconditionslinkcheck(BateelFooter.java:159)
+	at sanity.bateel.SanityBateelFootersection.FooterTermsandconditionslink(SanityBateelFootersection.java:129)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">sanity.bateel.SanityBateelFootersection#FootersocialmediaYoutube</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Youtube page title missmatch expected [Bateel International - YouTube] but found [Privacy error]
+	at page.bateel.BateelFooter.footeryoutubelinkcheck(BateelFooter.java:145)
+	at sanity.bateel.SanityBateelFootersection.FootersocialmediaYoutube(SanityBateelFootersection.java:114)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">sanity.bateel.SanityBateelLogincheckout#testBateeladdtocartitemloginuser</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //*[@id=&quot;checkout-payment-method-load&quot;]/div/div/div[2]/div[2]/div[4]/div/button (tried for 30 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at common.UtilitiesCommon.waitForElementIsVisible(UtilitiesCommon.java:874)
+	at common.UtilitiesCommon.getElement(UtilitiesCommon.java:638)
+	at common.UtilitiesCommon.click(UtilitiesCommon.java:762)
+	at page.bateel.BateelLoginCheckoutPage.clickPlaceOrderButtonWithLogin(BateelLoginCheckoutPage.java:72)
+	at sanity.bateel.SanityBateelLogincheckout.testBateeladdtocartitemloginuser(SanityBateelLogincheckout.java:44)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&quot;checkout-payment-method-load&quot;]/div/div/div[2]/div[2]/div[4]/div/button&quot;}
+  (Session info: chrome=129.0.6668.70)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;KRISH117&apos;, ip: &apos;10.16.16.96&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.10&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 129.0.6668.70, chrome: {chromedriverVersion: 129.0.6668.70 (df87d5cf12b1..., userDataDir: C:\Users\KASHYA~1.DAV\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64429}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e082e93bb9f4a505acd0ca2715792150
+*** Element info: {Using=xpath, value=//*[@id=&quot;checkout-payment-method-load&quot;]/div/div/div[2]/div[2]/div[4]/div/button}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 33 more
+... Removed 31 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">sanity.bateel.SanityBateelMainNavigationmenu#mainmenu</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (321, 602)
+  (Session info: chrome=129.0.6668.70)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;KRISH117&apos;, ip: &apos;10.16.16.96&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.10&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 129.0.6668.70, chrome: {chromedriverVersion: 129.0.6668.70 (df87d5cf12b1..., userDataDir: C:\Users\KASHYA~1.DAV\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64654}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8e6cf5c549fa22d9aff945eeffcf490b
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at page.bateel.BateelHeader.Verifymenucategorylinks(BateelHeader.java:21)
+	at sanity.bateel.SanityBateelMainNavigationmenu.mainmenu(SanityBateelMainNavigationmenu.java:26)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">sanity.bateel.SanityBateelCart#testBateeladdtocartitem</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">sanity.bateel.SanityBateelFootersection#FooterPrivacypolicylink</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">sanity.bateel.SanityBateelFootersection#Footercmslinks</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">sanity.bateel.SanityBateelFootersection#Footerlogo</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">sanity.bateel.SanityBateelFootersection#FootersocialmediaFacebook</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">sanity.bateel.SanityBateelFootersection#FootersocialmediaLinkedin</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m10">sanity.bateel.SanityBateelFootersection#FootersocialmediaTwitter</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m11">sanity.bateel.SanityBateelFootersection#Footersocialmediainstagram</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m12">sanity.bateel.SanityBateelGuestCheckout#testguestcheckout</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m13">sanity.bateel.SanityBateelLoginAndNavigationTest#testBateelShopCategoryNavigation</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m14">sanity.bateel.SanityBateelProduct#testBateelclickproduct</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m15">sanity.bateel.SanityBateelProductDetails#testBateelproductfilldetails</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
