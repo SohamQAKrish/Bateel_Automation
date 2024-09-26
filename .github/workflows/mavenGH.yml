@@ -1,9 +1,8 @@
-name: Continuous Integration and Deployment | Kashyap
+name: Main Branch | GiHub Actions
 on:
   push:
     branches:
       - main
-      - IAT-4
   pull_request:
     branches:
       - main
