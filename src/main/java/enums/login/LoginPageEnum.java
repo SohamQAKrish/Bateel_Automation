@@ -1,20 +1,5 @@
 package enums.login;
 
-/**
- * This enum will store objects available on Login page.
- * @author spandit
- * @lastmodifiedby spandit
- */
-
-/*
- * Note: Enum key should be in capital case and should end with either of below
- * locator types: ID, XPATH, LINKTEXT, PARTIALLINKTEXT, CSS, NAME, TAGNAME, CLASSNAME 
- */
-/**
- * @author spandit
- * @lastmodifiedby kdave 
- * This class will contain all the Enums for Login Page
- */
 public enum LoginPageEnum {
 	LOGINPAGE_USERNAME_TEXT_BOX_NAME("login[username]"),
 	LOGINPAGE_PASSWORD_TEXT_BOX_NAME("login[password]"),

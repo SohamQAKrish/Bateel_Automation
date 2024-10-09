@@ -19,7 +19,7 @@ public class BateelFooter {
 		UtilitiesCommon.waitForElementIsPresent(BateelFooterEnum.BATEEL_Footer_cookiesAccept_ENUM_XPATH);
 		UtilitiesCommon.getElement(BateelFooterEnum.BATEEL_Footer_cookiesAccept_ENUM_XPATH).click();
 	}
-
+	
 	/*
 	 * This method is to verify the Footer logo
 	 * @param enumValue Enum Value
@@ -33,6 +33,7 @@ public class BateelFooter {
 		boolean logocheck = UtilitiesCommon.isElementPresent(BateelFooterEnum.BATEEL_Footer_storeLogo_ENUM_XPATH);
 		assertEquals(logocheck, true, "Footer section logo is missing");
 	}
+	
 	/*
 	 * This method is to verify the Footer CMS links navigation
 	 * @param enumValue Enum Value
@@ -62,6 +63,7 @@ public class BateelFooter {
 			footerelements = footerCMSsection.findElements(By.tagName("a"));
 		}
 	}
+	
 	/*
 	 * This method is to verify the Footer social media link : Instagram
 	 * @param enumValue Enum Value
@@ -80,6 +82,7 @@ public class BateelFooter {
 		assertEquals(UtilitiesCommon.gettitle(), "Bateel (@bateelgourmet) • Instagram photos and videos",
 				"instagram page title missmatch");
 	}
+	
 	/*
 	 * This method is to verify the Footer social media link : Facebook
 	 * @param enumValue Enum Value
@@ -96,6 +99,7 @@ public class BateelFooter {
 		UtilitiesCommon.switchtoTab(1);
 		assertEquals(UtilitiesCommon.gettitle(),"Bateel International | Facebook", "Facebook page title missmatch");
 	}
+	
 	/*
 	 * This method is to verify the Footer social media link : Twitter
 	 * @param enumValue Enum Value
@@ -112,6 +116,7 @@ public class BateelFooter {
 		UtilitiesCommon.switchtoTab(1);
 		assertEquals(UtilitiesCommon.gettitle(), "Bateel International (@Bateelgourmet) / X", "Twitter page title missmatch");
 	}
+	
 	/*
 	 * This method is to verify the Footer social media link : Linkedin
 	 * @param enumValue Enum Value
@@ -128,6 +133,7 @@ public class BateelFooter {
 		UtilitiesCommon.switchtoTab(1);
 		assertEquals(UtilitiesCommon.gettitle(), "Bateel International | LinkedIn", "Linkedin page title missmatch");
 	}
+	
 	/*
 	 * This method is to verify the Footer social media link : Youtube
 	 * @param enumValue Enum Value
@@ -144,6 +150,7 @@ public class BateelFooter {
 		UtilitiesCommon.switchtoTab(1);
 		assertEquals(UtilitiesCommon.gettitle(), "Bateel International - YouTube", "Youtube page title missmatch");
 	}
+	
 	/*
 	 * This method is to verify the Footer Terms and conditions link
 	 * @param enumValue Enum Value
@@ -158,6 +165,7 @@ public class BateelFooter {
 		UtilitiesCommon.waitForMilliseconds(3000);
 		assertEquals(UtilitiesCommon.gettitle(), "Terms & Conditions | Bateel", "Terms and conditions page title is not proper");
 	}
+	
 	/*
 	 * This method is to verify the Footer privacy policy
 	 * @param enumValue Enum Value

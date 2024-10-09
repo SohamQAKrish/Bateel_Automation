@@ -8,6 +8,7 @@ public enum BateelCartPageEnum {
 	BATEEL_MAIN_CART_UPDATE_ENUM_XPATH("//span[normalize-space()='Update Cart']"),
 	BATEEL_CART_CHECKOUT_ENUM_CSS("button[title='Proceed to Checkout'] span");
 
+	// A private variable to store the label
 	private final String label;
 
 	// A private constructor that sets the label for each enum constant

@@ -667,10 +667,9 @@ public class UtilitiesCommon {
 	        return element.getText();
 	    } catch (NoSuchElementException e) {
 	        System.out.println("Element not found for enum value: " + enumValue);
-	        return null; // or you can return an empty string or handle it as per your requirement
+	        return null;
 	    }
 	}
-
 	/**
 	 * This method will return web elements text
 	 * @param elementList Element List
@@ -685,7 +684,6 @@ public class UtilitiesCommon {
 		}
 		return elementTextsList;
 	}
-
 	/**
 	 * This method will return specified web element attribute value.
 	 * @param enumValue Enum Value
@@ -699,7 +697,6 @@ public class UtilitiesCommon {
 		executeJS(JAVASCRIPT_BORDER, element);
 		return element.getAttribute(attributeName);
 	}
-
 	/**
 	 * This method will return web element dynamically using specified dynamicValue.
 	 * @param enumValue    Enum Value
@@ -713,7 +710,6 @@ public class UtilitiesCommon {
 		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(xpathExpression)));
 		return driver.findElement(By.xpath(xpathExpression));
 	}
-
 	/**
 	 * This method will return List of web elements dynamically using specified dynamicValue.
 	 * @param enumValue    Enum Value
@@ -737,7 +733,6 @@ public class UtilitiesCommon {
 	    WebDriverWait wait = new WebDriverWait(driver, timeoutSeconds);
 	    wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
-	
 	/**
 	 * This method is used to generate the Dynamic Xpath
 	 * @param xpath        XPATH
@@ -749,7 +744,6 @@ public class UtilitiesCommon {
 	public static String generateDynamicXpath(String xpath, String dynamicValue) {
 		return String.format(xpath, dynamicValue);
 	}
-
 	/**
 	 * This method will perform click operation on the element available on the web
 	 * page.
@@ -764,6 +758,7 @@ public class UtilitiesCommon {
 		executeJS(JAVASCRIPT_BORDER, element);
 		element.click();
 	}
+	
 	public static boolean clickAndVerifyClickable(BateelLoginCheckoutEnum enumValue) {
         try {
             click(enumValue);
@@ -772,7 +767,6 @@ public class UtilitiesCommon {
             return false;
         }
     }
-
 	/**
 	 * This method will perform click operation on the element available on the web
 	 * page by using dynamic xpath.
@@ -788,7 +782,6 @@ public class UtilitiesCommon {
 		executeJS(JAVASCRIPT_BORDER, element);
 		element.click();
 	}
-
 	/**
 	 * This method will enter the specified value in the text field.
 	 * 
@@ -804,7 +797,6 @@ public class UtilitiesCommon {
 		element.clear();
 		element.sendKeys(inputValue);
 	}
-
 	/**
 	 * This method will enter the specified value in the text field by using dynamic
 	 * xpath.
@@ -822,7 +814,6 @@ public class UtilitiesCommon {
 		element.clear();
 		element.sendKeys(inputValue);
 	}
-
 	/**
 	 * This method is used to select dropdown value by Text - This will used for
 	 * select tags
@@ -837,7 +828,6 @@ public class UtilitiesCommon {
 		Select select = new Select(element);
 		select.selectByVisibleText(selectOption);
 	}
-
 	/**
 	 * This method is used to get All drowpdown options Text - This will used for
 	 * select tags
@@ -852,7 +842,6 @@ public class UtilitiesCommon {
 		Select select = new Select(element);
 		return getElementsText(select.getOptions());
 	}
-
 	/**
 	 * This method is used to wait until web element is clickable
 	 * 
@@ -873,7 +862,6 @@ public class UtilitiesCommon {
 	private static void waitForElementIsVisible(By locator) {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
-
 	/**
 	 * This is used to check the web element is enabled or not
 	 * 
@@ -886,7 +874,6 @@ public class UtilitiesCommon {
 		WebElement element = getElement(enumValue);
 		return element.isEnabled();
 	}
-
 	/**
 	 * This is used to check the web element is present or not
 	 * 
@@ -908,7 +895,6 @@ public class UtilitiesCommon {
 	        return false;
 	    }
 	}
-
 	/**
 	 * This is used to check the web element is selected or not
 	 * 
@@ -921,7 +907,6 @@ public class UtilitiesCommon {
 		WebElement element = getElement(enumValue);
 		return element.isSelected();
 	}
-
 	/**
 	 * This method will perform click operation on the element available on the web
 	 * page using javascript executor.
@@ -949,7 +934,6 @@ public class UtilitiesCommon {
 		element.click();
 		executeJS("arguments[0].setAttribute('value', '" + inputValue + "')", element);
 	}
-
 	/**
 	 * This method will scroll to the specified web element using javascript
 	 * executor.
@@ -962,7 +946,6 @@ public class UtilitiesCommon {
 		WebElement element = getElement(enumValue);
 		executeJS("arguments[0].scrollIntoView(true);", element);
 	}
-
 	/**
 	 * This method will scroll to the Dynamically generated web element using
 	 * javascript executor.
@@ -976,7 +959,6 @@ public class UtilitiesCommon {
 		WebElement element = getDynamicElement(enumValue, dynamicValue);
 		executeJS("arguments[0].scrollIntoView(true);", element);
 	}
-
 	/**
 	 * This method will Click to the Dynamically generated web element using
 	 * javascript executor.
@@ -990,7 +972,6 @@ public class UtilitiesCommon {
 		WebElement element = getDynamicElement(enumValue, dynamicValue);
 		executeJS("arguments[0].click();", element);
 	}
-
 	/**
 	 * This method will execute the java scripts.
 	 * 
@@ -1006,7 +987,6 @@ public class UtilitiesCommon {
 			throw new CustomExceptions("Failed in the JavaScript execution : " + e.getMessage());
 		}
 	}
-
 	/**
 	 * This method will perform mouse hover action on an element
 	 * 
@@ -1018,7 +998,6 @@ public class UtilitiesCommon {
 		WebElement elementTobeHovered = getElement(enumValue);
 		builder.moveToElement(elementTobeHovered).build().perform();
 	}
-
 	/**
 	 * This method will perform mouse hover action on an dynamically generated
 	 * element.
@@ -1032,7 +1011,6 @@ public class UtilitiesCommon {
 		WebElement elementTobeHovered = getDynamicElement(enumValue, dynamicValue);
 		builder.moveToElement(elementTobeHovered).build().perform();
 	}
-
 	/**
 	 * This method will perform double click on an element.
 	 * 
@@ -1044,7 +1022,6 @@ public class UtilitiesCommon {
 		WebElement elementTobeDoubleClicked = getElement(enumValue);
 		builder.doubleClick(elementTobeDoubleClicked).perform();
 	}
-
 	/**
 	 * This method will perform right click action on an element.
 	 * 
@@ -1056,7 +1033,6 @@ public class UtilitiesCommon {
 		WebElement elementTobeRightClicked = getElement(enumValue);
 		builder.contextClick(elementTobeRightClicked).perform();
 	}
-
 	/**
 	 * This method will perform drag and drop action on an element.
 	 * 
@@ -1070,7 +1046,6 @@ public class UtilitiesCommon {
 		WebElement destination = getElement(destinationEnumValue);
 		builder.dragAndDrop(source, destination).build().perform();
 	}
-
 	/**
 	 * This method will perform drag and drop action on an dynamically generated
 	 * element.
@@ -1088,7 +1063,6 @@ public class UtilitiesCommon {
 		WebElement destination = getDynamicElement(destinationEnumValue, dynamicDestinationValue);
 		builder.dragAndDrop(source, destination).build().perform();
 	}
-
 	/**
 	 * This method will perform browser search for specified String.
 	 * 
@@ -1119,7 +1093,6 @@ public class UtilitiesCommon {
 			throw new CustomExceptions("Failed to Search the text using Browser Search : " + e.getMessage());
 		}
 	}
-
 	/**
 	 * This method will compare and assert the expected and actual text
 	 * 
@@ -1132,7 +1105,6 @@ public class UtilitiesCommon {
 		String actualText = getElementAttribute(enumValue, "innerText");
 		Assertions.assertThat(actualText.trim()).isEqualTo(expectedText);
 	}
-
 	/**
 	 * This method will compare and Soft assert the expected and actual text
 	 * 
@@ -1145,7 +1117,6 @@ public class UtilitiesCommon {
 		String actualText = getElementText(enumValue);
 		softAssert.assertEquals(actualText, expectedText);
 	}
-
 	/**
 	 * This method will trigger the exception for failed assertion and needs to be
 	 * used at the end of the test
@@ -1156,7 +1127,6 @@ public class UtilitiesCommon {
 	public static void softAssertAll() {
 		softAssert.assertAll();
 	}
-
 	/**
 	 * This method will wait until the presence of element is located
 	 * 
@@ -1167,7 +1137,6 @@ public class UtilitiesCommon {
 	public static void waitForElementIsPresent(Enum<?> enumValue) {
 		wait.until(ExpectedConditions.presenceOfElementLocated(getLocator(enumValue)));
 	}
-
 	/**
 	 * This method will check if the element is visible
 	 * 
@@ -1186,6 +1155,7 @@ public class UtilitiesCommon {
 		}
 		return isElementVisible;
 	}
+	
 	public static boolean waitForElementIsNotVisible(By locator) {
 	    boolean isElementNotVisible;
 	    try {
@@ -1213,7 +1183,6 @@ public class UtilitiesCommon {
 		}
 		return isElementDisplayed;
 	}
-
 	/**
 	 * This method will check if the element is displayed.
 	 * 
@@ -1230,7 +1199,6 @@ public class UtilitiesCommon {
 		}
 		return isElementDisplayed;
 	}
-
 	/**
 	 * This method will check if the element is not visible.
 	 * 
@@ -1242,7 +1210,6 @@ public class UtilitiesCommon {
 	public static boolean verifyElementIsNotVisible(Enum<?> enumValue) {
 		return wait.until(ExpectedConditions.invisibilityOfElementLocated(getLocator(enumValue)));
 	}
-
 	/**
 	 * This method will check if the dynamically generated element is visible.
 	 * 
@@ -1263,7 +1230,6 @@ public class UtilitiesCommon {
 		}
 		return isElementVisible;
 	}
-
 	/**
 	 * This method will check if the dynamically generated element is not visible.
 	 * 
@@ -1284,7 +1250,6 @@ public class UtilitiesCommon {
 		}
 		return isDynamicElementNotVisible;
 	}
-
 	/**
 	 * This method will check if the Text Field currently has Focus.
 	 * 
@@ -1298,7 +1263,6 @@ public class UtilitiesCommon {
 		WebElement expected = getElement(enumValue);
 		return actual.equals(expected);
 	}
-
 	/**
 	 * This method will switch the control to the child window
 	 * 
@@ -1311,7 +1275,6 @@ public class UtilitiesCommon {
 			driver.switchTo().window(winHandle);
 		}
 	}
-
 	/**
 	 * This method will switch the control back to the parent window
 	 * 
@@ -1321,7 +1284,6 @@ public class UtilitiesCommon {
 	public static void switchToParentWindow() {
 		driver.switchTo().window(parentWindowHandle);
 	}
-
 	/**
 	 * This method will fetch handle of the current window
 	 * 
@@ -1332,7 +1294,6 @@ public class UtilitiesCommon {
 	public static String getCurrentWindowHandle() {
 		return driver.getWindowHandle();
 	}
-
 	/**
 	 * This method will fetch handles of the child windows
 	 * 
@@ -1343,7 +1304,6 @@ public class UtilitiesCommon {
 	public static Set<String> getChildWindowHandles() {
 		return driver.getWindowHandles();
 	}
-
 	/**
 	 * This method will switch the control to a specific frame
 	 * 
@@ -1355,7 +1315,6 @@ public class UtilitiesCommon {
 		WebElement frameElement = getElement(enumValue);
 		driver.switchTo().frame(frameElement);
 	}
-
 	/**
 	 * This method will switch the control back to default content from iframe
 	 * 
@@ -1365,7 +1324,6 @@ public class UtilitiesCommon {
 	public static void switchToDefault() {
 		driver.switchTo().defaultContent();
 	}
-
 	/**
 	 * This method is used to get current date and time in dd-MM-yyyy HH-mm-ss
 	 * format
@@ -1378,7 +1336,6 @@ public class UtilitiesCommon {
 		SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
 		return formDate.format(new Date());
 	}
-
 	/**
 	 * This method is used to Generate 7 Digit Random number
 	 * 
@@ -1390,7 +1347,6 @@ public class UtilitiesCommon {
 		Random rand = new Random();
 		return rand.nextInt(9999999);
 	}
-
 	/**
 	 * This method is used to Generate Random string data
 	 * 
@@ -1402,7 +1358,6 @@ public class UtilitiesCommon {
 	public static String generateRandomText(int value) {
 		return RandomStringUtils.randomAlphabetic(value);
 	}
-
 	/**
 	 * This method is used to capture a screenshot for Testrail.
 	 * 
@@ -1423,7 +1378,6 @@ public class UtilitiesCommon {
 		}
 		return fileObj;
 	}
-
 	/**
 	 * This method is used to delete the allure reports and attachments like
 	 * screenshots and screen recordings.
@@ -1435,7 +1389,6 @@ public class UtilitiesCommon {
 		deleteExistingAllureReports();
 		deleteExistingAttachments();
 	}
-
 	/**
 	 * This method is used to delete the old allure reports.
 	 * 
@@ -1460,7 +1413,6 @@ public class UtilitiesCommon {
 			}
 		}
 	}
-
 	/**
 	 * This method is used to delete the old Screen Recordings and Screen shots.
 	 * 
@@ -1483,7 +1435,6 @@ public class UtilitiesCommon {
 			}
 		}
 	}
-
 	/**
 	 * This method is used to delete the Screen Recording of Passed Test case.
 	 * 
@@ -1509,7 +1460,6 @@ public class UtilitiesCommon {
 			}
 		}
 	}
-
 	/**
 	 * This method is used to set the environment details in allure report.
 	 * 
@@ -1553,7 +1503,6 @@ public class UtilitiesCommon {
 			}
 		}
 	}
-
 	/**
 	 * This method is used to take a screenshot and attach it to allure report.
 	 * 
@@ -1570,7 +1519,6 @@ public class UtilitiesCommon {
 			return new byte[0];
 		}
 	}
-
 	/**
 	 * This method is used to attach the recording of execution flow of test case to
 	 * allure report.
@@ -1596,7 +1544,6 @@ public class UtilitiesCommon {
 			return new byte[0];
 		}
 	}
-
 	/**
 	 * This method is used to start the recording of execution flow of test case.
 	 * 
@@ -1611,7 +1558,6 @@ public class UtilitiesCommon {
 			log("Error in starting recording: " + e.getMessage());
 		}
 	}
-
 	/**
 	 * This method is used to stop the recording of execution flow of test case.
 	 * 
@@ -1627,7 +1573,6 @@ public class UtilitiesCommon {
 			}
 		}
 	}
-
 	/**
 	 * This method is used to set the Testrail Test Case name corresponding to the
 	 * currently executing Test Method in Allure Report.
@@ -1648,7 +1593,6 @@ public class UtilitiesCommon {
 					+ result.getTestClass().getName());
 		}
 	}
-
 	/**
 	 * This method will validate if the Suite is Local, Sanity or Regression Suite
 	 * 
@@ -1665,7 +1609,6 @@ public class UtilitiesCommon {
 			isLocalSuite = true;
 		}
 	}
-
 	/**
 	 * This method is used to generate allure report automatically for windows,
 	 * Linux OS and Mac OS.
@@ -1701,7 +1644,6 @@ public class UtilitiesCommon {
 			}
 		}
 	}
-
 	/**
 	 * This method will accept the Alert message.
 	 * 
@@ -1712,7 +1654,6 @@ public class UtilitiesCommon {
 		waitUntilAlertIsVisible();
 		driver.switchTo().alert().accept();
 	}
-
 	/**
 	 * This method is used to wait until alert is visible.
 	 * 
@@ -1722,7 +1663,6 @@ public class UtilitiesCommon {
 	private static void waitUntilAlertIsVisible() {
 		wait.until(ExpectedConditions.alertIsPresent());
 	}
-
 	/**
 	 * This method is used to refresh the page.
 	 * 
@@ -1732,7 +1672,6 @@ public class UtilitiesCommon {
 	public static void refreshPage() {
 		driver.navigate().refresh();
 	}
-
 	/**
 	 * This method is used to upload file.
 	 * 
@@ -1749,7 +1688,6 @@ public class UtilitiesCommon {
 		element.sendKeys(filePath);
 		log("File has been uploaded. File Path: " + filePath);
 	}
-
 	/**
 	 * This method is used to create test file at
 	 * src\test\resources\TestData\TestDataUpload folder.
@@ -1773,7 +1711,6 @@ public class UtilitiesCommon {
 		log("File has been created successfully. File Path is : " + filePath);
 		return filePath;
 	}
-
 	/**
 	 * This method is used to delete test file at specified location.
 	 * 
@@ -1786,7 +1723,6 @@ public class UtilitiesCommon {
 		file.delete();
 		log("File has been deleted. File Path: " + filePath);
 	}
-
 	/**
 	 * This method is used to hit Enter Key.
 	 * 
@@ -1798,7 +1734,6 @@ public class UtilitiesCommon {
 		WebElement element = getElement(enumValue);
 		element.sendKeys(Keys.ENTER);
 	}
-
 	/**
 	 * This method is used to hit Tab Key.
 	 * 
@@ -1810,7 +1745,6 @@ public class UtilitiesCommon {
 		WebElement element = getElement(enumValue);
 		element.sendKeys(Keys.TAB);
 	}
-
 	/**
 	 * This method is used to verify if element List is sorted alphabetically.
 	 * 
@@ -1825,7 +1759,6 @@ public class UtilitiesCommon {
 		boolean isSorted = Ordering.allEqual().isOrdered(elementsText);
 		return isSorted;
 	}
-
 	/**
 	 * This method is used to verify if file has been downloaded successfully.
 	 * 
@@ -1850,7 +1783,6 @@ public class UtilitiesCommon {
 		}
 		return fileDownloaded;
 	}
-
 	/**
 	 * This method is used to delete file from TestDataDownload folder.
 	 * 
@@ -1867,7 +1799,6 @@ public class UtilitiesCommon {
 		file.delete();
 		log("File has been deleted. File Path: " + filePath);
 	}
-
 	/**
 	 * This method is used to get test file location.
 	 * 
@@ -1883,7 +1814,6 @@ public class UtilitiesCommon {
 		String filePath = folderPath + File.separator + fileName + "." + fileType;
 		return filePath;
 	}
-
 	/**
 	 * This method is used to drag and drop the upload file.
 	 * 
@@ -1917,7 +1847,6 @@ public class UtilitiesCommon {
 		}
 		input.sendKeys(filePath);
 	}
-
 	/**
 	 * This method is used to read csv file.
 	 * 
@@ -1943,7 +1872,6 @@ public class UtilitiesCommon {
 		}
 		return list;
 	}
-
 	/**
 	 * This method is used to verify CSV file data
 	 * 
@@ -1967,7 +1895,6 @@ public class UtilitiesCommon {
 		}
 		return dataVerified;
 	}
-
 	/**
 	 * This method used to enter data into alert popup.
 	 * 
@@ -1978,7 +1905,6 @@ public class UtilitiesCommon {
 	public static void enterDataIntoAlertPopup(String inputValue) {
 		driver.switchTo().alert().sendKeys(inputValue);
 	}
-
 	/**
 	 * This method will clear the specified value in the text field.
 	 * 
@@ -1990,7 +1916,6 @@ public class UtilitiesCommon {
 		WebElement element = getElement(enumValue);
 		element.clear();
 	}
-
 	/**
 	 * This method will perform select All operation on the text.
 	 * 
@@ -2000,7 +1925,6 @@ public class UtilitiesCommon {
 	public static void selectAllText() {
 		builder.keyDown(Keys.CONTROL).sendKeys(Keys.chord("A")).keyUp(Keys.CONTROL).build().perform();
 	}
-
 	/**
 	 * This method will scroll to the top of the page
 	 * 
@@ -2010,7 +1934,6 @@ public class UtilitiesCommon {
 	public static void scrollToTop() {
 		builder.sendKeys(Keys.HOME).build().perform();
 	}
-
 	/**
 	 * This method will scroll up slightly
 	 * 
@@ -2020,7 +1943,6 @@ public class UtilitiesCommon {
 	public static void scrollUpSlightly() {
 		builder.keyDown(Keys.LEFT_ALT).sendKeys(Keys.ARROW_UP).keyUp(Keys.LEFT_ALT).build().perform();
 	}
-
 	/**
 	 * This method will scroll down slightly
 	 * 
@@ -2030,7 +1952,6 @@ public class UtilitiesCommon {
 	public static void scrollDownSlightly() {
 		builder.keyDown(Keys.LEFT_ALT).sendKeys(Keys.ARROW_DOWN).keyUp(Keys.LEFT_ALT).build().perform();
 	}
-
 	/**
 	 * This method will compare and assert the actual text contains expected text
 	 * 
@@ -2043,7 +1964,6 @@ public class UtilitiesCommon {
 		String actualText = getElementAttribute(enumValue, "innerText");
 		Assertions.assertThat(actualText.trim()).contains(expectedText);
 	}
-
 	/**
 	 * This method will wait till specified Milliseconds
 	 * 
@@ -2062,7 +1982,6 @@ public class UtilitiesCommon {
 			log(e.getMessage());
 		}
 	}
-
 	/**
 	 * This method will scroll to the specified web element using javascript
 	 * executor.
@@ -2076,7 +1995,6 @@ public class UtilitiesCommon {
 		WebElement element = driver.findElement(locator);
 		executeJS("arguments[0].scrollIntoView(true);", element);
 	}
-
 	public static void waitForOverlayToDisappear() {
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
@@ -2087,7 +2005,6 @@ public class UtilitiesCommon {
 	        System.out.println("Overlay did not disappear within the timeout.");
 	    }
 	}
-
 	public static void waitForElementToDisappear(By cssSelector) {
 		// TODO Auto-generated method stub
 		WebDriverWait wait = new WebDriverWait(driver, 30); // Adjust timeout as needed
@@ -2097,7 +2014,7 @@ public class UtilitiesCommon {
 	public static String gettitle() {
 			String Pagetitle = driver.getTitle();
 			return Pagetitle;
-		}
+	}
 	
 	public static void switchtoTab(int x) {
 		 ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
@@ -2146,7 +2063,5 @@ public class UtilitiesCommon {
 	  public static String isElementClickable(Enum<?> enumValue) {
 	        
 	        return "clickable";
-	    }
-
-	
+	    }	
 }

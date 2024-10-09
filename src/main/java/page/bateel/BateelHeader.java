@@ -7,9 +7,14 @@ import org.openqa.selenium.WebElement;
 import common.UtilitiesCommon;
 import enums.bateel.BateelHeaderEnum;
 
-/*This class contains header methods to verify the category links navigation
- */
 public class BateelHeader {
+	
+	/**
+	 * This method will Verify menu category links
+	 * @param enumValue Enum Value
+	 * @author Rammohan
+	 * @lastmodifiedby Rammohan
+	 */
 	public static void Verifymenucategorylinks() throws InterruptedException {
 		UtilitiesCommon.waitForElementIsPresent(BateelHeaderEnum.BATEEL_Header_menucategorypanel_ENUM_XPATH);
 		WebElement categorypanel = UtilitiesCommon
@@ -35,8 +40,13 @@ public class BateelHeader {
 		}
 	}
 
+	/**
+	 * This method will Hover on Shop category
+	 * @param enumValue Enum Value
+	 * @author Rammohan
+	 * @lastmodifiedby Rammohan
+	 */
 	public static void HoveronShopcategory() throws InterruptedException {
-		// Thread.sleep(10000)
 		UtilitiesCommon.waitForMilliseconds(10000);
 		UtilitiesCommon.waitForElementIsPresent(BateelHeaderEnum.BATEEL_Header_shopmenulink_ENUM_XPATH);
 		UtilitiesCommon.hoverOverElement(BateelHeaderEnum.BATEEL_Header_shopmenulink_ENUM_XPATH);

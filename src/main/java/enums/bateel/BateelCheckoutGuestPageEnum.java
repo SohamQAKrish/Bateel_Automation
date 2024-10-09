@@ -16,6 +16,7 @@ public enum BateelCheckoutGuestPageEnum {
 	BATEEL_GUEST_PLACEORDER_ENUM_CSS("div[class='payment-method-content'] button[title='Place Order'] span"),
 	BATEEL_GUEST_CONTINUESHOPPING_ENUM_CSS("a[class='action primary continue'] span");
 	
+	// A private variable to store the label
 	private final String label;
 
 	// A private constructor that sets the label for each enum constant

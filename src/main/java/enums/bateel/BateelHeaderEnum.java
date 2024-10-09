@@ -4,7 +4,7 @@ public enum BateelHeaderEnum {
 	BATEEL_Header_menucategorypanel_ENUM_XPATH("//*[@id='ui-id-4']"),
 	BATEEL_Header_shopmenulink_ENUM_XPATH("//*[@id='ui-id-3']");
 
-    // A private variable to store the label
+	// A private variable to store the label
     private final String label;
 
     // A private constructor that   sets the label for each enum constant  

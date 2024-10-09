@@ -12,11 +12,15 @@ public enum BateelFooterEnum {
 	Bateel_Footer_Footertermsandconditions_ENUM_XPATH("//div[@class='footer-container']//*[text()='Terms & Conditions']"),
 	Bateel_Footer_Footerterprivacypolicy_ENUM_XPATH("//div[@class='footer-container']//*[text()='Security & Privacy Policy']");
 
+	// A private variable to store the label
     private final String label;
+    
     // A private constructor that sets the label for each enum constant
     private BateelFooterEnum(String label) {
         this.label = label;
-    }   
+    }  
+    
+	// Override the toString() method to return the label
     @Override
     public String toString() {
         return this.label;

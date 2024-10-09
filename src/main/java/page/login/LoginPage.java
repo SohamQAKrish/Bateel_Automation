@@ -1,8 +1,6 @@
 package page.login;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
 import common.UtilitiesCommon;
-import enums.login.LoginPageEnum;
 
 /**
  * @author spandit

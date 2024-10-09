@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Sanity Test Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Sanity Tests(failed)">
+<suite name="Failed suite [Local Test Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Local Tests(failed)">
     <parameter name="environment" value="QA"/>
     <parameter name="defaultTimeout" value="30"/>
     <parameter name="browser" value="chrome"/>
@@ -11,17 +11,6 @@
           <include name="testBateeladdtocartitemloginuser"/>
         </methods>
       </class> <!-- sanity.bateel.SanityBateelLogincheckout -->
-      <class name="sanity.bateel.SanityBateelMainNavigationmenu">
-        <methods>
-          <include name="mainmenu"/>
-        </methods>
-      </class> <!-- sanity.bateel.SanityBateelMainNavigationmenu -->
-      <class name="sanity.bateel.SanityBateelFootersection">
-        <methods>
-          <include name="FootersocialmediaYoutube"/>
-          <include name="FooterTermsandconditionslink"/>
-        </methods>
-      </class> <!-- sanity.bateel.SanityBateelFootersection -->
     </classes>
-  </test> <!-- Sanity Tests(failed) -->
-</suite> <!-- Failed suite [Sanity Test Suite] -->
+  </test> <!-- Local Tests(failed) -->
+</suite> <!-- Failed suite [Local Test Suite] -->

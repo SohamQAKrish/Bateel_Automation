@@ -15,10 +15,11 @@ public class SanityBateelProduct {
 
 	@Test(testName = "Bateel click product")
 	@TmsLink("49701")
-	@Description("This Test is used to click product")
+	@Description("This test verifies the functionality of clicking on a product")
 	public void testBateelclickproduct() throws InterruptedException {
 		UtilitiesCommon.launchApplication();
 		UtilitiesCommon.log("Application is launched successfully in the browser");
+		UtilitiesCommon.setupWebdriverWait(30);	
 		BateelPage.clickGoButton();
 		UtilitiesCommon.log("User has successfully trigger the Go button");
 		BateelFooter.Acceptcookies();

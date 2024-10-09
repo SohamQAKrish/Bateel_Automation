@@ -8,12 +8,6 @@ import page.bateel.BateelPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.TmsLink;
 
-/**
- * @author kdave
- * @lastmodifiedby kdave This class will contain all Sanity tests related to
- *                 shop category Navigations to different modules across the Bateel
- *                 application.
- */
 @Listeners({ listeners.ScriptExecutionListener.class })
 public class SanityBateelLoginAndNavigationTest {
 
