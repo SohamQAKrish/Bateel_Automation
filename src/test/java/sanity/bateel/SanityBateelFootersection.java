@@ -8,7 +8,7 @@ import page.bateel.BateelFooter;
 import page.bateel.BateelPage;
 
 @Listeners({ listeners.ScriptExecutionListener.class })
-public class SanityBateelFootersection {
+public class SanityBateelFootersection {	
 
 	@Test(testName = "Footer section CMS links verification")
 	@Description("This Test is used to Verify the Navigation of the CMS pages in Footersection")

@@ -127,3 +127,5 @@ SanityBateelFootersection:
    Pagetitle: "footer"
 - FooterPrivacypolicylink:
    Pagetitle: "footer"
+SanityBateelLogin:
+ - customerlogintest:

@@ -1,5 +1,6 @@
 package page.bateel;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import common.UtilitiesCommon;
@@ -30,21 +31,21 @@ public class BateelPage {
 	 * @lastmodifiedby Kdave
 	 */
 	public static void clickProfileIcon() {
-        UtilitiesCommon.click(BateelHomePageEnum.BATEEL_HOME_PAGE_LOGIN_PROFILE_CSS);
-    }
-	
-	/**
-	 * Clicks on the "My Account" to navigate to the account page.
-	 * 
-	 * @author Kdave
-	 * @lastmodifiedby Kdave
-	 */
+	    UtilitiesCommon.waitForElementIsPresent(BateelHomePageEnum.BATEEL_HOME_PAGE_LOGIN_PROFILE_XPATH);
+	    waitForLoadingToComplete(); // Ensure loading is complete
+	    WebElement profileIcon = UtilitiesCommon.getElement(BateelHomePageEnum.BATEEL_HOME_PAGE_LOGIN_PROFILE_XPATH);
+	    UtilitiesCommon.waitForElementIsClickable(profileIcon);
+	    profileIcon.click();
+	}
+
 	public static void clickMyAccount() {
 	    WebElement myAccountLink = UtilitiesCommon.getElement(BateelHomePageEnum.BATEEL_HOME_PAGE_LOGIN_MYACCOUNT_XPATH);
 	    UtilitiesCommon.waitForElementIsClickable(myAccountLink);
 	    myAccountLink.click();
 	}
-
+	public static void waitForLoadingToComplete() {
+		UtilitiesCommon.waitForElementIsNotVisible(By.cssSelector(".loading-mask"));
+	}
 	/**
 	 * This method is used to verify Bateel shop Category.
 	 * 

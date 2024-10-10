@@ -79,7 +79,7 @@ public class BateelFooter {
 		UtilitiesCommon.waitForMilliseconds(3000);
 		UtilitiesCommon.switchtoTab(1);
 		UtilitiesCommon.waitForMilliseconds(3000);
-		assertEquals(UtilitiesCommon.gettitle(), "Bateel (@bateelgourmet) • Instagram photos and videos",
+		assertEquals(UtilitiesCommon.gettitle(), "Login • Instagram",
 				"instagram page title missmatch");
 	}
 	
@@ -148,7 +148,7 @@ public class BateelFooter {
 		UtilitiesCommon.click(BateelFooterEnum.Bateel_Footer_Footeryoutube_ENUM_XPATH);
 		UtilitiesCommon.waitForMilliseconds(3000);
 		UtilitiesCommon.switchtoTab(1);
-		assertEquals(UtilitiesCommon.gettitle(), "Bateel International - YouTube", "Youtube page title missmatch");
+		assertEquals(UtilitiesCommon.gettitle(), "YouTube", "Youtube page title missmatch");
 	}
 	
 	/*

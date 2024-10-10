@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="sanity.bateel.SanityBateelProductDetails">
+      <class name="sanity.bateel.SanityBateelLogin">
         <methods>
-          <include name="testBateelproductfilldetails"/>
+          <include name="customerlogintest"/>
         </methods>
-      </class> <!-- sanity.bateel.SanityBateelProductDetails -->
+      </class> <!-- sanity.bateel.SanityBateelLogin -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

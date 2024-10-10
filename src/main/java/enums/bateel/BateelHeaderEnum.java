@@ -1,8 +1,8 @@
 package enums.bateel;
 
 public enum BateelHeaderEnum {
-	BATEEL_Header_menucategorypanel_ENUM_XPATH("//*[@id='ui-id-4']"),
-	BATEEL_Header_shopmenulink_ENUM_XPATH("//*[@id='ui-id-3']");
+	BATEEL_Header_menucategorypanel_ENUM_XPATH("//ul[@id='ui-id-1']"),
+	BATEEL_Header_shopmenulink_ENUM_XPATH("//a[@id='ui-id-3']");
 
 	// A private variable to store the label
     private final String label;
