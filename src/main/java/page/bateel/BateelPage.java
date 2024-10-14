@@ -70,7 +70,7 @@ public class BateelPage {
 	 * @lastmodifiedby Kdave
 	 */
 	public static void clickGoButton() {
-		UtilitiesCommon.setupWebdriverWait(30);
+		UtilitiesCommon.setupWebdriverWait(60);
 		UtilitiesCommon.click(BateelHomePageEnum.BATEEL_HOME_PAGE_OK_BUTTON_XPATH);
 	}
 }
