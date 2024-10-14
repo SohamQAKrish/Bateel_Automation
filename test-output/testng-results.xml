@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-10-10T12:59:09 IST" name="Local Test Suite" finished-at="2024-10-10T12:59:59 IST" duration-ms="50210">
+  <suite started-at="2024-10-14T10:58:02 IST" name="Local Test Suite" finished-at="2024-10-14T11:01:39 IST" duration-ms="216609">
     <groups>
     </groups>
-    <test started-at="2024-10-10T12:59:09 IST" name="Local Tests" finished-at="2024-10-10T12:59:59 IST" duration-ms="50210">
-      <class name="sanity.bateel.SanityBateelLogin">
-        <test-method signature="customerlogintest()[pri:0, instance:sanity.bateel.SanityBateelLogin@7dd00705]" started-at="2024-10-10T12:59:13 IST" name="customerlogintest" finished-at="2024-10-10T12:59:59 IST" duration-ms="46269" status="PASS">
+    <test started-at="2024-10-14T10:58:02 IST" name="Local Tests" finished-at="2024-10-14T11:01:39 IST" duration-ms="216609">
+      <class name="sanity.bateel.SanityBateelLogincheckout">
+        <test-method signature="testBateeladdtocartitemloginuser()[pri:0, instance:sanity.bateel.SanityBateelLogincheckout@f14e5bf]" started-at="2024-10-14T10:58:07 IST" name="testBateeladdtocartitemloginuser" finished-at="2024-10-14T11:01:38 IST" duration-ms="210491" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- customerlogintest -->
-      </class> <!-- sanity.bateel.SanityBateelLogin -->
+        </test-method> <!-- testBateeladdtocartitemloginuser -->
+      </class> <!-- sanity.bateel.SanityBateelLogincheckout -->
     </test> <!-- Local Tests -->
   </suite> <!-- Local Test Suite -->
 </testng-results>

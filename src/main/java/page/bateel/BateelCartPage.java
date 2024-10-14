@@ -42,6 +42,5 @@ public class BateelCartPage {
 		UtilitiesCommon.click(BateelCartPageEnum.BATEEL_MAIN_CART_UPDATE_ENUM_XPATH);
 		UtilitiesCommon.waitForMilliseconds(3000);
 		UtilitiesCommon.click(BateelCartPageEnum.BATEEL_CART_CHECKOUT_ENUM_CSS);
-
 	}
 }
