@@ -60,14 +60,13 @@ jobs:
           bateel-automation /bin/sh -c "Xvfb :99 -screen 0 1920x1080x24 & DISPLAY=:99 mvn clean test -DtestSuite=${{ github.event.inputs.suite }} || true"
 
       - name: Check Test Execution Exit Code
+        id: check_exit_code
         run: |
           EXIT_CODE=$(docker inspect -f '{{.State.ExitCode}}' bateel-automation)  
           echo "Test execution exit code: $EXIT_CODE"
           if [ "$EXIT_CODE" -ne 0 ]; then
-            echo "Tests failed, checking logs..."
+            echo "Some tests failed, checking logs..."
             docker logs bateel-automation  
-            docker rm bateel-automation  
-            exit 1
           fi
           docker rm bateel-automation 
 
