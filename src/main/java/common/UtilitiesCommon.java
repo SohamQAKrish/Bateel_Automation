@@ -380,19 +380,37 @@ public class UtilitiesCommon {
 		}
 
 		if (!remoteWebDriver) {
-			UtilitiesCommon.log("Initializing Web Driver for Local Execution .....");
-			WebDriverManager.chromedriver().setup();
-			Map<String, Object> preferences = new HashMap<String, Object>();
-			preferences.put("download.default_directory",
-					System.getProperty(USER_DIR_CONSTANT) + File.separator + "src" + File.separator + "test"
-							+ File.separator + "resources" + File.separator + "TestData" + File.separator
-							+ "TestDataDownload");
-			chromeOptions.setExperimentalOption("prefs", preferences);
-		  //run test with headless mode for git actions
-			//chromeOptions.addArguments("--headless");
+		    UtilitiesCommon.log("Initializing Web Driver for Local Execution .....");
 
-			driver = new ChromeDriver(chromeOptions);
+		    WebDriverManager.chromedriver().setup();
+
+		 // Initialize ChromeOptions
+		 ChromeOptions chromeOptions = new ChromeOptions();
+
+		 // Set download preferences
+		 Map<String, Object> preferences = new HashMap<>();
+		 preferences.put("download.default_directory",
+		         System.getProperty(USER_DIR_CONSTANT) + File.separator + "src" + File.separator + "test"
+		                 + File.separator + "resources" + File.separator + "TestData" + File.separator
+		                 + "TestDataDownload");
+		 chromeOptions.setExperimentalOption("prefs", preferences);
+
+		 // Add arguments for headless mode
+		 chromeOptions.addArguments("--headless");
+		 chromeOptions.addArguments("--no-sandbox");
+		 chromeOptions.addArguments("--disable-dev-shm-usage");
+		 chromeOptions.addArguments("--disable-gpu");
+		 chromeOptions.addArguments("--window-size=1920,1080");
+
+		 // Initialize the WebDriver
+		 try {
+		     driver = new ChromeDriver(chromeOptions);
+		 } catch (Exception e) {
+		     UtilitiesCommon.log("Error initializing ChromeDriver: " + e.getMessage());
+		     e.printStackTrace(); // Print stack trace for debugging
+		 }
 		}
+
 
 		if (remoteWebDriver) {
 			UtilitiesCommon.log("Initializing Test case in docker container .....");
