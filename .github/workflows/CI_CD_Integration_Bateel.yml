@@ -3,7 +3,7 @@ name: CI/CD Integration Bateel
 on:
   push:
     branches:
-      - main  # Triggers on push to main branch
+      - main 
   workflow_dispatch:
     inputs:
       suite:
