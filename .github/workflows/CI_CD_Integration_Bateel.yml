@@ -97,7 +97,7 @@ jobs:
           SERVER: bateel-sanity-demo.magentoprojects.net
           PORT: 2255
         run: |
-          sshpass -p "$PASSWORD" scp -P "$PORT" -o StrictHostKeyChecking=no -r ./allure-report/* "$USERNAME@$SERVER:/var/www/html/bateel-automation-demo/sanity/webroot" || { echo "Failed to upload files"; exit 1; }
+          sshpass -p "$PASSWORD" scp -P "$PORT" -o StrictHostKeyChecking=no -r ./allure-report/* "$USERNAME@$SERVER:/var/www/html/bateel-automation-demo/sanity/" || { echo "Failed to upload files"; exit 1; }
 
       - name: Display Report Link
         run: |
