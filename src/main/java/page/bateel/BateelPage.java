@@ -56,7 +56,7 @@ public class BateelPage {
 	public static void verifyBateelShopCategory() throws InterruptedException {
 	    String currentUrlBeforeClick = UtilitiesCommon.getCurrentUrl();
 	    UtilitiesCommon.waitForElementIsPresent(BateelHomePageEnum.BATEEL_HOME_PAGE_SHOP_CATEGORY_ID);
-		UtilitiesCommon.waitForMilliseconds(5000);
+		UtilitiesCommon.waitForMilliseconds(3000);
 		UtilitiesCommon.click(BateelHomePageEnum.BATEEL_HOME_PAGE_SHOP_CATEGORY_ID);
 	    String currentUrlAfterClick = UtilitiesCommon.getCurrentUrl();
 	    Assert.assertNotEquals(currentUrlBeforeClick, currentUrlAfterClick, "Clicking on the shop category did not redirect to a different page");
@@ -70,7 +70,7 @@ public class BateelPage {
 	 * @lastmodifiedby Kdave
 	 */
 	public static void clickGoButton() {
-		UtilitiesCommon.setupWebdriverWait(30);
+		//UtilitiesCommon.setupWebdriverWait(30);
 		UtilitiesCommon.click(BateelHomePageEnum.BATEEL_HOME_PAGE_OK_BUTTON_XPATH);
 	}
 }
