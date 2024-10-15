@@ -88,4 +88,4 @@ jobs:
 
       - name: Display Report Link
         run: |
-          echo "Allure Report can be accessed at: bateel-sanity-demo.magentoprojects.net"
+          echo "Allure Report can be accessed at: https://bateel-sanity-demo.magentoprojects.net"
