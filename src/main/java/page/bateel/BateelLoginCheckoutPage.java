@@ -8,6 +8,12 @@ import enums.bateel.BateelLoginCheckoutEnum;
 
 public class BateelLoginCheckoutPage {
 
+	/**
+	 * Customer will login on checkout page
+	 * @param enumValue Enum Value
+	 * @author Kdave
+	 * @lastmodifiedby Kdave
+	 */
 	public static void loginCheckout(String usernameKey, String passwordKey) {
 		String email = UtilitiesCommon.getEnvironmentData(usernameKey);
 		String password = UtilitiesCommon.getEnvironmentData(passwordKey);
@@ -15,11 +21,18 @@ public class BateelLoginCheckoutPage {
 		UtilitiesCommon.enterValue(BateelLoginCheckoutEnum.BATEEL_EMAIL_ID, email);
 		UtilitiesCommon.enterValue(BateelLoginCheckoutEnum.BATEEL_PASSWORD_ID,
 		UtilitiesCommon.getDecryptedPassword(password));
+		UtilitiesCommon.waitForMilliseconds(5000);
 		UtilitiesCommon.click(BateelLoginCheckoutEnum.BATEEL_SIGNIN_BUTTON_CSS);
 	}
 	
+	/**
+	 * Customer will fill the Shipping Address on checkout page
+	 * @param enumValue Enum Value
+	 * @author Kdave
+	 * @lastmodifiedby Kdave
+	 */
 	public static void fillShippingAddressLoginCheckout() throws InterruptedException {
-		UtilitiesCommon.waitForMilliseconds(5000);
+		UtilitiesCommon.waitForMilliseconds(3000);
 		String firstName = UtilitiesCommon.getTestData("BateelGuestFname");
 		String lastName = UtilitiesCommon.getTestData("BateelGuestLname");
 		String streetAddress = UtilitiesCommon.getTestData("BateelGuestStreetname");
@@ -41,21 +54,45 @@ public class BateelLoginCheckoutPage {
 		BateelLoginCheckoutPage.proccedTOBilling();
 	}
 
+	/**
+	 * Verify Country Auto Filled based on the provided enum value.
+	 * @param enumValue Enum Value
+	 * @author Kdave
+	 * @lastmodifiedby Kdave
+	 */
 	public static boolean verifyCountryAutoFilled(String expectedCountry) {
 		WebElement countryField = UtilitiesCommon.getElement(BateelLoginCheckoutEnum.BATEEL_LOGIN_COUNTRY_NAME);
 		String actualCountry = countryField.getAttribute("value");
 		return actualCountry.equalsIgnoreCase(expectedCountry);
 	}
 
+	/**
+	 * Selecting state based on the provided enum value.
+	 * @param enumValue Enum Value
+	 * @author Kdave
+	 * @lastmodifiedby Kdave
+	 */
 	public static void selectState(String state) {
 		UtilitiesCommon.selectByVisibleText(BateelLoginCheckoutEnum.BATEEL_LOGIN_STATE_NAME, state);
 	}
 
+	/**
+	 * Clicks Agree Checkbox button based on the provided enum value.
+	 * @param enumValue Enum Value
+	 * @author Kdave
+	 * @lastmodifiedby Kdave
+	 */
 	public static void clickAgreeCheckbox() throws InterruptedException {
 		UtilitiesCommon.click(BateelCheckoutGuestPageEnum.BATEEL_GUEST_AGREE_ENUM_NAME);
 		UtilitiesCommon.javaScriptWaitAndScroll(BateelCheckoutGuestPageEnum.BATEEL_GUEST_AGREE_ENUM_NAME);
 	}
 
+	/**
+	 * Clicks proccedTOBilling button based on the provided enum value.
+	 * @param enumValue Enum Value
+	 * @author Kdave
+	 * @lastmodifiedby Kdave
+	 */
 	public static void proccedTOBilling() throws InterruptedException {
 		try {
 			UtilitiesCommon.waitForElementIsNotVisible(By.cssSelector(".loading-mask"));
@@ -68,11 +105,23 @@ public class BateelLoginCheckoutPage {
 		}
 	}
 
+	/**
+	 * Clicks PlaceOrder button based on the provided enum value.
+	 * @param enumValue Enum Value
+	 * @author Kdave
+	 * @lastmodifiedby Kdave
+	 */
 	public static void clickPlaceOrderButtonWithLogin() throws InterruptedException {
 		UtilitiesCommon.click(BateelLoginCheckoutEnum.BATEEL_LOGIN_PLACEORDER_XPATH);
 		UtilitiesCommon.waitForMilliseconds(7000);
 	}
 
+	/**
+	 * Clicks Continue Shop button based on the provided enum value.
+	 * @param enumValue Enum Value
+	 * @author Kdave
+	 * @lastmodifiedby Kdave
+	 */
 	public static void clickOnContinueShopButton() {
 		UtilitiesCommon.click(BateelLoginCheckoutEnum.BATEEL_LOGIN_CONTINUESHOPPING_CSS);
 	}

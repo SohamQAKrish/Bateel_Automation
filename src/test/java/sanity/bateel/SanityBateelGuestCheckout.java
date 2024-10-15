@@ -18,7 +18,7 @@ public class SanityBateelGuestCheckout {
 
 	@Test(testName = "Bateel guest checkout")
 	@TmsLink("49700")
-	@Description("This Test is used to do guest checkout")
+	@Description("This test performs a guest checkout process, validating the functionality and user experience for users not logged into an account.")
 	public void testguestcheckout() throws InterruptedException {
 		UtilitiesCommon.launchApplication();
 		UtilitiesCommon.log("Application is launched successfully in the browser");
@@ -34,6 +34,8 @@ public class SanityBateelGuestCheckout {
 		UtilitiesCommon.log("User has successfully verified product detail");
 		BateelCartPage.addToCart();
 		UtilitiesCommon.log("Product successfully added to the cart");
+		BateelCartPage.viewANDEditCart();
+		UtilitiesCommon.log("Updated main cart");
 		UtilitiesCommon.setupWebdriverWait(30);
 		BateelGuestCheckoutPage.clickGuestCheckoutButton();
 		UtilitiesCommon.log("Successfully clicked guest checkout button for the guest customer flow");

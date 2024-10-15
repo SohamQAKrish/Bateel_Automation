@@ -105,11 +105,9 @@ SanityBateelLoginAndNavigationTest:
 SanityBateelMainNavigationmenu:
   - testBateelmainmenu:
       Pagetitle: "Header"    
-
 SanityBateelMainNavigationmenu:
 - mainmenu:
    Pagetitle: "Header"
-
 SanityBateelFootersection:
 - Footercmslinks:
    Pagetitle: "Footer"
@@ -129,3 +127,5 @@ SanityBateelFootersection:
    Pagetitle: "footer"
 - FooterPrivacypolicylink:
    Pagetitle: "footer"
+SanityBateelLogin:
+ - customerlogintest:

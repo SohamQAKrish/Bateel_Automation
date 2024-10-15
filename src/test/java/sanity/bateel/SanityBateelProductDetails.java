@@ -16,7 +16,7 @@ public class SanityBateelProductDetails {
 
 	@Test(testName = "Bateel product details")
 	@TmsLink("49703")
-	@Description("This Test is used to fill product details")
+	@Description("This test validates the process of filling in product details")
 	public void testBateelproductfilldetails() throws InterruptedException {
 		UtilitiesCommon.launchApplication();
 		UtilitiesCommon.log("Application is launched successfully in the browser");

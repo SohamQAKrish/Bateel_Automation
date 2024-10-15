@@ -8,12 +8,6 @@ import page.bateel.BateelPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.TmsLink;
 
-/**
- * @author kdave
- * @lastmodifiedby kdave This class will contain all Sanity tests related to
- *                 shop category Navigations to different modules across the Bateel
- *                 application.
- */
 @Listeners({ listeners.ScriptExecutionListener.class })
 public class SanityBateelLoginAndNavigationTest {
 
@@ -23,7 +17,7 @@ public class SanityBateelLoginAndNavigationTest {
 	public void testBateelShopCategoryNavigation() throws InterruptedException {
 		UtilitiesCommon.launchApplication();
 		UtilitiesCommon.log("Application is launched successfully in the browser");
-	    UtilitiesCommon.setupWebdriverWait(30);
+	    UtilitiesCommon.setupWebdriverWait(50);
 		BateelPage.clickGoButton();
 		UtilitiesCommon.log("User has successfully trigger the Go button");
 		BateelFooter.Acceptcookies();

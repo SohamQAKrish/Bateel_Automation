@@ -6,6 +6,11 @@ import enums.bateel.BateelPDPPageEnum;
 
 public class BateelPDPPage {
 
+	/**
+	 * @author Kdave
+	 * @lastmodifiedby Kdave 
+	 * Manages the filling of product details on the Product Details Page (PDP).
+	 */
 	public static void fillProductDetails() {
 //		UtilitiesCommon.waitForElementIsPresent(BateelPDPPageEnum.BATEEL_PDP_DRP_ENUM_CSS);
 //		UtilitiesCommon.selectByVisibleText(BateelPDPPageEnum.BATEEL_PDP_DRP_ENUM_CSS, "Small");

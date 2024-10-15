@@ -6,6 +6,12 @@ import enums.bateel.BateelCartPageEnum;
 
 public class BateelCartPage {
 
+	/*
+	 * This method will add product into cart and verify
+	 * @param enumValue Enum Value
+	 * @author KDave
+	 * @lastmodifiedby KDave
+	 */
 	public static void addToCart() {
 		UtilitiesCommon.waitForMilliseconds(3000);
 		UtilitiesCommon.waitForElementIsPresent(BateelCartPageEnum.BATEEL_CART_ICON_ENUM_CSS);
@@ -22,6 +28,12 @@ public class BateelCartPage {
 	    UtilitiesCommon.click(BateelCartPageEnum.BATEEL_MAIN_CART_VIEW_ENUM_XPATH);
 	}
 
+	/*
+	 * This method will click on viewANDEditCart button and perform actions
+	 * @param enumValue Enum Value
+	 * @author KDave
+	 * @lastmodifiedby KDave
+	 */
 	public static void viewANDEditCart() {
 		UtilitiesCommon.waitForElementIsPresent(BateelCartPageEnum.BATEEL_MAIN_CART_QTY_INCREASE_ENUM_XPATH);
 		UtilitiesCommon.click(BateelCartPageEnum.BATEEL_MAIN_CART_QTY_INCREASE_ENUM_XPATH);
@@ -30,6 +42,5 @@ public class BateelCartPage {
 		UtilitiesCommon.click(BateelCartPageEnum.BATEEL_MAIN_CART_UPDATE_ENUM_XPATH);
 		UtilitiesCommon.waitForMilliseconds(3000);
 		UtilitiesCommon.click(BateelCartPageEnum.BATEEL_CART_CHECKOUT_ENUM_CSS);
-
 	}
 }
