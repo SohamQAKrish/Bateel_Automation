@@ -38,14 +38,14 @@ jobs:
 
       - name: Clean Allure Results in Container
         run: |
-          docker run --rm bateel-automation /bin/sh -c "rm -rf /usr/share/BateelAutomation/allure-results/*"
+          docker run --rm bateel-automation /bin/sh -c "rm -rf /usr/share/Bateel_Automation/allure-results/*"
 
       - name: Run Tests and Generate Allure Report
         run: |
-          docker run --name hamleys-automation \
+          docker run --name bateel-automation \
           -e DISPLAY=:99 \
           -v /tmp/.X11-unix:/tmp/.X11-unix \
-          -v ${{ github.workspace }}/allure-results:/usr/share/BateelAutomation/allure-results \
+          -v ${{ github.workspace }}/allure-results:/usr/share/Bateel_Automation/allure-results \
           bateel-automation /bin/sh -c "Xvfb :99 -screen 0 1920x1080x24 & DISPLAY=:99 mvn clean test -DsuiteXmlFile=LocalTestSuite.xml || true"
 
       - name: Check Test Execution Exit Code
@@ -54,11 +54,11 @@ jobs:
           echo "Test execution exit code: $EXIT_CODE"
           if [ "$EXIT_CODE" -ne 0 ]; then
             echo "Tests failed, checking logs..."
-            docker logs hamleys-automation
-            docker rm hamleys-automation
+            docker logs bateel-automation
+            docker rm bateel-automation
             exit 1
           fi
-          docker rm hamleys-automation
+          docker rm bateel-automation
 
       - name: Inspect Allure Results
         run: ls -la allure-results
