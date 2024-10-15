@@ -50,7 +50,7 @@ jobs:
 
       - name: Check Test Execution Exit Code
         run: |
-          EXIT_CODE=$(docker inspect -f '{{.State.ExitCode}}' hamleys-automation)
+          EXIT_CODE=$(docker inspect -f '{{.State.ExitCode}}' bateel-automation)
           echo "Test execution exit code: $EXIT_CODE"
           if [ "$EXIT_CODE" -ne 0 ]; then
             echo "Tests failed, checking logs..."
