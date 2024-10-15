@@ -17,7 +17,7 @@ public class SanityBateelLoginAndNavigationTest {
 	public void testBateelShopCategoryNavigation() throws InterruptedException {
 		UtilitiesCommon.launchApplication();
 		UtilitiesCommon.log("Application is launched successfully in the browser");
-	    UtilitiesCommon.setupWebdriverWait(60);
+	  //  UtilitiesCommon.setupWebdriverWait(60);
 		BateelPage.clickGoButton();
 		UtilitiesCommon.log("User has successfully trigger the Go button");
 		BateelFooter.Acceptcookies();
