@@ -1,19 +1,10 @@
-name: CI/CD Integration Bateel
+name: CI/CD Integration Bateel - Local Suite
 
 on:
   push:
     branches:
-      - main 
-  workflow_dispatch:
-    inputs:
-      suite:
-        description: 'Select test suite'
-        required: true
-        default: 'local'
-        type: choice
-        options:
-          - LocalSuite
-          - SanitySuite 
+      - main  # Triggers on push to main branch
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
   build:
@@ -32,12 +23,10 @@ jobs:
           node-version: '16'
 
       - name: Install Allure Commandline
-        run: |
-          npm install -g allure-commandline --save-dev
+        run: npm install -g allure-commandline --save-dev
 
       - name: Build Docker Image
-        run: |
-          docker build -t bateel-automation .
+        run: docker build -t bateel-automation .
 
       - name: Ensure Allure Environment File Exists
         run: |
@@ -53,31 +42,29 @@ jobs:
 
       - name: Run Tests and Generate Allure Report
         run: |
-          docker run --name bateel-automation \
+          docker run --name hamleys-automation \
           -e DISPLAY=:99 \
           -v /tmp/.X11-unix:/tmp/.X11-unix \
-          -v ${{ github.workspace }}/Bateel_Automation/allure-results:/usr/share/BateelAutomation/allure-results \
-          bateel-automation /bin/sh -c "Xvfb :99 -screen 0 1920x1080x24 & DISPLAY=:99 mvn clean test -DtestSuite=${{ github.event.inputs.suite }} || true"
+          -v ${{ github.workspace }}/allure-results:/usr/share/BateelAutomation/allure-results \
+          bateel-automation /bin/sh -c "Xvfb :99 -screen 0 1920x1080x24 & DISPLAY=:99 mvn clean test -DtestSuite=LocalSuite || true"
 
       - name: Check Test Execution Exit Code
-        id: check_exit_code
         run: |
-          EXIT_CODE=$(docker inspect -f '{{.State.ExitCode}}' bateel-automation)  
+          EXIT_CODE=$(docker inspect -f '{{.State.ExitCode}}' hamleys-automation)
           echo "Test execution exit code: $EXIT_CODE"
           if [ "$EXIT_CODE" -ne 0 ]; then
-            echo "Some tests failed, checking logs..."
-            docker logs bateel-automation  
+            echo "Tests failed, checking logs..."
+            docker logs hamleys-automation
+            docker rm hamleys-automation
+            exit 1
           fi
-          docker rm bateel-automation 
+          docker rm hamleys-automation
 
       - name: Inspect Allure Results
-        run: |
-          echo "Contents of allure-results:"
-          ls -la allure-results
+        run: ls -la allure-results
 
       - name: Generate Allure HTML Report
-        run: |
-          allure generate allure-results --output ./allure-report --clean
+        run: allure generate allure-results --output ./allure-report --clean
 
       - name: Upload Allure Report
         uses: actions/upload-artifact@v3
@@ -94,11 +81,11 @@ jobs:
         env:
           USERNAME: bateel-automation-demo
           PASSWORD: ${{ secrets.SSH_PASSWORD }}
-          SERVER: bateel-sanity-demo.magentoprojects.net
+          SERVER: bateel-automation-demo.magentoprojects.net
           PORT: 2255
         run: |
-          sshpass -p "$PASSWORD" scp -P "$PORT" -o StrictHostKeyChecking=no -r ./allure-report/* "$USERNAME@$SERVER:/var/www/html/bateel-automation-demo/sanity/" || { echo "Failed to upload files"; exit 1; }
+          sshpass -p "$PASSWORD" scp -P "$PORT" -o StrictHostKeyChecking=no -r ./allure-report/* "$USERNAME@$SERVER:/var/www/html/bateel-automation-demo/webroot" || { echo "Failed to upload files"; exit 1; }
 
       - name: Display Report Link
         run: |
-          echo "Allure Report can be accessed at: https://bateel-sanity-demo.magentoprojects.net/"
+          echo "Allure Report can be accessed at: https://bateel-automation-demo.magentoprojects.net/"
