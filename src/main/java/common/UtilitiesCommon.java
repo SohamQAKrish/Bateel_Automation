@@ -396,11 +396,11 @@ public class UtilitiesCommon {
 		 chromeOptions.setExperimentalOption("prefs", preferences);
 
 		 // Add arguments for headless mode
-		 chromeOptions.addArguments("--headless");
+		 /*chromeOptions.addArguments("--headless");
 		 chromeOptions.addArguments("--no-sandbox");
 		 chromeOptions.addArguments("--disable-dev-shm-usage");
 		 chromeOptions.addArguments("--disable-gpu");
-		 chromeOptions.addArguments("--window-size=1920,1080");
+		 chromeOptions.addArguments("--window-size=1920,1080");*/
 
 		 // Initialize the WebDriver
 		 try {
