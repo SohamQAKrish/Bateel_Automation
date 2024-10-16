@@ -24,5 +24,6 @@ public class SanityBateelLoginAndNavigationTest {
 		UtilitiesCommon.log("Cookies accept button clicked successfully at the footer");
 		BateelPage.verifyBateelShopCategory();
 		UtilitiesCommon.log("Successfully clicked on 'Shop' category from the menu and opened the category page");
+		UtilitiesCommon.log("Verify workflow allure report logs");
 	}
 }
